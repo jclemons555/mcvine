@@ -1,0 +1,2822 @@
+<?xml version="1.0"?>
+<!--
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!
+!                                   Jiao Lin
+!                      California Institute of Technology
+!                        (C) 2007  All Rights Reserved
+!
+! {LicenseText}
+!
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+<!DOCTYPE instrument>
+
+
+<Instrument guid="-1" name="Lrmecs" id="-1">
+
+    <Moderator guid="1" type="non-existant" name="moderator" id="0">
+        <Shape>
+<!--
+Block
+
+  Its thickness is the length of the dimension that is parallel
+  to neutron beam.
+  
+  Its height is its vertical length (parallel to gravity).
+
+  Its width is the 3rd dimension.
+  
+-->
+<block width="100.0" height="100.0" thickness="100.0"/>
+        </Shape>
+    </Moderator>
+
+
+    <Monitor mode="monitor" guid="2" name="monitor0" sampledFraction="0.01" id="1">
+        <Shape>
+<!--
+Block
+
+  Its thickness is the length of the dimension that is parallel
+  to neutron beam.
+  
+  Its height is its vertical length (parallel to gravity).
+
+  Its width is the 3rd dimension.
+  
+-->
+<block width="76.2" height="76.2" thickness="38.1"/>
+        </Shape>
+    </Monitor>
+
+
+    <Monitor mode="monitor" guid="3" name="monitor1" sampledFraction="0.01" id="2">
+        <Shape>
+<!--
+Block
+
+  Its thickness is the length of the dimension that is parallel
+  to neutron beam.
+  
+  Its height is its vertical length (parallel to gravity).
+
+  Its width is the 3rd dimension.
+  
+-->
+<block width="76.2" height="76.2" thickness="38.1"/>
+        </Shape>
+    </Monitor>
+
+
+    <Sample guid="4" name="sample" id="3">
+    </Sample>
+
+
+    <DetectorSystem guid="5" name="detSystem" id="4">
+
+        <Detector name="detector6" pressure="1.01325e+06*m**-1*kg*s**-2" holdOff="1e-06*s" deadTime="1e-05*s" guid="6" type="He3 LPSD" id="6">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+
+            <Pixel solidAngle="1.0" guid="7" name="pixel0" id="0">
+                <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+                </Shape>
+            </Pixel>
+
+            <LocalGeometer registry-coordinate-system="InstrumentScientist">
+                <Register name="pixel0" position="(0, 0, 0.0)" orientation="(0, 0, 0)"/>
+            </LocalGeometer>
+        </Detector>
+
+
+        <Copy guid="8" name="detector7" reference="6" id="7">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="9" name="detector8" reference="6" id="8">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="10" name="detector9" reference="6" id="9">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="11" name="detector10" reference="6" id="10">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="12" name="detector11" reference="6" id="11">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="13" name="detector12" reference="6" id="12">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Detector name="detector13" pressure="1.01325e+06*m**-1*kg*s**-2" holdOff="1e-06*s" deadTime="1e-05*s" guid="14" type="He3 LPSD" id="13">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="114.3" radius="11.885"/>
+            </Shape>
+
+            <Pixel solidAngle="1.0" guid="15" name="pixel0" id="0">
+                <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="114.3" radius="11.885"/>
+                </Shape>
+            </Pixel>
+
+            <LocalGeometer registry-coordinate-system="InstrumentScientist">
+                <Register name="pixel0" position="(0, 0, 0.0)" orientation="(0, 0, 0)"/>
+            </LocalGeometer>
+        </Detector>
+
+
+        <Copy guid="16" name="detector14" reference="14" id="14">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="114.3" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="17" name="detector19" reference="14" id="19">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="114.3" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="18" name="detector20" reference="14" id="20">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="114.3" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="19" name="detector21" reference="6" id="21">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="20" name="detector22" reference="6" id="22">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="21" name="detector23" reference="6" id="23">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="22" name="detector24" reference="6" id="24">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="23" name="detector25" reference="6" id="25">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="24" name="detector26" reference="6" id="26">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="25" name="detector27" reference="6" id="27">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="26" name="detector28" reference="6" id="28">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="27" name="detector29" reference="6" id="29">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="28" name="detector30" reference="6" id="30">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="29" name="detector31" reference="6" id="31">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="30" name="detector32" reference="6" id="32">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="31" name="detector33" reference="6" id="33">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="32" name="detector34" reference="6" id="34">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="33" name="detector35" reference="6" id="35">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="34" name="detector36" reference="6" id="36">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="35" name="detector37" reference="6" id="37">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="36" name="detector38" reference="6" id="38">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="37" name="detector39" reference="6" id="39">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="38" name="detector40" reference="6" id="40">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="39" name="detector41" reference="6" id="41">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="40" name="detector42" reference="6" id="42">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="41" name="detector43" reference="6" id="43">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="42" name="detector44" reference="6" id="44">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="43" name="detector45" reference="6" id="45">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="44" name="detector46" reference="6" id="46">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="45" name="detector47" reference="6" id="47">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="46" name="detector48" reference="6" id="48">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="47" name="detector49" reference="6" id="49">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="48" name="detector50" reference="6" id="50">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="49" name="detector51" reference="6" id="51">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="50" name="detector52" reference="6" id="52">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="51" name="detector53" reference="6" id="53">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="228.6" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Detector name="detector54" pressure="1.01325e+06*m**-1*kg*s**-2" holdOff="1e-06*s" deadTime="1e-05*s" guid="52" type="He3 LPSD" id="54">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+
+            <Pixel solidAngle="1.0" guid="53" name="pixel0" id="0">
+                <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+                </Shape>
+            </Pixel>
+
+            <LocalGeometer registry-coordinate-system="InstrumentScientist">
+                <Register name="pixel0" position="(0, 0, 0.0)" orientation="(0, 0, 0)"/>
+            </LocalGeometer>
+        </Detector>
+
+
+        <Copy guid="54" name="detector55" reference="52" id="55">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="55" name="detector56" reference="52" id="56">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="56" name="detector57" reference="52" id="57">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="57" name="detector58" reference="52" id="58">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="58" name="detector59" reference="52" id="59">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="59" name="detector60" reference="52" id="60">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="60" name="detector61" reference="52" id="61">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="61" name="detector62" reference="52" id="62">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="62" name="detector63" reference="52" id="63">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="63" name="detector64" reference="52" id="64">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="64" name="detector65" reference="52" id="65">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="65" name="detector66" reference="52" id="66">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="66" name="detector67" reference="52" id="67">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="67" name="detector68" reference="52" id="68">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="68" name="detector69" reference="52" id="69">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="69" name="detector70" reference="52" id="70">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="70" name="detector71" reference="52" id="71">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="71" name="detector72" reference="52" id="72">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="72" name="detector73" reference="52" id="73">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="73" name="detector74" reference="52" id="74">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="74" name="detector75" reference="52" id="75">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="75" name="detector76" reference="52" id="76">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="76" name="detector77" reference="52" id="77">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="77" name="detector78" reference="52" id="78">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="78" name="detector79" reference="52" id="79">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="79" name="detector80" reference="52" id="80">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="80" name="detector81" reference="52" id="81">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="81" name="detector82" reference="52" id="82">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="82" name="detector83" reference="52" id="83">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="83" name="detector84" reference="52" id="84">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="84" name="detector85" reference="52" id="85">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="85" name="detector86" reference="52" id="86">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="86" name="detector87" reference="52" id="87">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="87" name="detector88" reference="52" id="88">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="88" name="detector89" reference="52" id="89">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="89" name="detector90" reference="52" id="90">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="90" name="detector91" reference="52" id="91">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="91" name="detector92" reference="52" id="92">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="92" name="detector93" reference="52" id="93">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="93" name="detector94" reference="52" id="94">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="94" name="detector95" reference="52" id="95">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="95" name="detector98" reference="52" id="98">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="96" name="detector99" reference="52" id="99">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="97" name="detector100" reference="52" id="100">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="98" name="detector101" reference="52" id="101">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="99" name="detector102" reference="52" id="102">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="100" name="detector103" reference="52" id="103">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="101" name="detector104" reference="52" id="104">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="102" name="detector105" reference="52" id="105">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="103" name="detector106" reference="52" id="106">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="104" name="detector107" reference="52" id="107">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="105" name="detector108" reference="52" id="108">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="106" name="detector109" reference="52" id="109">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="107" name="detector110" reference="52" id="110">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="108" name="detector111" reference="52" id="111">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="109" name="detector112" reference="52" id="112">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="110" name="detector113" reference="52" id="113">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="111" name="detector114" reference="52" id="114">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="112" name="detector115" reference="52" id="115">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="113" name="detector116" reference="52" id="116">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="114" name="detector117" reference="52" id="117">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="115" name="detector118" reference="52" id="118">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="116" name="detector119" reference="52" id="119">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="117" name="detector120" reference="52" id="120">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="118" name="detector121" reference="52" id="121">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="119" name="detector122" reference="52" id="122">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="120" name="detector123" reference="52" id="123">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="121" name="detector124" reference="52" id="124">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="122" name="detector125" reference="52" id="125">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="123" name="detector126" reference="52" id="126">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="124" name="detector127" reference="52" id="127">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="125" name="detector128" reference="52" id="128">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="126" name="detector129" reference="52" id="129">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="127" name="detector130" reference="52" id="130">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="128" name="detector131" reference="52" id="131">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="129" name="detector132" reference="52" id="132">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="130" name="detector133" reference="52" id="133">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="131" name="detector134" reference="52" id="134">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="132" name="detector135" reference="52" id="135">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="133" name="detector136" reference="52" id="136">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="134" name="detector137" reference="52" id="137">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="135" name="detector138" reference="52" id="138">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="136" name="detector139" reference="52" id="139">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="137" name="detector140" reference="52" id="140">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="138" name="detector141" reference="52" id="141">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="139" name="detector142" reference="52" id="142">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="140" name="detector143" reference="52" id="143">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="141" name="detector144" reference="52" id="144">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="142" name="detector145" reference="52" id="145">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="143" name="detector146" reference="52" id="146">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="144" name="detector147" reference="52" id="147">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="145" name="detector148" reference="52" id="148">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="146" name="detector149" reference="52" id="149">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="147" name="detector150" reference="52" id="150">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="148" name="detector151" reference="52" id="151">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="149" name="detector152" reference="52" id="152">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="150" name="detector153" reference="52" id="153">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="151" name="detector154" reference="52" id="154">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="152" name="detector155" reference="52" id="155">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="153" name="detector156" reference="52" id="156">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="154" name="detector157" reference="52" id="157">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="155" name="detector158" reference="52" id="158">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+
+        <Copy guid="156" name="detector159" reference="52" id="159">
+            <Shape>
+<!--
+Cylinder
+
+  Its axis lies in the neutron beam.
+
+  Attributes:
+    - radius
+    - height
+  
+-->
+<cylinder height="457.2" radius="11.885"/>
+            </Shape>
+        </Copy>
+
+        <LocalGeometer registry-coordinate-system="InstrumentScientist">
+            <Register name="detector6" position="(2481.1796874593015, -313.44587933829831, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector7" position="(2484.3259799048701, -287.44631899626864, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector8" position="(2487.199838097536, -261.41523693615579, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector9" position="(2489.8009468864643, -235.355487758544, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector10" position="(2492.1290210308548, -209.26992920768865, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector11" position="(2494.1838052312232, -183.16142185813308, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector12" position="(2495.9650741573987, -157.03282880101466, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector13" position="(2496.7735959357728, -130.85035953552708, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector14" position="(2498.006932797658, -104.6975150013804, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector19" position="(2498.006932797658, 104.6975150013804, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector20" position="(2496.7735953912797, 130.85036992507446, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector21" position="(2495.9650754642853, 157.03280802864876, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector22" position="(2494.1838067555618, 183.16140110059203, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector23" position="(2492.129022772478, 209.26990846724829, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector24" position="(2489.8009488451817, 235.35546703747826, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector25" position="(2487.1998402731328, 261.41521623673754, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector26" position="(2484.3259822971067, 287.44629832076765, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector27" position="(2481.1796900679169, 313.4458586889819, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector28" position="(2477.7613086118513, 339.41104619750394, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector29" position="(2474.0712097523492, 365.3390340619838, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector30" position="(2470.1098007594646, 391.22695833343965, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector31" position="(2451.5602134441669, 494.32123218853172, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector32" position="(2446.2493641527385, 519.96635383178386, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector33" position="(2440.6702557107001, 545.55445523234596, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector34" position="(2434.8234999309407, 571.08273036298397, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector35" position="(2428.7097379769357, 596.54837975708404, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector36" position="(2422.3296402924302, 621.94861081567149, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector37" position="(2415.6839065279223, 647.28063811363472, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector38" position="(2408.7732654639353, 672.54168370518619, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector39" position="(2401.5984749311042, 697.72897742847977, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector40" position="(2394.1603217270622, 722.83975720941567, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector41" position="(2386.4596215301663, 747.87126936451727, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector42" position="(2378.4972188100433, 772.82076890291069, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector43" position="(2370.2739867349937, 797.68551982732833, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector44" position="(2361.7908270762268, 822.46279543416927, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector45" position="(2353.0486701089794, 847.14987861249278, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector46" position="(2344.0484745104941, 871.74406214199246, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector47" position="(2334.7912272549006, 896.24264898985507, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector48" position="(2325.2779435049688, 920.64295260654717, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector49" position="(2315.5096665007918, 944.942297220412, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector50" position="(2305.4874674453872, 969.13801813108773, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector51" position="(2295.2124453872166, 993.22746200174595, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector52" position="(2284.6857270996716, 1017.2079871500433, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector53" position="(2273.9084669575022, 1041.0769638378219, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector54" position="(2265.2344978482838, 1065.9384800997063, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector55" position="(2253.9480087042421, 1089.6010956572227, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector56" position="(2242.4143484470696, 1113.1442240239778, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector57" position="(2230.6347818741938, 1136.565283427356, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector58" position="(2218.6106007494741, 1159.8617054810009, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector59" position="(2206.3431236615515, 1183.030935466451, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector60" position="(2193.8336958792393, 1206.070432613318, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector61" position="(2181.0836892040065, 1228.9776703778957, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector62" position="(2168.0945018195398, 1251.7501367202319, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector63" position="(2154.8675581384273, 1274.3853343795868, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector64" position="(2141.4043086459387, 1296.8807811483084, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector65" position="(2127.7062297409766, 1319.234010144022, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector66" position="(2113.7748235741628, 1341.4425700801567, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector67" position="(2099.6116632735079, 1363.5039556396941, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector68" position="(2085.2182580645822, 1385.4158183857112, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector69" position="(2070.5961863384368, 1407.1757554477545, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector70" position="(2055.7470515618611, 1428.7813806156466, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector71" position="(2040.6724821015291, 1450.2303246011729, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector72" position="(2025.3741310454518, 1471.5202352978774, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector73" position="(2009.8536760216866, 1492.6487780390107, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector74" position="(1994.11281901437, 1513.6136358535496, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector75" position="(1978.1532861770761, 1534.4125097202752, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector76" position="(1961.976827643527, 1555.0431188198868, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector77" position="(1945.58521733567, 1575.5032007851182, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector78" position="(1877.903007282926, 1655.5942947585263, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector79" position="(1860.4630592431656, 1675.1684628092783, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector80" position="(1842.8190915011385, 1694.5589306949928, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector81" position="(1770.2418159109279, 1770.2418159109277, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector82" position="(1751.6072099346857, 1788.6822959106139, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector83" position="(1732.780521466032, 1806.9266277375918, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector84" position="(1713.7638150530138, 1824.9728107054575, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector85" position="(1655.5942947585263, 1877.903007282926, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector86" position="(1635.8385730599268, 1895.1370231433139, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector87" position="(1615.9034641399719, 1912.1632169298932, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector88" position="(1595.7911540968837, 1928.9797215381438, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector89" position="(1513.6139013857221, 1994.1126174645033, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector90" position="(1492.6490456672054, 2009.8534772634596, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector91" position="(1471.5205049927458, 2025.3739351006602, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector92" position="(1450.2305963331403, 2040.6722889916605, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector93" position="(1385.4156795539036, 2085.2183503042156, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector94" position="(1363.5038158495879, 2099.6117540542709, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector95" position="(1341.4424293470809, 2113.7749128861001, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector98" position="(1319.2337976530989, 2127.7063614909416, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector99" position="(1296.8806385756925, 2141.4043949909933, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector100" position="(1274.3852626450944, 2154.8676005620932, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector101" position="(1183.0308620183621, 2206.3431630440741, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector102" position="(1159.8617054810011, 2218.6106007494741, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector103" position="(1136.565357684105, 2230.6347440384857, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector104" position="(1113.1443733217425, 2242.4142743350044, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector105" position="(1089.601170690054, 2253.9479724319508, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector106" position="(994.25979933293104, 2297.5986649172823, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector107" position="(970.14538769517685, 2307.8843342622295, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector108" position="(945.92458922422611, 2317.916919369678, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector109" position="(921.60005999006444, 2327.6953200592102, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector110" position="(897.17446743786843, 2337.2184640244514, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector111" position="(773.62404070245555, 2380.9699740329452, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector112" position="(748.64868247144989, 2388.9406279422269, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector113" position="(723.5912268934735, 2396.6493089231967, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector114" position="(698.45442178692713, 2404.0951716364157, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector115" position="(597.16863690363448, 2431.2346231283182, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector116" position="(571.67659456971774, 2437.354722813323, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector117" position="(546.12186177385456, 2443.2075404459397, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector118" position="(520.5072408662196, 2448.7924342020242, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector119" position="(494.8355407643578, 2454.1087916381548, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector120" position="(391.63368084121748, 2472.6777456089985, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector121" position="(365.71892573394712, 2476.6432607380593, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector122" position="(339.76406562917538, 2480.3371854057204, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector123" position="(313.77194675532172, 2483.7591145335759, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector124" position="(287.74541942662688, 2486.9086728704442, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector125" position="(183.35169240512494, 2496.7767882795242, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector126" position="(157.19599814285337, 2498.5599035778814, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector127" position="(131.02306565562685, 2500.0690250201974, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector128" position="(104.83576508583438, 2501.3039871151423, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector129" position="(78.636968151481199, 2502.2646544358936, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector130" position="(-26.216044706653179, 2503.3627169467827, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector131" position="(-52.429214543198164, 2502.9509286163843, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector132" position="(-78.63663495478842, 2502.264664907017, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector133" position="(-104.83543201706139, 2501.3040010748464, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector134" position="(-131.02273275129937, 2500.0690424669519, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector135" position="(-235.60022733326494, 2492.3893569183274, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector136" position="(-261.68700619559223, 2489.7855498792719, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector137" position="(-287.74508827470487, 2486.9087111860422, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector138" position="(-313.77161602278801, 2483.7591563148162, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector139" position="(-339.76373535229942, 2480.3372306480205, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector140" position="(-494.83521398000727, 2454.1088575294698, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector141" position="(-520.5069147897791, 2448.7925035117337, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector142" position="(-546.12153644108321, 2443.2076131664435, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector143" position="(-571.67627001629216, 2437.3547989366461, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector144" position="(-597.16831316514504, 2431.234702646113, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector145" position="(-698.45410166227759, 2404.0952646412288, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector146" position="(-723.59090776029609, 2396.6494052751791, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector147" position="(-748.64836436474116, 2388.9407276308125, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector148" position="(-773.62372365709916, 2380.9700770472027, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector149" position="(-798.51424682174979, 2372.7383275915472, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector150" position="(-897.17415621839791, 2337.2185834904371, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector151" position="(-921.59975003867294, 2327.6954427776618, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector152" position="(-945.92428057490315, 2317.9170453271386, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector153" position="(-970.14508038176905, 2307.884463444886, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector154" position="(-994.25949338913915, 2297.5987973109691, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector155" position="(-1065.9383292825851, 2265.2345688174305, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector156" position="(-1089.6008705587069, 2253.9481175211081, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector157" position="(-1113.1439254284212, 2242.414496671176, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector158" position="(-1136.5649121435879, 2230.6349710526993, 0.0)" orientation="(0, 90, 0)"/>
+            <Register name="detector159" position="(-1159.8612623421861, 2218.610832416814, 0.0)" orientation="(0, 90, 0)"/>
+        </LocalGeometer>
+    </DetectorSystem>
+
+    <LocalGeometer registry-coordinate-system="InstrumentScientist">
+        <Register name="moderator" position="[-8123.7001419067401, 0, 0]" orientation="[0.0, 0.0, 0.0]"/>
+        <Register name="monitor0" position="[476.20001435279801, 0, 0]" orientation="[0.0, 0.0, 0.0]"/>
+        <Register name="monitor1" position="[-3256.2000751495402, 0, 0]" orientation="[0.0, 0.0, 0.0]"/>
+        <Register name="sample" position="(0, 0, 0)" orientation="(0, 0, 0)"/>
+        <Register name="detSystem" position="(0, 0, 0)" orientation="(0, 0, 0)"/>
+    </LocalGeometer>
+    <InstrumentGeometer registry-coordinate-system="InstrumentScientist" type="arcs" />
+</Instrument>
+
+
+<!-- version-->
+<!-- $Id$-->
+
+<!-- Generated automatically by Renderer on Fri Sep 28 19:37:53 2007-->
+
+<!-- End of file -->

@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!--
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!
+!                                   Jiao Lin
+!                      California Institute of Technology
+!                        (C) 2007  All Rights Reserved
+!
+! {LicenseText}
+!
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+<!DOCTYPE instrument>
+
+<Instrument guid="-1" name="ARCS">
+
+  <Moderator guid="1" type="non-existant" name="moderator" id="0">
+    <Shape>
+<!--
+Block
+
+  Its thickness is the length of the dimension that is parallel
+  to neutron beam.
+
+  Its height is its vertical length (parallel to gravity).
+
+  Its width is the 3rd dimension.
+
+-->
+<block width="0.1*m" height="0.1*m" thickness="0.1*m"/>
+    </Shape>
+  </Moderator>
+
+
+  <Monitor mode="monitor" guid="2" name="monitor0" sampledFraction="0.01" id="1">
+    <Shape>
+<!--
+Block
+
+  Its thickness is the length of the dimension that is parallel
+  to neutron beam.
+
+  Its height is its vertical length (parallel to gravity).
+
+  Its width is the 3rd dimension.
+
+-->
+<block width="0.0762*m" height="0.0762*m" thickness="0.0381*m"/>
+    </Shape>
+  </Monitor>
+
+
+  <Monitor mode="monitor" guid="3" name="monitor1" sampledFraction="0.01" id="2">
+    <Shape>
+
+<block width="0.0762*m" height="0.0762*m" thickness="0.0381*m"/>
+    </Shape>
+  </Monitor>
+
+
+  <Sample guid="4" name="sample" id="3">
+  </Sample>
+
+
+  <DetectorSystem name='detectorSystem' guid='5'>
+
+    <Shape>
+      <hollowCylinder in_radius="2.9" out_radius="3.1" height="3.5"/>
+    </Shape>
+    
+    <DetectorPack name='detPack0' guid='1000'>
+      
+      <Shape>
+%(packshape)s
+      </Shape>
+      
+      <Detector name='det0' guid='10000'>
+	
+	<Shape>
+%(tubeshape)s
+	</Shape>
+	
+%(pixels)s
+
+      </Detector>
+
+%(tubes)s      
+      
+    </DetectorPack>
+
+%(packs)s
+
+
+  </DetectorSystem>
+
+  <LocalGeometer registry-coordinate-system='InstrumentScientist'>
+    <Register name="moderator" position="(0*m, 0*m, 0*m)" orientation="(0.0, 0.0, 0.0)"/>
+    <Register name="monitor0" position="(3*m, 0*m, 0*m)" orientation="(0.0, 0.0, 0.0)"/>
+    <Register name="monitor1" position="(17*m, 0*m, 0*m)" orientation="(0.0, 0.0, 0.0)"/>
+    <Register name="sample" position="(13.5*m, 0*m, 0*m)" orientation="(0, 0, 0)"/>
+    <Register name='detectorSystem' position='(13.5,0,0)' orientation='(0,0,0)'/>
+  </LocalGeometer>
+
+  <InstrumentGeometer type='arcs' registry-coordinate-system='InstrumentScientist'/>
+  
+</Instrument>
+
+<!-- version-->
+<!-- $Id$-->
+<!-- End of file -->

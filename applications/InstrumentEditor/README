@@ -1,0 +1,37 @@
+
+commands:
+
+ plotting commands are available in the shell window by refering to instance
+ "plot". For example
+
+ Matplotlib commands:
+
+   plot.set_xlabe( "velocity (mm/s)" )
+   plot.set_ylabel( "Intensity (counts)" )
+   plot.set_title( "A spectrum" )
+   
+ Histogram plotting command:
+  
+  For 2-D plot:
+
+   plot.replot( SQEData, min = 0.0 )
+
+
+1. Launch the gui
+2. File -> Open pickled histogram -> Choose "examples/I(vel).pkl" 
+3. Click on "plot" tab on the right panel
+4. In the command window, type
+  plot.set_ylabel( "Intensity(counts)" )
+  plot.set_title( "A spectrum" )
+5. Click on the "disk" button on the toolbar to save the figure
+6. File -> Open pickled histogram -> Choose "examples/spehist.pkl"
+7. In the command windoow,
+  plot.set_xlim(0,130)
+  plot.set_title( "S(phi,E)" )
+8. Save the image
+9.  File -> Open pickled histogram -> Choose "examples/sqehist.pkl"
+  plot.replot(SQEData, min=0)
+  plot.set_title("S(Q,E)")
+10. Save the image
+11. open figures
+

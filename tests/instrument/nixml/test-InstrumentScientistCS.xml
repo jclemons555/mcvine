@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!--
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!
+!                                   Jiao Lin
+!                      California Institute of Technology
+!                        (C) 2007  All Rights Reserved
+!
+! {LicenseText}
+!
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+<!DOCTYPE instrument>
+
+<Instrument guid="-1" name="test">
+
+  <Moderator guid="1" type="" name="moderator"/>
+
+  <Guide guid="2" name="guide1"/>
+  
+  <Guide guid="3" name='guide2'/>
+  
+  <Monitor guid="4" name="monitor1" sampledFraction="0.01" mode="monitor"/>
+  
+  <DetectorSystem name='detectorSystem' guid='5'>
+
+    <DetectorArray name='detArray1' guid='100'>
+
+      <DetectorPack name='detPack1' guid='1000'>
+
+	<Detector name='det1' guid='10000'>
+
+	  <Shape>
+	    <cylinder radius="2.5" height="100"/>
+	  </Shape>
+
+	  <Pixel name='pix1' guid='100000'/>
+	  <Copy name='pix2' guid='100001' reference='100000'/>
+
+	  <LocalGeometer coordinate-system='InstrumentScientist'>
+	    <Register name='pix1' position='(0,0,-0.1)' orientation='(0,0,0)'/>
+	    <Register name='pix2' position='(0,0,0.1)' orientation='(0,0,0)'/>
+	  </LocalGeometer>
+
+	</Detector>
+
+	<LocalGeometer coordinate-system='InstrumentScientist'>
+	  <Register name='det1' position='(0,0.3,0)' orientation='(0,0,0)'/>
+	</LocalGeometer>
+
+      </DetectorPack>
+
+      <LocalGeometer coordinate-system='InstrumentScientist'>
+	<Register name='detPack1' position='(5,0,0)' orientation='(0,0,0)'/>
+      </LocalGeometer>
+
+    </DetectorArray>
+
+    <LocalGeometer coordinate-system='InstrumentScientist'>
+      <Register name='detArray1' position='(0,0,0)' orientation='(0,0,0)'/>
+    </LocalGeometer>
+
+  </DetectorSystem>
+
+  <LocalGeometer coordinate-system='InstrumentScientist'>
+    <Register name='moderator' position='(0,0,0)' orientation='(0,0,0)'/>
+    <Register name='guide1' position='(1,0,0)' orientation='(0,0,0)'/>
+    <Register name='guide2' position='(2,0,0)' orientation='(0,0,0)'/>
+    <Register name='monitor1' position='(3,0,0)' orientation='(0,0,0)'/>
+    <Register name='detectorSystem' position='(4,0,0)' orientation='(0,0,0)'/>
+  </LocalGeometer>
+
+  <InstrumentGeometer type='arcs'/>
+
+</Instrument>
+
+<!-- version-->
+<!-- $Id$-->
+<!-- End of file -->

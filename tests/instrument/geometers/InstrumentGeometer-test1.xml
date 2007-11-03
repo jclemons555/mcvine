@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!
+!                                   Jiao Lin
+!                      California Institute of Technology
+!                        (C) 2007  All Rights Reserved
+!
+! {LicenseText}
+!
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+<!DOCTYPE instrument>
+
+<Instrument guid="-1" name="test">
+
+  <DetectorSystem name='detectorSystem' guid='5'>
+
+    <DetectorPack name='detPack1' guid='1000'>
+
+      <Detector name='det1' guid='10000'>
+	<Shape> <cylinder radius="2.5" height="100"/> </Shape>
+
+	<Pixel name='pix1' guid='100000'/>
+
+	<LocalGeometer registry-coordinate-system='InstrumentScientist'>
+	  <Register name='pix1' position='(0,0,0.2)' orientation='(0,0,0)'/>
+	</LocalGeometer>
+
+      </Detector>
+
+      <LocalGeometer registry-coordinate-system='InstrumentScientist'>
+	<Register name='det1' position='(0,0.3,0)' orientation='(0,0,0)'/>
+      </LocalGeometer>
+
+    </DetectorPack>
+
+    <LocalGeometer registry-coordinate-system='InstrumentScientist'>
+      <Register name='detPack1' position='(0.8660254,0.5,0)' orientation='(0*degree,0*degree,30*degree)'/>
+    </LocalGeometer>
+
+  </DetectorSystem>
+
+  <LocalGeometer registry-coordinate-system='InstrumentScientist'>
+    <Register name='detectorSystem' position='(0,0,0)' orientation='(0,0,0)'/>
+  </LocalGeometer>
+
+  <InstrumentGeometer type='arcs' registry-coordinate-system='InstrumentScientist'/>
+
+</Instrument>
+
+<!-- version-->
+<!-- $Id$-->
+<!-- End of file -->

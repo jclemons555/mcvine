@@ -1,0 +1,1 @@
+ ./conftxt2xml.py arcs1810ds0001xls.txt 128 0.5*inch 1*meter 0.08*inch  ARCS.xml.template ARCS.xml

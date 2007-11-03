@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!
+!                                   Jiao Lin
+!                      California Institute of Technology
+!                        (C) 2007  All Rights Reserved
+!
+! {LicenseText}
+!
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+<!DOCTYPE instrument>
+
+<Instrument guid="-1" name="test">
+
+  <DetectorSystem name='detectorSystem' guid='5'>
+
+	<Detector name='det1' guid='10000'>
+
+	  <Shape>
+	    <cylinder radius="2.5*mm" height="100*mm"/>
+	  </Shape>
+
+	</Detector>
+
+	<LocalGeometer registry-coordinate-system='McStas'>
+	  <Register name='det1' position='(0.3*meter,0*m,0*m)' orientation='(0,0,0)'/>
+	</LocalGeometer>
+
+  </DetectorSystem>
+
+  <LocalGeometer registry-coordinate-system='McStas'>
+    <Register name='detectorSystem' position='0*m,0*m,4*meter' orientation='(0,0,0)'/>
+  </LocalGeometer>
+
+  <InstrumentGeometer type='arcs' registry-coordinate-system='McStas'/>
+
+</Instrument>
+
+<!-- version-->
+<!-- $Id$-->
+<!-- End of file -->
