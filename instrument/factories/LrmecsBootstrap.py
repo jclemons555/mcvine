@@ -213,7 +213,7 @@ class InstrumentFactory( object):
 
         for i, record in enumerate( tubeRecords ):
 
-            detID = record['id']
+            detID = i #record['id']
             debug.log( 'detID=%s' % detID)
             #debug.log( 'record=%s' % record )
 
