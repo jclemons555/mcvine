@@ -23,34 +23,33 @@ def parse_file( filename ): return parse( open( filename ) )
 
 from Renderer import Renderer
 default_renderer = Renderer()
-def render( instrument ):
+def render( instrument, renderer = None ):
     '''render(instrument) --> text of the xml file
 
   - Inputs:
     instrument: instrument hierarchy
   - return: a list of strings
   '''
-    from pyre.applications.Script import Script
-    class T(Script):
-        class Inventory(Script.Inventory):
-            import pyre.inventory
-            weaver = pyre.inventory.facility(
-                'weaver', default = pyre.weaver.weaver() )
-            pass # end of Inventory
-        def __init__(self, name = "instrument.nixml.render"):
-            Script.__init__(self, name)
-            return
-        def main(self):
-            self.weaver.renderer = default_renderer
-            return 
-        def _init(self):
-            Script._init(self)
-            self.weaver = self.inventory.weaver
-            return
-        pass # 
-    t = T()
-    t.run()
-    text = t.weaver.render( instrument )
+    if  renderer is None: renderer = default_renderer
+
+    class Options: pass
+    options = Options()
+    options.author = "Jiao Lin"
+    options.organization = "Caltech"
+    options.copyright = ""
+    options.bannerWidth = 78
+    options.bannerCharacter = '~'
+    options.creator = ''
+    options.timestamp = True
+    options.lastLine = " End of file "
+    options.copyrightLine = "(C) %s  All Rights Reserved"
+    options.licenseText = ["{LicenseText}"]
+    options.timestampLine = " Generated automatically by %s on %s"
+    options.versionId = ' $' + 'Id' + '$'
+
+    renderer.options = options
+
+    text = renderer.render( instrument )
     return text
 
 
