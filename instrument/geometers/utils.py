@@ -33,23 +33,23 @@ def isNumber(i):
     return isinstance(i,int) or isinstance(i,float)
         
 
+from math import pi
 def toradian( angle_in_degree ):
-    from numpy import pi
     return angle_in_degree*pi/180;
 
                                                                                 
 def todegree( angle_in_radian ):
-    from numpy import pi
     return angle_in_radian*180/pi;
 
 
+
+from numpy import array
 def displacement( v1, v2 ):
-    from numpy import array
     return array(v2) - array(v1)
 
 
+from numpy import sqrt, array, sum
 def length( v ):
-    from numpy import sqrt, array, sum
     v = array(v)
     return sum( v*v )**(0.5)
 
