@@ -123,7 +123,10 @@ class Parser( object):
                 if entry[0] == ' ':
                     warning.log( "'%s', '%s'" % (entry, entry[1:]) )
                     entry = entry[1:]
+                    pass
                 columns[ entry] = i
+                pass
+            continue
         return columns
             
 

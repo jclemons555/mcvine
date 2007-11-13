@@ -54,7 +54,7 @@ def main():
     import journal
     
     from instrument.factories import debug
-    debug.activate()
+    #debug.activate()
     
     from instrument.elements import debug
     #debug.activate()
