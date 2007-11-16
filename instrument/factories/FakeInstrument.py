@@ -15,6 +15,8 @@ provides a model instrument that can be used to create tests
   This instrument contains 100 detectors.
   Each detector has 10 pixels. All pixel in one detector has exacctly the
   same scattering angle.
+  Detector's pressure is correlated with detID: pressure = detID/10+5. (atm)
+  Detector's scattering angle is correlated with detID: phi = detID (degree)
   
   - RELATED: measurment.FakeMeasurement, instrument.geoemters.FakeGeometer
   - TODOs:
@@ -40,6 +42,11 @@ numpxls = 10
 import units
 mm = units.length.mm
 R = 3000.0 * mm #mm
+
+#detector radius
+detradius = 0.5 * units.length.inch
+def detpressure( detID ):
+    return (0.5+detID*0.1)*units.pressure.atm
 
 pixelSolidAngle = 1.0
 pixelHeight = 0.0
@@ -138,15 +145,18 @@ class InstrumentFactory( object):
 
         instrument.addElement( detSystem )
         
-        # detectorPacks
+        # detectors
         for detInd in range(numdets):
             detGuid = instrument.getUniqueID()
             detector = elements.detector(
-                'detector%s' % detInd, guid = detGuid,  id = detInd )
+                'detector%s' % detInd, guid = detGuid,  id = detInd,
+                pressure = detpressure(detInd),
+                radius = detradius,
+                )
             detSystem.addElement( detector)
 
             geometer.register(
-                (did, detInd), detInd, R)
+                (did, detInd), detInd*units.angle.degree, R)
 
             # 3 for each detector, make the pixels for that detector
             for pxlInd in range(numpxls):
@@ -159,7 +169,7 @@ class InstrumentFactory( object):
                 detector.addElement( pixel)
 
                 geometer.register(
-                    (did, detInd, pxlInd), detInd, R)
+                    (did, detInd, pxlInd), detInd*units.angle.degree, R)
                 continue
             continue
         #print ""
@@ -198,6 +208,7 @@ class InstrumentFactory( object):
 
 
     pass #end of FakeInstrument
+
 
 
 def create():

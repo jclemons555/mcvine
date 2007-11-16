@@ -40,9 +40,10 @@ class Geometer(_Base):
 
 
     def register(self, element, scatteringAngle, distanceToSample):
-        self._registry[element] = \
-                                       {self.KEY_scatteringAngle: scatteringAngle,
-                                        self.KEY_distanceToSample: distanceToSample}
+        self._registry[element] = {
+            self.KEY_scatteringAngle: scatteringAngle,
+            self.KEY_distanceToSample: distanceToSample
+            }
         return
 
 

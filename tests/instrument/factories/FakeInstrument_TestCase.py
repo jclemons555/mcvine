@@ -12,7 +12,7 @@
 #
 
 
-from instrument.factories.FakeInstrument import *
+from instrument.factories.FakeInstrument import InstrumentFactory, detpressure
 
 
 import unittest, unittestX
@@ -26,6 +26,12 @@ class FakeInstrument_TestCase(unittestX.TestCase):
         """
         factory = InstrumentFactory( )
         instrument, geometer = factory.construct( )
+        detectorSystem = instrument.getDetectorSystem()
+        detectors = detectorSystem.elements()
+        for det in detectors:
+            self.assertEqual( det.__class__.__name__, 'Detector' )
+            self.assertAlmostEqual( detpressure(det.id())/det.pressure(), 1. )
+            continue
         return
 
 
