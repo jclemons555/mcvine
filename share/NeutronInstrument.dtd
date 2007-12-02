@@ -1,0 +1,49 @@
+<!DOCTYPE NeutronInstrument [
+
+  <!ELEMENT Instrument (Moderator,Guide*,Monitor*,Sample,DetectorSystem,LocalGeometer)>
+  <!ATTLIST Instrument name CDATA #REQUIRED>
+  <!ELEMENT Moderator  (Shape)>
+  <!ATTLIST Moderator name CDATA #REQUIRED>
+  <!ATTLIST Moderator type CDATA #REQUIRED>
+  <!ATTLIST Moderator guid CDATA #REQUIRED>
+
+  <!ELEMENT Monitor  (Shape)>
+  <!ATTLIST Monitor name CDATA #REQUIRED>
+  <!ATTLIST Monitor type CDATA #REQUIRED>
+  <!ATTLIST Monitor guid CDATA #REQUIRED>
+
+  <!ELEMENT DetectorSystem  (Shape, LocalGeometer, DetectorArray, DetectorPack, Detector, Copy)>
+  <!ATTLIST DetectorSystem name CDATA #REQUIRED>
+  <!ATTLIST DetectorSystem guid CDATA #REQUIRED>
+
+  <!ELEMENT DetectorArray (Shape, LocalGeometer, DetectorPack, Copy)>
+  <!ATTLIST DetectorArray name CDATA #REQUIRED>
+  <!ATTLIST DetectorArray guid CDATA #REQUIRED>
+  
+  <!ELEMENT DetectorPack (Shape, LocalGeometer, Detector, Copy)>
+  <!ATTLIST DetectorPack name CDATA #REQUIRED>
+  <!ATTLIST DetectorPack guid CDATA #REQUIRED>
+  
+  <!ELEMENT Detector (Shape, LocalGeometer, Pixel, Copy)>
+  <!ATTLIST Detector name CDATA #REQUIRED>
+  <!ATTLIST Detector guid CDATA #REQUIRED>
+  
+  <!ELEMENT Pixel EMPTY>
+  <!ATTLIST Pixel name CDATA #REQUIRED>
+  <!ATTLIST Pixel guid CDATA #REQUIRED>
+  
+  <!ELEMENT Copy EMPTY>
+  <!ATTLIST Copy name CDATA #REQUIRED>
+  <!ATTLIST Copy guid CDATA #REQUIRED>
+  <!ATTLIST Copy reference CDATA #REQUIRED>
+  
+  <!ELEMENT LocalGeometer (Register)>
+  <!ATTLIST LocalGeometer registry-coordinate-system CDATA #REQUIRED>
+
+  <!ELEMENT Register EMPTY>
+  <!ATTLIST Register name CDATA #REQUIRED>
+  <!ATTLIST Register position CDATA #REQUIRED>
+  <!ATTLIST Register orientation CDATA #REQUIRED>
+
+]>
+
