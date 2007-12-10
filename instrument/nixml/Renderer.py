@@ -116,7 +116,13 @@ class Renderer(XMLMill):
         self._indent()
         for element in target:
             position = tuple(geometer.position( element ) )
-            orientation = tuple( geometer.orientation( element ) )
+            #the following two lines are necessary because pyre.units
+            #__str__ method does not explicitly print out unit of
+            #pseudo-units like angle and solid-angle.
+            orientation = geometer.orientation( element )
+            orientation /= geometer.angle_unit
+            #just to make it safer, convert to tuple
+            orientation = tuple( orientation )
             self._write(
                 '<Register name="%s" position="%s" orientation="%s"/>' % (
                 element.name, position, orientation )
