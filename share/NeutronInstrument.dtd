@@ -2,6 +2,7 @@
 
   <!ELEMENT Instrument (Moderator,Guide*,Monitor*,Sample,DetectorSystem,LocalGeometer)>
   <!ATTLIST Instrument name CDATA #REQUIRED>
+
   <!ELEMENT Moderator  (Shape)>
   <!ATTLIST Moderator name CDATA #REQUIRED>
   <!ATTLIST Moderator type CDATA #REQUIRED>
