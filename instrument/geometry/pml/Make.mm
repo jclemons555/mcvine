@@ -31,6 +31,7 @@ all: export
 # export
 
 EXPORT_PYTHON_MODULES =    \
+	Parser.py \
 	Renderer.py \
 	__init__.py \
 

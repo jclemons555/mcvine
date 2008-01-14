@@ -11,36 +11,27 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PROJECT = instrument
-PACKAGE = geometry/pml/parser
+PACKAGE = tests/instrument/geoemtry
 
 BUILD_DIRS = \
+	pml\
+
 
 RECURSE_DIRS = $(BUILD_DIRS)
 
-
 #--------------------------------------------------------------------------
 #
 
-all: export
+all: 
 	BLD_ACTION="all" $(MM) recurse
 
-
-#--------------------------------------------------------------------------
-#
-# export
-
-EXPORT_PYTHON_MODULES =    \
-	Block.py \
-	Cylinder.py \
-	Document.py \
-	HollowCylinder.py \
-	RectTube.py \
-	__init__.py \
+tidy::
+	BLD_ACTION="tidy" $(MM) recurse
 
 
-export:: export-package-python-modules
+
 
 # version
-# $Id: Make.mm 1246 2007-09-25 19:34:09Z linjiao $
+# $Id: Make.mm 1248 2007-09-26 21:49:33Z linjiao $
 
 # End of file

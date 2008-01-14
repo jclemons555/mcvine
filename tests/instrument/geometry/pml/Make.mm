@@ -11,36 +11,38 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PROJECT = instrument
-PACKAGE = geometry/pml/parser
+PACKAGE = tests/instrument/geometry/pml
 
-BUILD_DIRS = \
 
-RECURSE_DIRS = $(BUILD_DIRS)
+
+PROJ_TIDY += *.log *.pyc
+PROJ_CLEAN += $(PROJ_CPPTESTS)
+
+PROJ_PYTESTS = alltests.py
+PROJ_CPPTESTS = 
+PROJ_TESTS = $(PROJ_PYTESTS) $(PROJ_CPPTESTS)
+PROJ_LIBRARIES = -L$(BLD_LIBDIR) 
 
 
 #--------------------------------------------------------------------------
 #
 
-all: export
-	BLD_ACTION="all" $(MM) recurse
+all: $(PROJ_TESTS)
 
+test:
+	for test in $(PROJ_TESTS) ; do $${test}; done
+
+release: tidy
+	cvs release .
+
+update: clean
+	cvs update .
 
 #--------------------------------------------------------------------------
 #
-# export
 
-EXPORT_PYTHON_MODULES =    \
-	Block.py \
-	Cylinder.py \
-	Document.py \
-	HollowCylinder.py \
-	RectTube.py \
-	__init__.py \
-
-
-export:: export-package-python-modules
 
 # version
-# $Id: Make.mm 1246 2007-09-25 19:34:09Z linjiao $
+# $Id: Make.mm 469 2006-04-06 23:03:20Z jiao $
 
 # End of file

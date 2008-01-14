@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!
+!                                   Jiao Lin
+!                      California Institute of Technology
+!                        (C) 2007  All Rights Reserved
+!
+! {LicenseText}
+!
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+<!DOCTYPE geometry>
+
+<geometry>
+
+  <union>
+    <cylinder radius="2.5" height="100"/>
+    <block thickness="0.1" height="1" width='0.2'/>
+  </union>
+
+</geometry>
+
+<!-- version-->
+<!-- $Id$-->
+<!-- End of file -->
