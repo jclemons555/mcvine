@@ -20,8 +20,10 @@ lgend = '</LocalGeometer>'
 
 def readConf( conffn ):
     lines = open(conffn).readlines()
-    vars = lines[0].split()
+    vars = lines[0].split('\t')
     vars = [ var.lower() for var in vars ]
+    print vars
+    raise
 
     ret = []
     for line in lines[1:]:

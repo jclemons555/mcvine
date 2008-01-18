@@ -34,6 +34,7 @@ from math import sqrt, acos, atan, pi, cos, sin
 import units
 atm = units.pressure.atm
 m = units.length.m
+cm = units.length.cm
 mm = units.length.mm
 
 import instrument.elements as elements
@@ -44,6 +45,20 @@ import instrument.geometry.shapes as shapes
 #hack
 #set all solid angle to 1
 pixelSolidAngle = 1.
+
+
+monitorRecords = [
+    { 'id': 0,
+      'distanceToModerator': 11.825*m,
+      #width, height, thickness
+      'dimensions': [7.62*cm, 7.62*cm, 3.81*cm],
+      },
+    { 'id': 1,
+      'distanceToModerator': 18.5*m,
+      #width, height, thickness
+      'dimensions': [7.62*cm, 7.62*cm, 3.81*cm],
+      },
+    ]      
 
 
 from _journal import debug
@@ -57,7 +72,7 @@ class InstrumentFactory( object):
 
 
     def construct( self, detconfigfile, longpackinfo, shortpackinfo,
-                   mod2sample = 13.5 ):
+                   mod2sample = 13.6 ):
         '''construct a new ARCS instrument
 
 Parameters:
@@ -90,7 +105,7 @@ Parameters:
         self.makeModerator( arcs, geometer )
 
         # make monitors: adds elements to arcs & geometer
-        #self.makeMonitors( arcs, geometer, monitorRecords)
+        self.makeMonitors( arcs, geometer, monitorRecords)
 
         #make sample
         sample = elements.sample(
@@ -147,6 +162,36 @@ Parameters:
         return
     
 
+    def makeMonitors( self, instrument, geometer, monitorRecords):
+
+        i = 0
+
+        for record in monitorRecords:
+            monid = record['id']
+            dist = record['distanceToModerator']
+            position = [dist, 0 * mm, 0 * mm]
+            name = "monitor%s" % i
+            
+            debug.log("monitor position: %s, monitor name: '%s', id: %s" %
+                      (position, name, monid))
+
+            dimensions = record['dimensions']
+            width, height, thickness = dimensions
+
+            monitor = elements.monitor(
+                name, width, height, thickness,
+                guid = instrument.getUniqueID() )
+            
+            instrument.addElement( monitor )
+            i += 1
+            
+            geometer.register( monitor, position, orientation=[0.0,0.0,0.0])
+
+            continue
+
+        return
+
+
     def makeDetectorSystem( self, instrument, geometer, packRecords,
                             packInfoDict):
 
@@ -164,15 +209,14 @@ Parameters:
         from numpy import array
 
         cache = {}
-        for i, record in enumerate( packRecords ):
+        for record in packRecords:
 
-            type, position, orientation = record
+            packID, type, position, orientation = record
             
             rotation = 0,0,90+orientation[2]
             translation = tuple(array( position )*mm)
 
-            name = 'pack%s' % i
-            id = i
+            name = 'pack%s' % packID
             
             pack = cache.get( type )
 
@@ -180,12 +224,14 @@ Parameters:
                 pressure, npixels, radius, height, gap = \
                           packInfoDict[ type ]
                 pack = cache[type] = self._makePack(
-                    name, id, instrument,
+                    name, packID, instrument,
                     pressure, npixels, radius, height, gap )
                 
             else:
                 copy = elements.copy(
-                    'pack%s' % i, pack.guid(), guid = instrument.getUniqueID() )
+                    'pack%s' % packID, pack.guid(),
+                    id = packID,
+                    guid = instrument.getUniqueID() )
                 pack = copy
                 pass
             

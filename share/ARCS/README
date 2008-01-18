@@ -1,1 +1,6 @@
- ./conftxt2xml.py arcs1810ds0001xls.txt 128 0.5*inch 1*meter 0.08*inch  ARCS.xml.template ARCS.xml
+banks_conf.txt.prefect-cylindrical: a file that I made for just test purpose.
+
+The following are text files converted from excel sheets from Doug Abernathy.
+arcs1810ds0001xls.txt: converted from the 1st excell sheet sent by Doug. top first, then middle, down last.
+ARCS_pixel_positions_small.txt: the 2nd excel sheet sent by Doug. with packID. down first, then middle, top last.
+
