@@ -40,6 +40,14 @@ class renderer_TestCase(TestCase):
         return
 
 
+    def test3(self):
+        '''render and then parse'''
+        from instrument.nixml import weave, parse_file
+        instrument = parse_file( 'test.xml' )
+        weave(instrument, open('test.xml.weaved', 'w') )
+        instrument1 = parse_file( 'test.xml.weaved' )
+        return
+
     pass # end of renderer_TestCase
 
 

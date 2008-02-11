@@ -12,11 +12,10 @@
 #
 
 
-from pyre.weaver.mills.XMLMill import XMLMill
-from instrument.geometry.pml.Renderer import Renderer as ShapeRenderer
+from instrument.geometry.pml.Renderer import Renderer as base
 
 
-class Renderer(XMLMill):
+class Renderer(base):
 
 
     def render(self, instrument):
@@ -39,7 +38,7 @@ class Renderer(XMLMill):
         return
 
     
-    def onElementContainer(self, elementContainer):
+    def onInstrumentElementContainer(self, elementContainer):
         self._preElement( elementContainer )
         self._expandElementContainer( elementContainer )
         self._postElement( elementContainer )
@@ -47,10 +46,10 @@ class Renderer(XMLMill):
     
 
     onDetectorSystem = onDetectorArray = onDetectorPack = onDetector \
-                       = onElementContainer
+                       = onInstrumentElementContainer
 
 
-    def onElement(self, element):
+    def onInstrumentElement(self, element):
         self._preElement( element )
         shape = element.shape()
         if shape: self.onShape( shape )
@@ -99,11 +98,11 @@ class Renderer(XMLMill):
         return
 
 
-    onPixel = onModerator = onMonitor = onGuide = onElement
+    onPixel = onModerator = onMonitor = onGuide = onInstrumentElement
 
     #sample probably will become a composite
     #for now, treat it as a single element.
-    onSample = onElement
+    onSample = onInstrumentElement
 
 
     def onLocalGeometer(self, geometer ):
@@ -153,26 +152,14 @@ class Renderer(XMLMill):
 
     def onShape(self, shape):
         self._write('<Shape>')
-        self._synchronizeRenderers()
-        shape.identify(self._shapeRenderer)
+        shape.identify(self)
         self._write('</Shape>')
         return
     
 
-    def __init__(self):
-        XMLMill.__init__(self)
-        self._shapeRenderer = ShapeRenderer()
-        return
-
-
     def _renderDocument(self, document):
         return document.identify(self)
 
-
-    def _synchronizeRenderers(self):
-        self._shapeRenderer._rep = self._rep
-        return
-    
 
     pass # end of Renderer
 

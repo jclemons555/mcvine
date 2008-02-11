@@ -18,6 +18,8 @@ class Document (base):
     tags = [
         'Block',
         'Cylinder',
+        'HollowCylinder',
+        'RectTube',
         ]
 
     pass # end of Document

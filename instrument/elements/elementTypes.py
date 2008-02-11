@@ -2,10 +2,20 @@ import journal
 debug = journal.debug('instrument.elements.elementTypes')
 
 
-def _getTypes():
-    from Element import Element
+from Element import Element
 
-    f = __file__
+
+def register( package ):
+    global _types
+    newtypes = getTypes( package )
+    _types.update( newtypes )
+    return
+
+
+
+def getTypes( package ):
+    f = package.__file__
+    package_name = package.__name__
     import os
     d = os.path.dirname( f )
     if d == '': d = '.'
@@ -19,12 +29,12 @@ def _getTypes():
             if f.endswith( ext ):
                 name = f[: -len(ext)]
                 debug.log('module %s' % name)
-                debug.log('_modules = %s' % _modules)
+                #debug.log('_modules = %s' % _modules)
                 if name in _modules: break
                 if name.startswith( '_' ): break # ignore private modules
                 _modules.append( name )
                 try:
-                    exec "from %s import %s" % (name, name )
+                    exec "from %s.%s import %s" % (package_name, name, name )
                 except Exception, msg:
                     debug.log( '%s:%s' % (msg.__class__.__name__, msg) )
                     break
@@ -34,7 +44,7 @@ def _getTypes():
                     if issubclass( klass, Element ): types[name] = klass
                     pass
                 except:
-                    print name, klass
+                    print "Error for ", name, klass
                     raise
                 break
             continue
@@ -44,15 +54,25 @@ def _getTypes():
 
 def typeFromName( name ):
     global _types
-    if _types is None: _types = _getTypes()
+    if len(_types) == 0: _init_types()
     if name not in _types:
         raise "Unknown element type: %s" % name
     return _types[name]
 
 
-_types = None
+def _init_types( ):
+    import instrument.elements
+    register( instrument.elements )
+    return
 
 
-if __name__ == '__main__': print typeFromName( 'Detector' )
+
+#debug.activate()
+
+_types = {}
+
+
+if __name__ == '__main__':
+    print typeFromName( 'Detector' )
 
 

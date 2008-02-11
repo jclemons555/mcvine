@@ -25,8 +25,6 @@ all: export
 
 EXPORT_PYTHON_MODULES = \
 	AbstractNode.py \
-	Block.py \
-	Cylinder.py \
 	Copy.py \
 	Detector.py \
 	DetectorArray.py \
@@ -34,14 +32,12 @@ EXPORT_PYTHON_MODULES = \
 	DetectorSystem.py \
 	Document.py \
 	Guide.py \
-	HollowCylinder.py \
 	Instrument.py \
 	InstrumentGeometer.py \
 	LocalGeometer.py \
 	Moderator.py \
 	Monitor.py \
 	Pixel.py \
-	RectTube.py \
 	Register.py \
 	Sample.py \
 	Shape.py \

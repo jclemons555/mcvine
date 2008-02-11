@@ -12,10 +12,10 @@
 #
 
 
-from pyre.xml.Document import Document as DocumentNode
+from instrument.geometry.pml.parser.Document import Document as base
 
 
-class Document(DocumentNode):
+class Document(base):
 
 
     tags = [
@@ -32,7 +32,6 @@ class Document(DocumentNode):
         'InstrumentGeometer',
 
         'Shape',
-        'Cylinder', 'RectTube', 'Block', 'HollowCylinder',
         ]
 
 
