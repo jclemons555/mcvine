@@ -172,8 +172,8 @@ def remove_unit_of_vector( v, unit ):
     assert len(v) == 3
     for i in v:
         if not isinstance(i, float):
-            raise ValueError , "v should have unit of length: %s" %(
-                v, )
+            raise ValueError , "v should have unit %s(%s): %s" %(
+                unit, type(unit), v, )
         continue
     # this means v already is a unitless vector
     return v
