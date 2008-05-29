@@ -33,6 +33,10 @@ def readConf( conffn ):
                 exec '%s=float(record[a])' % (a,)
                 continue
 
+            # the whole ARCS detector system was off-center to 
+            # avoid gaps in Q space
+            ztrn -= 50
+
             packID =  record.get('arcs module no.')
             if packID is None: packID = len(records)+1 # ARCS convention: pack ID starts with 1, not 0
             else: packID = int(packID)
