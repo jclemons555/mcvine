@@ -71,7 +71,8 @@ class InstrumentFactory( object):
     Instrument object and a geometer for ARCS"""
 
 
-    def construct( self, detconfigfile, longpackinfo, shortpackinfo,
+    def construct( self, detconfigfile, longpackinfo,
+                   shortpack1info, shortpack2info,
                    mod2sample = 13.6, xmloutput = None ):
         '''construct a new ARCS instrument
 
@@ -80,7 +81,8 @@ Parameters:
   -detconfigfile: detector configuration file from Doug
   -longpackinfo: long pack related info, a tuple of
       (pressure, npixels, radius, height, gap )
-  -shortpackinfo: short pack releated info, a tuple too
+  -shortpack1info: short pack type 1 info, a tuple too
+  -shortpack2info: short pack type 2 info, a tuple too
   -mod2sample: moderator to sample distance
 '''
         #read detector pack records
@@ -117,8 +119,11 @@ Parameters:
         self.makeDetectorSystem(
             arcs, geometer, 
             packRecords,
-            {'long':longpackinfo,
-             'short': shortpackinfo }
+            {
+            'long':longpackinfo,
+            'short1': shortpack1info,
+            'short2': shortpack2info,
+            }
             )
 
         # set up guid registry

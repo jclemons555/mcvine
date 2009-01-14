@@ -47,7 +47,13 @@ def readConf( conffn ):
             continue
 
 
-        if 'SHORT' in line: type = 'short'
+        if 'SHORT' in line:
+            if '32A' in line:
+                type = 'short1' # short tube that is longer
+            elif '32B' in line:
+                type = 'short2' # short tube that is shorter
+            else:
+                raise RuntimeError
         else: type = 'long'
 
         record = [ packID, type, (xtrn, ytrn, ztrn), (xrot, yrot, zrot),  ]

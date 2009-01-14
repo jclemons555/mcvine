@@ -24,12 +24,16 @@ class MakeARCSxml(Script):
             'detconfigfile', default = "ARCS-detector-configuration.txt ")
 
         long = pinv.str(
-            'long', default = '10*atm, 128, 0.5*inch, 1.*meter, 0.08*inch' )
+            'long', default = '10*atm, 128, 0.5*inch, 38.06*inch, 0.08*inch' )
         long.meta['tip'] = 'info about long detector pack: pressure, npixels, radius, length, gap'
         
-        short = pinv.str(
-            'short', default = '10*atm, 32, 0.5*inch, 0.25*meter, 0.08*inch' )
-        short.meta['tip'] = 'info about short detector: pressure, npixels, radius, length, gap'
+        short1 = pinv.str(
+            'short1', default = '10*atm, 128, 0.5*inch, 14.86*inch, 0.08*inch' )
+        short1.meta['tip'] = 'info about short detector type 1: pressure, npixels, radius, length, gap'
+
+        short2 = pinv.str(
+            'short2', default = '10*atm, 128, 0.5*inch, 10.92*inch, 0.08*inch' )
+        short2.meta['tip'] = 'info about short detector type 2: pressure, npixels, radius, length, gap'
 
         xmloutput = pinv.str(name='xmloutput')
         
@@ -46,18 +50,20 @@ class MakeARCSxml(Script):
             raise RuntimeError, 'Please specify output xml filename by -xmloutput'
         filename = self.inventory.detconfigfile
         long = self._parse( self.inventory.long )
-        short = self._parse( self.inventory.short )
+        short1 = self._parse( self.inventory.short1 )
+        short2 = self._parse( self.inventory.short2 )
         xmloutput = self.inventory.xmloutput
         
         from instrument.factories.ARCSBootstrap import InstrumentFactory as Factory
         factory = Factory()
         instrument, geometer = factory.construct(
-            filename, long, short, xmloutput=xmloutput )
+            filename, long, short1, short2, xmloutput=xmloutput )
 
         params = {
             'detconfigfile': filename,
             'long': self.inventory.long,
-            'short': self.inventory.short,
+            'short1': self.inventory.short1,
+            'short2': self.inventory.short2,
             }
         cmd = 'makeARCSxml.py ' + ' '.join(
             [ '-%s="%s"' % (k,v) for k,v in params.iteritems()] )
