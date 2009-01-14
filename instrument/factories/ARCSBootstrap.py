@@ -66,13 +66,13 @@ from _journal import debug
 
 class InstrumentFactory( object):
     
-    """Use det info extracted by LrmecsDataFilerParser and
+    """Use det info extracted from given text file and
     hard-coded info to construct an
-    Instrument object and a geometer for LRMECS"""
+    Instrument object and a geometer for ARCS"""
 
 
     def construct( self, detconfigfile, longpackinfo, shortpackinfo,
-                   mod2sample = 13.6 ):
+                   mod2sample = 13.6, xmloutput = None ):
         '''construct a new ARCS instrument
 
 Parameters:
@@ -135,11 +135,12 @@ Parameters:
         del self.local_geometers, self._instrument
 
         # save the xml description
+        if not xmloutput:
+            xmloutput = '%s.xml' % (os.path.basename(detconfigfile),)
         from instrument.nixml import weave
         import os
-        f = '%s.xml' % (os.path.basename(detconfigfile),)
-        print 'write arcs instrument to %s' % f
-        weave( arcs, open(f, 'w') )
+        print 'write arcs instrument to %s' % xmloutput
+        weave( arcs, open(xmloutput, 'w') )
         return arcs, instrumentGeometer
 
 

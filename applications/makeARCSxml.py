@@ -30,6 +30,8 @@ class MakeARCSxml(Script):
         short = pinv.str(
             'short', default = '10*atm, 32, 0.5*inch, 0.25*meter, 0.08*inch' )
         short.meta['tip'] = 'info about short detector: pressure, npixels, radius, length, gap'
+
+        xmloutput = pinv.str(name='xmloutput')
         
         pass  # end of Inventory
 
@@ -43,16 +45,12 @@ class MakeARCSxml(Script):
         filename = self.inventory.detconfigfile
         long = self._parse( self.inventory.long )
         short = self._parse( self.inventory.short )
+        xmloutput = self.inventory.xmloutput
         
         from instrument.factories.ARCSBootstrap import InstrumentFactory as Factory
         factory = Factory()
         instrument, geometer = factory.construct(
-            filename, long, short )
-
-        import os
-        xmlfn = '%s.xml' % filename
-        os.rename( xmlfn, 'ARCS.xml' )
-        print "%s renamed ARCS.xml" % xmlfn
+            filename, long, short, xmloutput=xmloutput )
         return
 
 
