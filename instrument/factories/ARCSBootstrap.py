@@ -81,8 +81,8 @@ Parameters:
   -detconfigfile: detector configuration file from Doug
   -longpackinfo: long pack related info, a tuple of
       (pressure, npixels, radius, height, gap )
-  -shortpack1info: short pack type 1 info, a tuple too
-  -shortpack2info: short pack type 2 info, a tuple too
+  -shortpack1info: short pack type 1 info, a tuple too (pack 71)
+  -shortpack2info: short pack type 2 info, a tuple too (pack 70)
   -mod2sample: moderator to sample distance
 '''
         #read detector pack records

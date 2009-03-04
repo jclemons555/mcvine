@@ -48,10 +48,10 @@ def readConf( conffn ):
 
 
         if 'SHORT' in line:
-            if '32A' in line:
-                type = 'short1' # short tube that is longer
-            elif '32B' in line:
-                type = 'short2' # short tube that is shorter
+            if '32A' in line: # pack 71
+                type = 'short1' # short tube that is shorter
+            elif '32B' in line: # pack 70
+                type = 'short2' # short tube that is longer
             else:
                 raise RuntimeError
         else: type = 'long'

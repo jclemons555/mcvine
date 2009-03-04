@@ -29,11 +29,11 @@ class MakeARCSxml(Script):
         
         short1 = pinv.str(
             'short1', default = '10*atm, 128, 0.5*inch, 14.86*inch, 0.08*inch' )
-        short1.meta['tip'] = 'info about short detector type 1: pressure, npixels, radius, length, gap'
+        short1.meta['tip'] = 'info about short detector type 1 (pack 71, shorter): pressure, npixels, radius, length, gap'
 
         short2 = pinv.str(
             'short2', default = '10*atm, 128, 0.5*inch, 10.92*inch, 0.08*inch' )
-        short2.meta['tip'] = 'info about short detector type 2: pressure, npixels, radius, length, gap'
+        short2.meta['tip'] = 'info about short detector type 2 (pack 70, longer): pressure, npixels, radius, length, gap'
 
         xmloutput = pinv.str(name='xmloutput')
         
