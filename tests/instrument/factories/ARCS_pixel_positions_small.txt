@@ -1,0 +1,1 @@
+../../../share/ARCS/ARCS_pixel_positions_small.txt

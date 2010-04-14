@@ -12,7 +12,7 @@
 #
 
 
-from instrument.factories.ARCSBootstrap import *
+from instrument.factories.ARCSBootstrap_fromnxs import *
 
 
 import unittest, unittestX
@@ -21,20 +21,11 @@ class ARCSBootstrap_TestCase(unittestX.TestCase):
 
 
     def test(self):
-        """instrument.factories.ARCSBootstrap
+        """instrument.factories.ARCSBootstrap_fromnxs
         """
-        # f = 'arcs1810ds0001xls.txt'
-        f = 'ARCS_pixel_positions_small.txt'
-        factory = InstrumentFactory( )
-        
-        from pyre.units.length import meter, inch
-        from pyre.units.pressure import atm
-        
-        long = 10*atm, 128, 0.5*inch, 1.*meter, 0.08*inch
-        short1 = 10*atm, 128, 0.5*inch, 10.92*inch, 0.08*inch
-        short2 = 10*atm, 128, 0.5*inch, 14.86*inch, 0.08*inch
-        instrument, geometer = factory.construct(
-            f, long, short1, short2 )
+        f = 'ARCS_5610.nxs'
+        factory = InstrumentFactory()
+        instrument, geometer = factory.construct(f)
         return
 
 

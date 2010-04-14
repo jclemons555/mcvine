@@ -33,6 +33,8 @@ all: export
 EXPORT_PYTHON_MODULES = \
 	__init__.py	 \
 	ARCSBootstrap.py \
+	ARCSBootstrapBase.py \
+	ARCSBootstrap_fromnxs.py \
 	ARCSDetPackCSVParser.py\
 	FakeInstrument.py	\
 	Instrument_CylindricalDetectorSystem.py \
