@@ -138,7 +138,7 @@ def _toMatrix(phx,phy,phz, unit='degree'):
     t[2][2] = cx*cy;
     return t
     
-def toAngles(m, unit='degree'):
+def toAngles(m, unit='degree', epsilon=1e-8):
     '''convert a rotation matrix to angles. the rotation matrix is related to
     rotation angles phx, phy, phz as
     
@@ -154,10 +154,10 @@ def toAngles(m, unit='degree'):
     #otherwise we want to make sure m is a Matrix
     if not isMatrix3(m): raise TypeError , "Not a 3X3 matrix: %s" % m
     from numpy import arctan2, arcsin
-    if m[2][0]>1-1e-8 :
+    if m[2][0]>1-epsilon :
         x=0.
         z=arctan2(m[0][1],m[1][1])
-    elif m[2][0]<1e-8-1 :
+    elif m[2][0]<epsilon-1 :
         x=0.
         z=arctan2(m[0][1],m[1][1])
     else :
@@ -168,16 +168,16 @@ def toAngles(m, unit='degree'):
     try:
         for i in range(3):
             for j in range(3):
-                if abs(m[i][j])<1e-8 :
-                    if abs(m1[i][j]-m[i][j])>1e-8 :
-                        raise 'conversion failed %s' % m
+                if abs(m[i][j])<epsilon :
+                    if abs(m1[i][j]-m[i][j])>epsilon :
+                        raise RuntimeError, 'conversion failed %s' % m
                 else :
-                    if abs( (m1[i][j]-m[i][j])/m[i][j] )>1e-8 :
-                        raise 'conversion failed %s' % m
+                    if abs( (m1[i][j]-m[i][j])/m[i][j] )>epsilon :
+                        raise RuntimeError, 'conversion failed %s' % m
     except:
         print 'original matrix:',m
         print 'converted matrix:',m1
-        raise 'conversion failed %s' % m
+        raise RuntimeError, 'conversion failed %s' % m
     if unit.lower() == 'deg' or unit.lower() == 'degree':
         return map(todegree, (x,y,z))
     else:
