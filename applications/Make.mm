@@ -46,6 +46,7 @@ EXPORT_PYTHON_MODULES = \
 
 EXPORT_BINS = \
 	makeARCSxml.py \
+	makeARCSxml_fromnxs.py \
 
 
 include doxygen/default.def
