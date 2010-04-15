@@ -25,11 +25,16 @@ class MakeARCSxml(Script):
         import pyre.inventory as pinv
 
         nxfile = pinv.str('nxfile', default = '')
+        nxfile.meta['tip'] = 'nexus file name. eg. ARCS_5610.nxs'
+
         nxentry = pinv.str('nxentry', default = '/entry')
+        nxentry.meta['tip'] = 'the entry in the nexus file'
 
         mod2sample = pinv.dimensional('mod2sample', default = 13.6*units.length.meter)
+        mod2sample.meta['tip'] = 'distance from moderator to sample'
 
         xmloutput = pinv.str(name='xmloutput')
+        xmloutput.meta['tip'] = 'The output xml file'
         
         pass  # end of Inventory
 
