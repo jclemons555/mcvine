@@ -12,6 +12,14 @@
 #
 
 
+def parse_file(xmlfile):
+    """read mantid xml file and get detector pack information"""
+    import xml.etree.ElementTree as ET
+    tree = ET.parse(xmlfile)
+    root = tree.getroot()
+    return instrument(root)
+
+
 import weakref
 class instrument:
     
@@ -28,7 +36,16 @@ class instrument:
         return
 
 
-class node:
+class node(object):
+
+    instances = {}
+    def __new__(cls, xmlnode, parent, root):
+        instances = cls.instances
+        if xmlnode not in instances:
+            instances[xmlnode] = object.__new__(
+                cls, xmlnode, parent, root)
+        return instances[xmlnode]
+    
 
     def __init__(self, xmlnode, parent, root):
         self._node = weakref.proxy(xmlnode)
@@ -57,7 +74,8 @@ class node:
 
     def __getattr__(self, key):
         return self._node.attrib[key]
-
+    __getitem__ = __getattr__
+    
 
     def __str__(self):
         attrs = self._node.attrib.copy()
@@ -90,14 +108,6 @@ class component(node):
 class Type(node):
     
     pass
-
-
-def parse_file(xmlfile):
-    """read mantid xml file and get detector pack information"""
-    import xml.etree.ElementTree as ET
-    tree = ET.parse(xmlfile)
-    root = tree.getroot()
-    return instrument(root)
 
 
 # version
