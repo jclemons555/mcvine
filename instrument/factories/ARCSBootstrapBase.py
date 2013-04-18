@@ -67,7 +67,7 @@ pixelSolidAngle = 1.
 
 monitorRecords = [
     { 'id': 0,
-      'distanceToModerator': 11.825*m,
+      'distanceToModerator': 11.831*m,
       #width, height, thickness
       'dimensions': [7.62*cm, 7.62*cm, 3.81*cm],
       },
@@ -244,7 +244,11 @@ Parameters:
 
         return # detArray # arcs, geometer
 
-
+    
+    # XXX: need more thoughts here
+    # 180 degree is an artifact of current limitation of simulation
+    # package.
+    tube_orientation = (0, 180, 0) 
     def _makePack(self, name, id, instrument,
                   pressure, npixels, radius, height, gap ):
         '''make a unique 8-pack
@@ -263,17 +267,15 @@ all physical parameters must have units attached.
             'det0', 0, instrument, pressure, npixels, radius, height )
         pack.addElement( det0 )
 
-        #180 degree is an artifact of current limitation of simulation
-        #package.
         from ARCS.tubePositions import getPositions
         positions = getPositions( radius, gap )
-        packGeometer.register( det0, (0*m,positions[0],0*m), (0,180,0) )
+        packGeometer.register( det0, (0*m,positions[0],0*m), self.tube_orientation)
         
         for i in range(1,8):
             det = elements.copy( 'det%s' % i, det0.guid(),
                                  guid = instrument.getUniqueID() )
             pack.addElement( det )
-            packGeometer.register( det, (0*m,positions[i],0*m), (0,180,0) )
+            packGeometer.register( det, (0*m,positions[i],0*m), self.tube_orientation)
             continue
         return pack
     

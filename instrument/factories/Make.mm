@@ -35,6 +35,7 @@ EXPORT_PYTHON_MODULES = \
 	ARCSBootstrap.py \
 	ARCSBootstrapBase.py \
 	ARCSBootstrap_fromnxs.py \
+	ARCSBootstrap_mantid_idf.py \
 	ARCSDetPackCSVParser.py\
 	FakeInstrument.py	\
 	Instrument_CylindricalDetectorSystem.py \

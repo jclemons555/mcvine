@@ -10,6 +10,14 @@
 #
 
 
+"""
+2013: this wouldn't work for ARCS nexus files
+  since instrument info is not stored in the nexus file. 
+  Mantid uses instrument definition xml files to store instrument
+  info. 
+  See ARCSBootstrap_mantid_idf
+"""
+
 from ARCSBootstrapBase import InstrumentFactory as base, PackInfo, units
 class InstrumentFactory(base):
 
