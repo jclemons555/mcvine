@@ -11,32 +11,34 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PROJECT = instrument
-PACKAGE = tests/instrument
+PACKAGE = mantid
 
 BUILD_DIRS = \
-	elements\
-	factories\
-	geometers\
-	integrated\
-	mantid\
-	nixml\
-
 
 RECURSE_DIRS = $(BUILD_DIRS)
 
 #--------------------------------------------------------------------------
 #
 
-all: 
+all: export
 	BLD_ACTION="all" $(MM) recurse
 
 tidy::
 	BLD_ACTION="tidy" $(MM) recurse
 
 
+#--------------------------------------------------------------------------
+#
+# export
+
+EXPORT_PYTHON_MODULES = \
+	__init__.py
+
+
+export:: export-package-python-modules 
 
 
 # version
-# $Id: Make.mm 1248 2007-09-26 21:49:33Z linjiao $
+# $Id: Make.mm 1234 2007-09-18 18:32:56Z linjiao $
 
 # End of file

@@ -11,32 +11,38 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PROJECT = instrument
-PACKAGE = tests/instrument
-
-BUILD_DIRS = \
-	elements\
-	factories\
-	geometers\
-	integrated\
-	mantid\
-	nixml\
+PACKAGE = tests/instrument/mantid
 
 
-RECURSE_DIRS = $(BUILD_DIRS)
+
+PROJ_TIDY += *.log *.pyc
+PROJ_CLEAN += $(PROJ_CPPTESTS)
+
+PROJ_PYTESTS = alltests.py
+PROJ_CPPTESTS = 
+PROJ_TESTS = $(PROJ_PYTESTS) $(PROJ_CPPTESTS)
+PROJ_LIBRARIES = -L$(BLD_LIBDIR) 
+
 
 #--------------------------------------------------------------------------
 #
 
-all: 
-	BLD_ACTION="all" $(MM) recurse
+all: $(PROJ_TESTS)
 
-tidy::
-	BLD_ACTION="tidy" $(MM) recurse
+test:
+	for test in $(PROJ_TESTS) ; do $${test}; done
 
+release: tidy
+	cvs release .
 
+update: clean
+	cvs update .
+
+#--------------------------------------------------------------------------
+#
 
 
 # version
-# $Id: Make.mm 1248 2007-09-26 21:49:33Z linjiao $
+# $Id: Make.mm 469 2006-04-06 23:03:20Z jiao $
 
 # End of file

@@ -19,6 +19,7 @@ BUILD_DIRS = \
 	factories\
 	geometers\
 	geometry\
+	mantid\
 	nixml\
 	viewers \
 
