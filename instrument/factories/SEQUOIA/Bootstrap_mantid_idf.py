@@ -34,7 +34,7 @@ class InstrumentFactory(base):
     
     def construct( 
         self, idfpath,
-        mod2sample = 20.0114*units.length.meter,
+        mod2sample = 20.0254*units.length.meter,
         pressure=10 * units.pressure.atm, 
         tuberadius=0.5 * units.length.inch, 
         tubegap = 0.08 * units.length.inch,
@@ -58,7 +58,7 @@ class InstrumentFactory(base):
 
 
     def _readPacks(self, idfpath):
-        from ..mantid import parse_file
+        from ...mantid import parse_file
         inst = parse_file(idfpath)
         
         import operator as op
@@ -127,13 +127,9 @@ def getPositionAndOrientation(eightpack):
     pos = z*1000, x*1000, y*1000
     
     rot1 = location.getChildren('rot')[0]
-    rot2 = rot1.getChildren('rot')[0]
-    rot3 = rot2.getChildren('rot')[0]
-    rot = map(getRotation, [rot1, rot2, rot3])
-    assert rot[0][0] == [0., 1., 0.]
-    assert rot[1][0] == [1., 0., 0.]
-    assert rot[2][0] == [0., 0., 1.]
-    rot = 0,0,rot[0][1]+180
+    rot1 = getRotation(rot1)
+    assert rot1[0] == [0., 1., 0.]
+    rot = 0,0,rot1[1]-180
     return pos,rot
 
 

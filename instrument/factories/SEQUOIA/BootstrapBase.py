@@ -34,7 +34,7 @@ def packType(packinfo):
 
 
 from math import sqrt, acos, atan, pi, cos, sin
-import units
+from .. import units
 atm = units.pressure.atm
 m = units.length.m
 cm = units.length.cm
@@ -110,7 +110,7 @@ Parameters:
         sequoia.guidRegistry.registerAll( sequoia )
         
         # instrument global geometer
-        instrumentGeometer = geometers.sequoia(
+        instrumentGeometer = geometers.arcs(
             sequoia, self.local_geometers,
             registry_coordinate_system = 'InstrumentScientist' )
         

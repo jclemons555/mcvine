@@ -13,7 +13,7 @@ delta = 0.08 * inch
 
 
 def getSize( radius, height, gap ):
-    with_cushion = 1.1
+    with_cushion = 1.005
     size = {
         'thickness': 2*radius * with_cushion,
         'width': (8*2*radius + 7*gap) * with_cushion,
