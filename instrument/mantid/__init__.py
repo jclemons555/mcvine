@@ -12,18 +12,18 @@
 #
 
 
-def parse_file(xmlfile):
+def parse_file(xmlfile, **kwds):
     """read mantid xml file and get detector pack information"""
     import xml.etree.ElementTree as ET
     tree = ET.parse(xmlfile)
     root = tree.getroot()
-    return instrument(root)
+    return instrument(root, **kwds)
 
 
 import weakref
 class instrument:
     
-    def __init__(self, xmlroot):
+    def __init__(self, xmlroot, rowtypename='row'):
         root = self._root = xmlroot
         self.defaults = root.find('defaults')
         self.components = [
@@ -31,7 +31,7 @@ class instrument:
             ]
         self.detectors = [
             c for c in self.components
-            if c.type.endswith('row')
+            if c.type.endswith(rowtypename)
             ]
         return
 
