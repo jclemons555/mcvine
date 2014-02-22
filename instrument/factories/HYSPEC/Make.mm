@@ -11,21 +11,12 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PROJECT = instrument
-PACKAGE = factories
-
-
-BUILD_DIRS = \
-	ARCS \
-	SEQUOIA \
-	HYSPEC \
-
-RECURSE_DIRS = $(BUILD_DIRS)
+PACKAGE = factories/HYSPEC
 
 #--------------------------------------------------------------------------
 #
 
 all: export
-	BLD_ACTION="all" $(MM) recurse
 
 
 #--------------------------------------------------------------------------
@@ -33,27 +24,16 @@ all: export
 # export
 
 EXPORT_PYTHON_MODULES = \
-	__init__.py	 \
-	ARCSBootstrap.py \
-	ARCSBootstrapBase.py \
-	ARCSBootstrap_fromnxs.py \
-	ARCSBootstrap_mantid_idf.py \
-	ARCSDetPackCSVParser.py\
-	FakeInstrument.py	\
-	Instrument_CylindricalDetectorSystem.py \
-	LPSDFactory.py \
-	LrmecsBootstrap.py \
-	LrmecsDataFileParser.py \
-	PharosBootstrap.py \
-	PharosDetCSVParser.py\
-	PseudoSingleton.py\
-	units.py \
-	_journal.py \
+	BootstrapBase.py\
+	Bootstrap_mantid_idf.py\
+	__init__.py	\
+	packSize.py 	\
+	tubePositions.py\
 
 
 export:: export-package-python-modules
 
 # version
-# $Id$
+# $Id: Make.mm 1255 2007-09-29 02:45:09Z linjiao $
 
 # End of file
