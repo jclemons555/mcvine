@@ -61,7 +61,6 @@ class InstrumentFactory(base):
         inst = parse_file(idfpath, rowtypename='Tank')
         
         import operator as op
-        import pdb; pdb.set_trace()
         rows = inst.detectors
         getpacks = lambda row: row.getType().components
         packs = [getpacks(row) for row in rows]
