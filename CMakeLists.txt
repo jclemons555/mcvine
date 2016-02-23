@@ -39,6 +39,8 @@ if("${BUILDING_MCVINE}" STREQUAL "")
 
   #
   enable_testing()
+else("${BUILDING_MCVINE}" STREQUAL "")
+  set(EXPORT_SHARE ${EXPORT_SHARE}/instrument)
 endif()
 
 # python
