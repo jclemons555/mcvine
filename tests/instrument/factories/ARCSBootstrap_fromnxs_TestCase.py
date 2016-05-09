@@ -23,6 +23,7 @@ class ARCSBootstrap_TestCase(unittestX.TestCase):
     def test(self):
         """instrument.factories.ARCSBootstrap_fromnxs
         """
+        # XXX: should add this file to mcvine/resources
         f = 'ARCS_5610.nxs'
         factory = InstrumentFactory()
         instrument, geometer = factory.construct(f)
