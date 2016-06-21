@@ -20,6 +20,7 @@ class Document (base):
         'Cylinder',
         'HollowCylinder',
         'RectTube',
+        'Sphere',
         ]
 
     pass # end of Document

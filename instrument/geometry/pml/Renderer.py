@@ -1,14 +1,6 @@
 #!/usr/bin/env python
 #
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#
-#                                Jiao Lin
-#                      California Institute of Technology
-#                      (C)    2007   All Rights Reserved
-#
-# <LicenseText>
-#
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Jiao Lin <jiao.lin@gmail.com>
 #
 
 
@@ -30,6 +22,12 @@ class Renderer(base):
     def onCylinder(self, cylinder):
         self._printDocs( cylinder)
         base.onCylinder(self, cylinder)
+        return
+    
+
+    def onSphere(self, sphere):
+        self._printDocs( sphere)
+        base.onSphere(self, sphere)
         return
     
 
@@ -60,8 +58,5 @@ class Renderer(base):
 
     pass # end of Renderer
 
-
-# version
-__id__ = "$Id$"
 
 # End of file 

@@ -1,16 +1,7 @@
 #!/usr/bin/env python
 #
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Jiao Lin <jiao.lin@gmail.com>
 #
-#                                   Jiao Lin
-#                      California Institute of Technology
-#              (C) 2006 All Rights Reserved  All Rights Reserved
-#
-# {LicenseText}
-#
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#
-
 
 #! needs revisions to match Base.py
 

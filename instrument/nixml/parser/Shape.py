@@ -1,14 +1,6 @@
 #!/usr/bin/env python
 #
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#
-#                                 Jiao Lin   
-#                      California Institute of Technology
-#                      (C)   2007    All Rights Reserved
-#
-# <LicenseText>
-#
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Jiao Lin <jiao.lin@gmail.com>
 #
 
 
@@ -39,7 +31,7 @@ class Shape(Node):
         return
 
     onUnion = on_
-    onCylinder = onRectTube = onBlock = on_
+    onSphere = onCylinder = onRectTube = onBlock = on_
     onHollowCylinder = on_
 
     pass # end of Shape
