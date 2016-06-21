@@ -11,10 +11,9 @@ class SphereShell(AbstractNode):
 
     tag = "sphereShell"
 
-
     def notify(self, parent):
         sphereShell = shapes.sphereShell(
-            self._in_radius, self._out_radius, self._height)
+            self._in_radius, self._out_radius)
         parent.onSphereShell(sphereShell)
         return
 
@@ -23,7 +22,6 @@ class SphereShell(AbstractNode):
         AbstractNode.__init__(self, attributes)
         self._in_radius = self._parse(attributes["in_radius"])
         self._out_radius = self._parse(attributes["out_radius"])
-        self._height = self._parse(attributes["height"])
         return
 
 
