@@ -13,6 +13,10 @@ def hollowCylinder(*args, **kwds):
     from HollowCylinder import HollowCylinder
     return HollowCylinder( *args, **kwds )
 
+def sphereShell(*args, **kwds):
+    from SphereShell import SphereShell
+    return SphereShell( *args, **kwds )
+
 def cylinder(*args, **kwds):
     from Cylinder import Cylinder
     return Cylinder( *args, **kwds )

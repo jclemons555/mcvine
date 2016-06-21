@@ -21,6 +21,7 @@ class Document (base):
         'HollowCylinder',
         'RectTube',
         'Sphere',
+        'SphereShell',
         ]
 
     pass # end of Document

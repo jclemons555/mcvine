@@ -25,6 +25,15 @@ class Renderer(base):
         return
     
 
+    def onSphereShell(self, sphereShell):
+        self._printDocs( sphereShell)
+        s  = '<sphereShell in_radius="%s" out_radius="%s" />' %(
+            sphereShell.in_radius, sphereShell.out_radius,
+            )
+        self._write(s )
+        return
+    
+
     def onSphere(self, sphere):
         self._printDocs( sphere)
         base.onSphere(self, sphere)
