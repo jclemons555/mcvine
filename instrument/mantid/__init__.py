@@ -17,17 +17,26 @@ def parse_file(xmlfile, **kwds):
     import xml.etree.ElementTree as ET
     tree = ET.parse(xmlfile)
     root = tree.getroot()
-    return instrument(root, **kwds)
+    tag = root.tag
+    if tag.startswith('{'):
+        # tag is '{http://www.mantidproject.org/IDF/1.0}instrument'
+        # get the url part
+        url = tag[1:].split('}')[0]
+        namespaces = dict(idf=url)
+    else:
+        namespaces = None
+    return instrument(root, namespaces=namespaces, **kwds)
 
 
 import weakref
 class instrument:
     
-    def __init__(self, xmlroot, rowtypename='row'):
+    def __init__(self, xmlroot, rowtypename='row', namespaces=None):
         root = self._root = xmlroot
-        self.defaults = root.find('defaults')
+        self.defaults = _find(root, 'defaults', namespaces)
         self.components = [
-            component(c, root, root) for c in root.findall('component')
+            component(c, root, root, namespaces)
+            for c in _findall(root, 'component', namespaces)
             ]
         self.detectors = [
             c for c in self.components
@@ -35,19 +44,33 @@ class instrument:
             ]
         return
 
+def _make_operator(method):
+    def _(node, tag, ns):
+        m = getattr(node, method)
+        if ns:
+            assert len(ns)==1
+            key = ns.keys()[0]
+            val = ns.values()[0]
+            return m('%s:%s' % (key, tag), namespaces=ns)
+        else:
+            return m(tag)
+    return _
+_find = _make_operator('find')
+_findall = _make_operator('findall')
+        
 
 class node(object):
 
     instances = {}
-    def __new__(cls, xmlnode, parent, root):
+    def __new__(cls, xmlnode, parent, root, namespaces=None):
         instances = cls.instances
         if xmlnode not in instances:
             instances[xmlnode] = object.__new__(
-                cls, xmlnode, parent, root)
+                cls, xmlnode, parent, root, namespaces)
         return instances[xmlnode]
     
 
-    def __init__(self, xmlnode, parent, root):
+    def __init__(self, xmlnode, parent, root, namespaces=None):
         self._node = weakref.proxy(xmlnode)
         try:
             self._parent = weakref.proxy(parent)
@@ -58,8 +81,10 @@ class node(object):
         except TypeError:
             self._root = root
 
+        self.namespaces = namespaces
         self.components = [
-            component(c, xmlnode, root) for c in xmlnode.findall('component')
+            component(c, xmlnode, root, namespaces)
+            for c in _findall(xmlnode, 'component', namespaces)
             ]
         return
 
@@ -67,8 +92,10 @@ class node(object):
     def getChildren(self, type):
         root = self._root
         parent = self._node
+        namespaces = self.namespaces
         return [
-            node(c, parent, root) for c in parent.findall(type)
+            node(c, parent, root, self.namespaces)
+            for c in _findall(parent, type, namespaces)
             ]
 
 
@@ -99,10 +126,11 @@ class component(node):
     def getType(self):
         type = self.type
         root = self._root
-        nodes = root.findall("type[@name='%s']" % type)
+        namespaces = self.namespaces
+        nodes = _findall(root, "type[@name='%s']" % type, namespaces)
         assert len(nodes) == 1
         node = nodes[0]
-        return Type(node, root, root)
+        return Type(node, root, root, namespaces=namespaces)
     
 
 class Type(node):
