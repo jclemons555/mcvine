@@ -22,6 +22,7 @@ class Document (base):
         'RectTube',
         'Sphere',
         'SphereShell',
+        'Rotation',
         ]
 
     pass # end of Document
