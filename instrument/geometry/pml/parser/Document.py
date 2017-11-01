@@ -23,6 +23,7 @@ class Document (base):
         'Sphere',
         'SphereShell',
         'Rotation',
+        'Translation',
         ]
 
     pass # end of Document

@@ -1,8 +1,8 @@
-from pyre.geometry.pml.parser.AbstractNode import AbstractNode
+from .Transformation import Transformation
 import instrument.geometry.operations as ops
 
 
-class Rotation(AbstractNode):
+class Rotation(Transformation):
 
 
     tag = "rotation"
@@ -15,13 +15,7 @@ class Rotation(AbstractNode):
 
 
     def __init__(self, document, attributes):
-        AbstractNode.__init__(self, attributes)
+        super(Rotation, self).__init__(attributes)
         self._angles = self._parse(attributes["angles"])
         return
 
-
-    def onBody(self, body):
-        self._body = body
-        return
-
-    onBlock = onBody
