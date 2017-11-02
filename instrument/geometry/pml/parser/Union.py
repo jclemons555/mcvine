@@ -1,7 +1,8 @@
 
 from pyre.geometry.pml.parser.Union import Union as base
+from .CompositionExtension import CompositionExtension
 
-class Union(base):
+class Union(base, CompositionExtension):
 
     def notify(self, parent):
         if not self._b1 or not self._b2:

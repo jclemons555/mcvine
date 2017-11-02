@@ -22,8 +22,8 @@ class Document (base):
         'RectTube',
         'Sphere',
         'SphereShell',
-        'Rotation',
-        'Translation',
+        
+        'Rotation', 'Translation',
         'Union',
         ]
 
