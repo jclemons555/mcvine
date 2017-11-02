@@ -23,7 +23,7 @@ class Document (base):
         'Sphere',
         'SphereShell',
         
-        'Rotation', 'Translation',
+        'Rotation', 'Translation', 'Dilation',
         'Union',
         ]
 
