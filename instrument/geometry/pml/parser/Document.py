@@ -24,6 +24,7 @@ class Document (base):
         'SphereShell',
         'Rotation',
         'Translation',
+        'Union',
         ]
 
     pass # end of Document
