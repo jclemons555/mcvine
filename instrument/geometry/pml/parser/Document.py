@@ -24,7 +24,7 @@ class Document (base):
         'SphereShell',
         
         'Rotation', 'Translation', 'Dilation',
-        'Union',
+        'Union', 'Intersection', 'Difference',
         ]
 
     pass # end of Document
