@@ -33,6 +33,7 @@ class instrument:
     
     def __init__(self, xmlroot, rowtypename='row', namespaces=None):
         root = self._root = xmlroot
+        self.namespaces = namespaces
         self.defaults = _find(root, 'defaults', namespaces)
         self.components = [
             component(c, root, root, namespaces)
@@ -42,7 +43,18 @@ class instrument:
             c for c in self.components
             if c.type.endswith(rowtypename)
             ]
+        self.monitor_locations = self._getMonitorLocations()
         return
+
+
+    def _getMonitorLocations(self):
+        namespaces = self.namespaces
+        root = self._root
+        ns = namespaces.keys()[0]
+        xmlnode = root.find("%(ns)s:type[@name='monitors']" % dict(ns=ns), namespaces=namespaces)
+        monitor_positions_container = node(xmlnode, root, root, namespaces)
+        return monitor_positions_container.getChildren('component')[0].getChildren('location')
+
 
 def _make_operator(method):
     def _(node, tag, ns):
