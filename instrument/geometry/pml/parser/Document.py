@@ -19,6 +19,7 @@ class Document (base):
         'Block',
         'Cylinder',
         'HollowCylinder',
+        'Pyramid',
         'RectTube',
         'Sphere',
         'SphereShell',

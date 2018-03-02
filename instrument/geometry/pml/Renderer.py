@@ -48,6 +48,14 @@ class Renderer(base):
         return
     
 
+    def onPyramid(self, pyramid):
+        self._printDocs( pyramid)
+        s  = '<pyramid thickness="%s" width="%s" height="%s"/>' %(
+            pyramid.width, pyramid.height, pyramid.thickness)
+        self._write(s )
+        return
+    
+
     def onRectTube(self, rectTube):
         self._printDocs( rectTube )
         s = '<rectTube front="%s,%s" back="%s,%s" length="%s"/>' %(

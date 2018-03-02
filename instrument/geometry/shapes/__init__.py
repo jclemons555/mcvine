@@ -21,6 +21,10 @@ def cylinder(*args, **kwds):
     from Cylinder import Cylinder
     return Cylinder( *args, **kwds )
 
+def pyramid(*args, **kwds):
+    from Pyramid import Pyramid
+    return Pyramid( *args, **kwds )
+
 def sphere(*args, **kwds):
     from Sphere import Sphere
     return Sphere( *args, **kwds )
