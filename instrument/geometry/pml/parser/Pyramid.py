@@ -4,11 +4,13 @@
 #
 
 
-from pyre.geometry.pml.parser.Pyramid import Pyramid as base
+from pyre.geometry.pml.parser.AbstractNode import AbstractNode
 import instrument.geometry.shapes as shapes
 
-class Pyramid( base ):
+class Pyramid( AbstractNode ):
 
+    tag = "pyramid"
+    
     def notify(self, parent):
         pyramid = shapes.pyramid(
             thickness=self._thickness,
