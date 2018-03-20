@@ -20,6 +20,7 @@
   <union>
     <cylinder radius="2.5" height="100"/>
     <block thickness="0.1" height="1" width='0.2'/>
+    <sphere radius="1.0"/>
   </union>
 
 </geometry>
