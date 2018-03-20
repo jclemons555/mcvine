@@ -50,8 +50,11 @@ class instrument:
     def _getMonitorLocations(self):
         namespaces = self.namespaces
         root = self._root
-        ns = namespaces.keys()[0]
-        xmlnode = root.find("%(ns)s:type[@name='monitors']" % dict(ns=ns), namespaces=namespaces)
+        if namespaces:
+            ns = namespaces.keys()[0]
+            xmlnode = root.find("%(ns)s:type[@name='monitors']" % dict(ns=ns), namespaces=namespaces)
+        else:
+            xmlnode = root.find("type[@name='monitors']")
         monitor_positions_container = node(xmlnode, root, root, namespaces)
         return monitor_positions_container.getChildren('component')[0].getChildren('location')
 

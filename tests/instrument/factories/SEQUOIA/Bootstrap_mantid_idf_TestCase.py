@@ -24,6 +24,7 @@ class TestCase(unittest.TestCase):
         """instrument.factories.SEQUOIA.Bootstrap_mantid_idf
         """
         f = 'sequoia-mantid-idf.xml'
+        f = 'SEQUOIA_Definition.xml'
         factory = InstrumentFactory()
         instrument, geometer = factory.construct(f)
         return

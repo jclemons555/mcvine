@@ -60,7 +60,11 @@ file(COPY share/ DESTINATION ${EXPORT_SHARE}/)
 
 # tests
 set(BUILD_TESTS_PATH ${TESTS_DIR}/${PACKAGE_NAME})
-# copy tests to build
+# copy tests to build. cmake COPY does not have an option to dereference symlinks,
+# so we use rsync for now.
 # file(COPY tests/ DESTINATION ${BUILD_TESTS_PATH})
+execute_process(
+  COMMAND rsync -rL ${CMAKE_CURRENT_SOURCE_DIR}/tests/ ${BUILD_TESTS_PATH}/
+)
 # add python tests
-# PYUNITTEST_ADD_TESTS_IN_DIR( ${BUILD_TESTS_PATH} ${PACKAGE_NAME})
+PYUNITTEST_ADD_TESTS_IN_DIR( ${BUILD_TESTS_PATH} ${PACKAGE_NAME})
