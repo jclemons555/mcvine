@@ -65,7 +65,25 @@ class Renderer(base):
             )
         self._write( s )
         return
-    
+
+
+    def onMultiary(self, mul, tag):
+        self._write("<%s>" % tag)
+
+        self._indent()
+        for s in mul.shapes:
+            s.identify(self)
+        self._outdent()
+
+        self._write("</%s>" % tag)
+        return
+
+    def onUnion(self, u):
+        return self.onMultiary(u, 'union')
+
+    def onIntersection(self, i):
+        return self.onMultiary(i, 'intersection')
+
 
     def _printDocs(self, element):
         self._write('<!--')
