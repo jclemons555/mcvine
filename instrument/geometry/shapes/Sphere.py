@@ -12,7 +12,6 @@ class Sphere(Base):
 
   Attributes:
     - radius
-    - height
   '''
 
     def identify(self, visitor):
