@@ -25,19 +25,34 @@ class Intersection(Composition):
     pass
 
 
+#overload translation
+from pyre.geometry.operations.Translation import Translation as base
+class Translation(base):
+
+    def __init__(self, body, beam="0.*m", transversal="0.*m", vertical="0.*m"):
+        self.body = body
+        self.vector = beam, transversal, vertical
+        return
+
+    def __str__(self):
+        return "translation: body={%s}, vector(beam, transversal, vertical)={%s}" %(
+            self.body, self.vector)
+
+
 #overload rotation
 from pyre.geometry.operations.Rotation import Rotation as base
 class Rotation(base):
 
-    def __init__(self, body, angles):
+    def __init__(self, body, beam=0., transversal=0., vertical=0., angle=0.):
         self.body = body
-        self.angles = angles
+        self.axis = beam, transversal, vertical
+        self.angle = angle
         return
 
 
     def __str__(self):
-        return "rotation: body={%s}, angles={%s}" %(
-            self.body, self.angles)
+        return "rotation: body={%s}, axis(beam, transversal, vertical)={%s}, angle={%s}" %(
+            self.body, self.axis, self.angle)
 
 
 
@@ -49,6 +64,9 @@ def intersect(*shapes):
     return Intersection(*shapes)
 
 
-def rotate(shape, angles):
-    return Rotation(shape, angles)
+def rotate(shape, **kwds):
+    return Rotation(shape, **kwds)
+
+def translate(shape, **kwds):
+    return Translation(shape, **kwds)
 
