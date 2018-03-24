@@ -42,8 +42,8 @@ class Renderer(base):
 
     def onBlock(self, block):
         self._printDocs( block)
-        s  = '<block width="%s" height="%s" thickness="%s"/>' %(
-            block.width, block.height, block.thickness)
+        s  = '<block thickness="%s" width="%s" height="%s" />' %(
+            block.thickness, block.width, block.height)
         self._write(s )
         return
     
@@ -51,7 +51,7 @@ class Renderer(base):
     def onPyramid(self, pyramid):
         self._printDocs( pyramid)
         s  = '<pyramid thickness="%s" width="%s" height="%s"/>' %(
-            pyramid.width, pyramid.height, pyramid.thickness)
+            pyramid.thickness, pyramid.width, pyramid.height)
         self._write(s )
         return
     
@@ -83,6 +83,29 @@ class Renderer(base):
 
     def onIntersection(self, i):
         return self.onMultiary(i, 'intersection')
+
+    def onTranslation(self, translation):
+        self._write("<translation>")
+
+        self._indent()
+        translation.body.identify(self)
+        self._write('<vector beam="%s" transversal="%s" vertical="%s" />' % translation.vector)
+        self._outdent()
+
+        self._write("</translation>")
+        return
+
+    def onRotation(self, rotation):
+        self._write( "<rotation>")
+
+        self._indent()
+        rotation.body.identify(self)
+        self._write("<angle>%g</angle>" % rotation.angle)
+        self._write('<axis beam="%s" transversal="%s" vertical="%s" />' % rotation.axis)
+        self._outdent()
+
+        self._write("</rotation>")
+        return
 
 
     def _printDocs(self, element):
