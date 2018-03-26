@@ -100,7 +100,7 @@ class Renderer(base):
 
         self._indent()
         rotation.body.identify(self)
-        self._write("<angle>%g</angle>" % rotation.angle)
+        self._write("<angle>%s</angle>" % rotation.angle)
         self._write('<axis beam="%s" transversal="%s" vertical="%s" />' % rotation.axis)
         self._outdent()
 
