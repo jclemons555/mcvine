@@ -108,9 +108,10 @@ class Renderer(base):
         return
 
     def _printDocs(self, element):
-        self._write('<!--')
-        self._write(element.__class__.__doc__)
-        self._write('-->')
+        if self.options.print_docs:
+            self._write('<!--')
+            self._write(element.__class__.__doc__)
+            self._write('-->')
         return
 
     pass # end of Renderer

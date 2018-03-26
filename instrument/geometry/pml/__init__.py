@@ -22,7 +22,7 @@ def parse_file( filename ): return parse( open( filename ) )
 
 from Renderer import Renderer
 default_renderer = Renderer()
-def render( shape, renderer = None ):
+def render( shape, renderer = None, **opts):
     '''render(shape) --> text of the xml file
 
   - Inputs:
@@ -33,8 +33,10 @@ def render( shape, renderer = None ):
 
     class Options: pass
     options = Options()
-    options.author = "Jiao Lin"
-    options.organization = "Caltech"
+    import getpass
+    username = getpass.getuser()
+    options.author = username
+    options.organization = ""
     options.copyright = ""
     options.bannerWidth = 78
     options.bannerCharacter = '~'
@@ -45,6 +47,10 @@ def render( shape, renderer = None ):
     options.licenseText = ["{LicenseText}"]
     options.timestampLine = " Generated automatically by %s on %s"
     options.versionId = ' $' + 'Id' + '$'
+    options.print_docs = True
+    
+    for k, v in opts.items():
+        setattr(options, k, v)
 
     renderer.options = options
 
@@ -52,13 +58,13 @@ def render( shape, renderer = None ):
     return text
 
 
-def weave( shape, stream = None ):
+def weave( shape, stream = None, **opts ):
     if stream is None:
         import sys
         stream = sys.stdout
         pass
 
-    print >> stream, '\n'.join( render(shape) )
+    print >> stream, '\n'.join( render(shape, **opts) )
     return
 
 
