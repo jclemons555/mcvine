@@ -46,7 +46,7 @@ def render( instrument, renderer = None ):
     options.licenseText = ["{LicenseText}"]
     options.timestampLine = " Generated automatically by %s on %s"
     options.versionId = ' $' + 'Id' + '$'
-
+    options.print_docs = True
     renderer.options = options
 
     text = renderer.render( instrument )
