@@ -22,6 +22,15 @@
     <block thickness="0.1" height="1" width='0.2'/>
     <sphere radius="1.0"/>
   </union>
+  <rotation>
+    <axis beam="1"/>
+    <angle>90*deg</angle>
+    <cylinder radius="1.*cm" height="5.*cm"/>
+  </rotation>
+  <translation>
+    <vector vertical="1*mm"/>
+    <cylinder radius="1.*cm" height="5.*cm"/>
+  </translation>
 
 </geometry>
 
