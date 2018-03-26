@@ -25,7 +25,7 @@ class renderer_TestCase(TestCase):
         """
         from instrument.geometry.pml import render, parse_file
         shapes = parse_file( 'test1.xml' )
-        text = render( shapes[0] )
+        text = render( shapes[0], print_docs=False )
         print >> open('test1.xml.rendered','w'),  '\n'.join(text) 
         return
 
