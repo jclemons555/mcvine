@@ -16,6 +16,8 @@ from pyre.geometry.pml.parser.Document import Document as base
 class Document (base):
 
     tags = [
+        "Axis", "Vector", "Angle",
+        
         'Block',
         'Cylinder',
         'HollowCylinder',

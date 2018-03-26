@@ -107,7 +107,6 @@ class Renderer(base):
         self._write("</rotation>")
         return
 
-
     def _printDocs(self, element):
         self._write('<!--')
         self._write(element.__class__.__doc__)

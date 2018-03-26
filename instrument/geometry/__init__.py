@@ -1,19 +1,24 @@
 #!/usr/bin/env python
 #
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#
-#                                   Jiao Lin
-#                      California Institute of Technology
-#                        (C) 2007  All Rights Reserved
-#
-# {LicenseText}
-#
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Jiao Lin <jiao.lin@gmail.com>
 #
 
-# version
-__id__ = "$Id$"
+"""
+Convention:
 
-# Generated automatically by PythonMill on Wed Sep 26 13:55:57 2007
+Directions:
+* beam: horizontal, towards downstream
+* vertical: vertical. upward
+* transversal: horizontal. perpendicular to beam
+
+beam-transversal-vertical forms a right-hand coordinate system
+
+
+Property names for solids:
+* width: transversal
+* height: vertical
+* thicknes: beam
+
+"""
 
 # End of file 
