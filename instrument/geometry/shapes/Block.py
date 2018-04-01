@@ -42,6 +42,15 @@ class Block(Primitive):
         return "block(width=%s, height=%s, thickness=%s)" % (
             self.width, self.height, self.thickness)
 
+
+    def todict(self):
+        b = dict(
+            width=str(self.width),
+            height=str(self.height),
+            thickness=str(self.thickness)
+        )
+        return dict(block=b)
+
     pass # end of Block
 
 

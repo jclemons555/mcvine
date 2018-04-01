@@ -28,6 +28,15 @@ class Pyramid(Primitive):
     def identify(self, visitor):
         return visitor.onPyramid( self )
 
+
+    def todict(self):
+        b = dict(
+            width=str(self.width),
+            height=str(self.height),
+            thickness=str(self.thickness)
+        )
+        return dict(pyramid=b)
+
     pass # end of Pyramid
 
 

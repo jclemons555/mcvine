@@ -1,33 +1,33 @@
 union:
-  rotation:
-    block:
-      width: 4.6*cm
-      height: 4.6*cm
-      thickness: 2.3/4*cm
-    angle: 90*deg
-    axis:
-      beam: 0
-      transversal: 1.
-      vertical: 0
-  intersection:
-    sphere:
-      radius: 3*cm
-    cylinder:
-      radius: 1*cm
-      height: 10*cm
-    pyramid:
-      width: 5*cm
-      height: 10*cm
-      thickness: 3*cm
-  difference:
-    translation:
-      sphere:
+  - rotation:
+      block:
+        width: 4.6*cm
+        height: 4.6*cm
+        thickness: 2.3/4*cm
+      angle: 90*deg
+      axis:
+        beam: 0
+        transversal: 1.
+        vertical: 0
+  - intersection:
+    - sphere:
+        radius: 3*cm
+    - cylinder:
+        radius: 1*cm
+        height: 10*cm
+    - pyramid:
+        width: 5*cm
+        height: 10*cm
+        thickness: 3*cm
+  - difference:
+    - translation:
+        sphere:
+          radius: 5*cm
+        vector:
+          beam: 0*cm
+          transversal: 0*cm
+          vertical: 1.*mm
+    - cylinder:
         radius: 5*cm
-      vector:
-        beam: 0*cm
-        transversal: 0*cm
-        vertical: 1.*mm
-    cylinder:
-      radius: 5*cm
-      height: 1*cm
+        height: 1*cm
     

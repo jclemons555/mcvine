@@ -1,9 +1,16 @@
 from pyre.geometry.operations import *
 
 
-from pyre.geometry.operations.Difference import Difference
+from pyre.geometry.operations.Difference import Difference as DifferenceBase
+class Difference(DifferenceBase):
+
+    def __str__(self):
+        return "difference(op1=%s, opt2=%s)" % (self.op1, self.op2)
+    def todict(self):
+        return dict(difference=[self.op1.todict(), self.op2.todict()])
+
+
 from pyre.geometry.operations.Dilation import Dilation
-from pyre.geometry.operations.Translation import Translation
 
 
 #overload union and intersection to allow more-than-two elements
@@ -19,6 +26,8 @@ class Union(Composition):
     def identify(self, visitor): return visitor.onUnion(self)
     def __str__(self):
         return "union(" + ','.join(map(str, self.shapes)) + ")"
+    def todict(self):
+        return dict(union=[e.todict() for e in self.shapes])
     pass
 
 
@@ -26,6 +35,8 @@ class Intersection(Composition):
     def identify(self, visitor): return visitor.onIntersection(self)
     def __str__(self):
         return "intersection(" + ','.join(map(str, self.shapes)) + ")"
+    def todict(self):
+        return dict(intersection=[e.todict() for e in self.shapes])
     pass
 
 
@@ -48,6 +59,13 @@ class Translation(base):
     def __str__(self):
         return "translation: body={%s}, vector(beam, transversal, vertical)={%s}" %(
             self.body, self.vector)
+
+    def todict(self):
+        beam, transversal, vertical = self.vector
+        vector = dict(beam=str(beam), transversal=str(transversal), vertical=str(vertical))
+        t = self.body.todict()
+        t.update(vector=vector)
+        return dict(translation=t)
 
 
 #overload rotation
@@ -88,7 +106,14 @@ class Rotation(base):
             self.body, self.axis, self.angle)
 
 
+    def todict(self):
+        beam, transversal, vertical = self.axis
+        axis = dict(beam=beam, transversal=transversal, vertical=vertical)
+        r = self.body.todict()
+        r.update(axis=axis, angle=str(self.angle))
+        return dict(rotation=r)
 
+    
 def unite(*shapes):
     return Union(*shapes)
 
@@ -103,3 +128,5 @@ def rotate(shape, **kwds):
 def translate(shape, **kwds):
     return Translation(shape, **kwds)
 
+def subtract(op1, op2):
+    return Difference(op1, op2)

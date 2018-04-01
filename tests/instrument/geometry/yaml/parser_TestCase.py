@@ -10,7 +10,7 @@ class parser_TestCase(unittest.TestCase):
 
     def test(self):
         """
-        instrument.geometer.yaml.parse
+        instrument.geometer.yaml.parse_file
         """
         from instrument.geometry.yaml import parse_file
         shape = parse_file( 'test.yaml' )

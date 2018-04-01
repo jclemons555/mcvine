@@ -23,16 +23,16 @@ class Parser:
     def onCylinder(self, d): return self.onPrimitive('cylinder', d)
     def onPyramid(self, d): return self.onPrimitive('pyramid', d)
 
-    def onUnion(self, d):
-        l = [self._toObj(k,v) for k, v in d.items()]
+    def onUnion(self, l):
+        l = list(map(self.parse, l))
         return operations.unite(*l)
     
-    def onIntersection(self, d):
-        l = [self._toObj(k,v) for k, v in d.items()]
+    def onIntersection(self, l):
+        l = list(map(self.parse, l))
         return operations.intersect(*l)
     
-    def onDifference(self, d):
-        l = [self._toObj(k,v) for k, v in d.items()]
+    def onDifference(self, l):
+        l = list(map(self.parse, l))
         assert len(l)==2
         return operations.subtract(*l)
     
