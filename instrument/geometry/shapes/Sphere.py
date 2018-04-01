@@ -17,6 +17,9 @@ class Sphere(Base):
     def identify(self, visitor):
         return visitor.onSphere( self )
 
+    def todict(self):
+        return dict(sphere=dict(radius=str(self.radius)))
+
     pass # end of Sphere
 
 

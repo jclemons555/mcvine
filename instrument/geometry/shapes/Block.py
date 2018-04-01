@@ -37,12 +37,21 @@ class Block(Primitive):
     def identify(self, visitor):
         return visitor.onBlock( self )
 
+
+    def __str__(self):
+        return "block(width=%s, height=%s, thickness=%s)" % (
+            self.width, self.height, self.thickness)
+
+
+    def todict(self):
+        b = dict(
+            width=str(self.width),
+            height=str(self.height),
+            thickness=str(self.thickness)
+        )
+        return dict(block=b)
+
     pass # end of Block
 
-
-# version
-__id__ = "$Id$"
-
-# Generated automatically by PythonMill on Wed Sep 26 13:07:18 2007
 
 # End of file 

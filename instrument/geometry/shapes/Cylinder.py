@@ -29,6 +29,9 @@ class Cylinder(Base):
     def identify(self, visitor):
         return visitor.onCylinder( self )
 
+    def todict(self):
+        return dict(cylinder=dict(radius=str(self.radius), height=str(self.height)))
+
     pass # end of Cylinder
 
 
