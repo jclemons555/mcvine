@@ -1,0 +1,10 @@
+rotation:
+  block:
+    width: 4.6*cm
+    height: 4.6*cm
+    thickness: 2.3/4*cm
+  angle: 90*deg
+  axis:
+    beam: 0
+    transversal: 1.
+    vertical: 0

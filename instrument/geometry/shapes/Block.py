@@ -37,6 +37,11 @@ class Block(Primitive):
     def identify(self, visitor):
         return visitor.onBlock( self )
 
+
+    def __str__(self):
+        return "block(width=%s, height=%s, thickness=%s)" % (
+            self.width, self.height, self.thickness)
+
     pass # end of Block
 
 
