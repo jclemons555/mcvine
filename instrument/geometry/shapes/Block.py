@@ -45,9 +45,4 @@ class Block(Primitive):
     pass # end of Block
 
 
-# version
-__id__ = "$Id$"
-
-# Generated automatically by PythonMill on Wed Sep 26 13:07:18 2007
-
 # End of file 

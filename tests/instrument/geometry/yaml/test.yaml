@@ -1,10 +1,20 @@
-rotation:
-  block:
-    width: 4.6*cm
-    height: 4.6*cm
-    thickness: 2.3/4*cm
-  angle: 90*deg
-  axis:
-    beam: 0
-    transversal: 1.
-    vertical: 0
+union:
+  rotation:
+    block:
+      width: 4.6*cm
+      height: 4.6*cm
+      thickness: 2.3/4*cm
+    angle: 90*deg
+    axis:
+      beam: 0
+      transversal: 1.
+      vertical: 0
+  sphere:
+    radius: 3*cm
+  cylinder:
+    radius: 1*cm
+    height: 10*cm
+  pyramid:
+    width: 5*cm
+    height: 10*cm
+    thickness: 3*cm

@@ -14,22 +14,20 @@ class Parser:
         name, value = list(d.items())[0]
         return self._toObj(name, value)
 
-    def _toObj(self, name, value):
-        method = 'on%s' % name.capitalize()
-        method = getattr(self, method)
-        return method(value)
-
-    def _parseDict(self, d):
-        o = dict()
-        for k, v in d.items():
-            o[k] = parser.parse(v)
-            continue
-        return o        
-
-    def onBlock(self, d):
+    def onPrimitive(self, name, d):
         d = self._parseDict(d)
-        return shapes.block(**d)
+        return getattr(shapes, name)(**d)
+    
+    def onBlock(self, d): return self.onPrimitive('block', d)
+    def onSphere(self, d): return self.onPrimitive('sphere', d)
+    def onCylinder(self, d): return self.onPrimitive('cylinder', d)
+    def onPyramid(self, d): return self.onPrimitive('pyramid', d)
 
+
+    def onUnion(self, d):
+        l = [self._toObj(k,v) for k, v in d.items()]
+        return operations.unite(*l)
+    
     def onRotation(self, d):
         o = dict()
         for k, v in d.items():
@@ -45,6 +43,18 @@ class Parser:
 
     def onAxis(self, d):
         return d
+
+    def _toObj(self, name, value):
+        method = 'on%s' % name.capitalize()
+        method = getattr(self, method)
+        return method(value)
+
+    def _parseDict(self, d):
+        o = dict()
+        for k, v in d.items():
+            o[k] = parser.parse(v)
+            continue
+        return o        
 
             
 # End of file 

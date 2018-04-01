@@ -17,6 +17,8 @@ class Composition(base):
 
 class Union(Composition):
     def identify(self, visitor): return visitor.onUnion(self)
+    def __str__(self):
+        return "union(" + ','.join(map(str, self.shapes)) + ")"
     pass
 
 
