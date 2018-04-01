@@ -24,6 +24,8 @@ class Union(Composition):
 
 class Intersection(Composition):
     def identify(self, visitor): return visitor.onIntersection(self)
+    def __str__(self):
+        return "intersection(" + ','.join(map(str, self.shapes)) + ")"
     pass
 
 

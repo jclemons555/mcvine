@@ -23,10 +23,18 @@ class Parser:
     def onCylinder(self, d): return self.onPrimitive('cylinder', d)
     def onPyramid(self, d): return self.onPrimitive('pyramid', d)
 
-
     def onUnion(self, d):
         l = [self._toObj(k,v) for k, v in d.items()]
         return operations.unite(*l)
+    
+    def onIntersection(self, d):
+        l = [self._toObj(k,v) for k, v in d.items()]
+        return operations.intersect(*l)
+    
+    def onDifference(self, d):
+        l = [self._toObj(k,v) for k, v in d.items()]
+        assert len(l)==2
+        return operations.subtract(*l)
     
     def onRotation(self, d):
         o = dict()
@@ -38,11 +46,24 @@ class Parser:
             continue
         return operations.rotate(o['body'], angle=o['angle'], **o['axis'])
 
+    def onTranslation(self, d):
+        o = dict()
+        for k, v in d.items():
+            obj = self._toObj(k, v)
+            if k not in ['vector']:
+                k = 'body'
+            o[k] = obj
+            continue
+        return operations.translate(o['body'], **o['vector'])
+
     def onAngle(self, v):
         return parser.parse(v)
 
     def onAxis(self, d):
         return d
+
+    def onVector(self, d):
+        return self._parseDict(d)
 
     def _toObj(self, name, value):
         method = 'on%s' % name.capitalize()

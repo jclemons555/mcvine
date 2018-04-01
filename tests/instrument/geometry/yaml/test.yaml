@@ -9,12 +9,25 @@ union:
       beam: 0
       transversal: 1.
       vertical: 0
-  sphere:
-    radius: 3*cm
-  cylinder:
-    radius: 1*cm
-    height: 10*cm
-  pyramid:
-    width: 5*cm
-    height: 10*cm
-    thickness: 3*cm
+  intersection:
+    sphere:
+      radius: 3*cm
+    cylinder:
+      radius: 1*cm
+      height: 10*cm
+    pyramid:
+      width: 5*cm
+      height: 10*cm
+      thickness: 3*cm
+  difference:
+    translation:
+      sphere:
+        radius: 5*cm
+      vector:
+        beam: 0*cm
+        transversal: 0*cm
+        vertical: 1.*mm
+    cylinder:
+      radius: 5*cm
+      height: 1*cm
+    
