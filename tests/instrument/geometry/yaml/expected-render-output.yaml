@@ -1,0 +1,32 @@
+union:
+- rotation:
+    angle: '1.5708'
+    axis:
+      beam: 0
+      transversal: 1.0
+      vertical: 0
+    block:
+      height: 0.046*m
+      thickness: 0.00575*m
+      width: 0.046*m
+- intersection:
+  - sphere:
+      radius: 0.03*m
+  - cylinder:
+      height: 0.1*m
+      radius: 0.01*m
+  - pyramid:
+      height: 0.1*m
+      thickness: 0.03*m
+      width: 0.05*m
+- difference:
+  - translation:
+      sphere:
+        radius: 0.05*m
+      vector:
+        beam: 0*m
+        transversal: 0*m
+        vertical: 0.001*m
+  - cylinder:
+      height: 0.01*m
+      radius: 0.05*m
