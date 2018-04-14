@@ -41,6 +41,12 @@ class HollowCylinder(Base):
     def identify(self, visitor):
         return visitor.onHollowCylinder( self )
 
+    def todict(self):
+        from .Cylinder import Cylinder
+        from ..operations import subtract
+        t = subtract(Cylinder(self.out_radius, self.height), Cylinder(self.in_radius, self.height))
+        return t.todict()
+
     pass # end of Cylinder
 
 

@@ -30,3 +30,15 @@ union:
   - cylinder:
       height: 0.01*m
       radius: 0.05*m
+- difference:
+  - cylinder:
+      height: 0.05*m
+      radius: 0.021*m
+  - cylinder:
+      height: 0.05*m
+      radius: 0.02*m
+- difference:
+  - sphere:
+      radius: 0.021*m
+  - sphere:
+      radius: 0.02*m

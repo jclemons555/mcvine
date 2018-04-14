@@ -26,6 +26,12 @@ class SphereShell(Base):
     def identify(self, visitor):
         return visitor.onSphereShell( self )
 
+    def todict(self):
+        from .Sphere import Sphere
+        from ..operations import subtract
+        t = subtract(Sphere(self.out_radius), Sphere(self.in_radius))
+        return t.todict()
+
     pass # end of SphereShell
 
 # End of file 

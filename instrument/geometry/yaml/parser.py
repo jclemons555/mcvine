@@ -22,6 +22,8 @@ class Parser:
     def onSphere(self, d): return self.onPrimitive('sphere', d)
     def onCylinder(self, d): return self.onPrimitive('cylinder', d)
     def onPyramid(self, d): return self.onPrimitive('pyramid', d)
+    def onHollowcylinder(self, d): return self.onPrimitive('hollowCylinder', d)
+    def onSphereshell(self, d): return self.onPrimitive('sphereShell', d)
 
     def onUnion(self, l):
         l = list(map(self.parse, l))
