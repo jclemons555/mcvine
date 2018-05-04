@@ -1,5 +1,5 @@
 from pyre.geometry.operations import *
-
+del reflect # not supported yet
 
 from pyre.geometry.operations.Difference import Difference as DifferenceBase
 class Difference(DifferenceBase):
