@@ -1,5 +1,5 @@
 from pyre.geometry.operations import *
-
+del reflect # not supported yet
 
 from pyre.geometry.operations.Difference import Difference as DifferenceBase
 class Difference(DifferenceBase):
@@ -45,11 +45,11 @@ from pyre.geometry.operations.Translation import Translation as base
 class Translation(base):
 
     def __init__(self, body, vector=None, beam="0.*m", transversal="0.*m", vertical="0.*m"):
-        """Translation(body, vector=)
-        Rotation(body, beam=, transversal=, vertical=)
+        """Translation(body, beam=, transversal=, vertical=)
+        Translation(body, vector=)
 
-        When vector is specified, it means the coordinate system is implicit
         When beam, transversal, vertical is specified, it uses the convention in instrument.geometry
+        When vector is specified, it means the coordinate system is implicit
         """
         self.body = body
         self.vector = vector if vector is not None else (beam, transversal, vertical)
@@ -74,12 +74,12 @@ class Rotation(base):
 
     def __init__(self, body, axis=None, beam=0., transversal=0., vertical=0., angle=0., euler_angles=None):
         """
-        Rotation(body, euler_angles=)
-        Rotation(body, axis=, angle=)
         Rotation(body, beam=, transversal=, vertical=, angle=)
+        Rotation(body, axis=, angle=)
+        Rotation(body, euler_angles=)
 
-        When axis is specified, it means the coordinate system is implicit
         When beam, transversal, vertical is specified, it uses the convention in instrument.geometry
+        When axis is specified, it means the coordinate system is implicit
         When euler_angles is specified, it is using the Tait-Bryan convention, and the coordinate
         system is implicit.
         """
@@ -115,18 +115,24 @@ class Rotation(base):
 
     
 def unite(*shapes):
+    """unite(shape1, shape2, ...)"""
     return Union(*shapes)
 
 
 def intersect(*shapes):
+    """intersect(shape1, shape2, ...)"""
     return Intersection(*shapes)
 
 
 def rotate(shape, **kwds):
     return Rotation(shape, **kwds)
+rotate.__doc__ = Rotation.__init__.__doc__.replace("Rotation(", 'rotate(')
+
 
 def translate(shape, **kwds):
     return Translation(shape, **kwds)
+translate.__doc__ = Translation.__init__.__doc__.replace("Translation(", 'translate(')
+
 
 def subtract(op1, op2):
     return Difference(op1, op2)
