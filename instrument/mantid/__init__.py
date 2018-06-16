@@ -31,7 +31,13 @@ def parse_file(xmlfile, **kwds):
 import weakref
 class instrument:
     
-    def __init__(self, xmlroot, rowtypename='row', namespaces=None):
+    def __init__(self, xmlroot, rowtypename='row', namespaces=None, monitortag='monitors'):
+        """instrument(...): wrapper of instrument IDF xml
+
+    - rowtypename: typename postfix for toplevel detector elements
+    - namespaces: xml namespaces
+    - monitortag: tag name for monitor(s)
+"""
         root = self._root = xmlroot
         self.namespaces = namespaces
         self.defaults = _find(root, 'defaults', namespaces)
@@ -43,20 +49,59 @@ class instrument:
             c for c in self.components
             if c.type.endswith(rowtypename)
             ]
-        self.monitor_locations = self._getMonitorLocations()
+        self.monitor_locations = self._getMonitorLocations(monitortag)
         return
 
 
-    def _getMonitorLocations(self):
+    def getNodes(self, tag):
+        root = self._root
+        namespaces = self.namespaces
+        return [
+            node(c, root, root, namespaces)
+            for c in _findall(root, tag, namespaces)
+            ]
+
+    def _getMonitorLocations(self, monitortag):
+        self.monitortag = monitortag
         namespaces = self.namespaces
         root = self._root
         if namespaces:
             ns = namespaces.keys()[0]
-            xmlnode = root.find("%(ns)s:type[@name='monitors']" % dict(ns=ns), namespaces=namespaces)
+            xmlnode = root.find("%(ns)s:type[@name='%(monitortag)s']" % dict(ns=ns, monitortag=monitortag), namespaces=namespaces)
         else:
-            xmlnode = root.find("type[@name='monitors']")
+            xmlnode = root.find("type[@name='%s']" % monitortag)
         monitor_positions_container = node(xmlnode, root, root, namespaces)
-        return monitor_positions_container.getChildren('component')[0].getChildren('location')
+        comps = monitor_positions_container.getChildren('component')
+        if comps:
+            # ARCS/SEQ/etc
+            """
+<component idlist="monitors" type="monitors">
+  <location/>
+</component>
+<type name="monitors">
+  <component type="monitor">
+    <location name="monitor1" z="-5"/>
+  </component>
+</type>
+"""
+            return comps[0].getChildren('location')
+        # MARI
+        """
+  <component type="monitor" idlist="monitor">
+    <location z="-4.739" />
+    <location z="-1.442" />
+    <location z="5.82" />
+  </component>
+"""
+        assert monitortag == 'monitor'
+        if namespaces:
+            ns = namespaces.keys()[0]
+            xmlnode = root.find("%(ns)s:component[@type='%(monitortag)s']" % dict(ns=ns, monitortag=monitortag), namespaces=namespaces)
+        else:
+            xmlnode = root.find("component[@type='%s']" % monitortag)
+        monitor_positions_container = node(xmlnode, root, root, namespaces)
+        comps = monitor_positions_container.getChildren('location')
+        return comps
 
 
 def _make_operator(method):
@@ -142,6 +187,7 @@ class component(node):
         type = self.type
         root = self._root
         namespaces = self.namespaces
+        # all "types" are defined in the "root" level
         nodes = _findall(root, "type[@name='%s']" % type, namespaces)
         assert len(nodes) == 1
         node = nodes[0]
