@@ -30,7 +30,7 @@ class Shape(Node):
         self._shape = sth
         return
 
-    onUnion = on_
+    onRotation = onTranslation = onDilation = onUnion = onIntersection = onDifference = on_
     onSphere = onCylinder = onRectTube = onBlock = onPyramid = on_
     onSphereShell = onHollowCylinder = on_
 
