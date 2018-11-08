@@ -23,8 +23,10 @@ class renderer_TestCase(TestCase):
         r = operations.rotate(t, vertical=1., angle = 90.)
         pyramid = shapes.pyramid(width="4.*cm", height="2.*cm", thickness="1.*cm")
         i = operations.intersect(r, pyramid)
+        cone = shapes.cone(radius="2.*cm", height="2.*cm")
+        u = operations.unite(i, cone)
         sphere2 = shapes.sphere(radius="3.*cm")
-        s = operations.subtract(sphere2, i)
+        s = operations.subtract(sphere2, u)
         text = render( s, print_docs = False )
         print >> open('test2.xml.rendered','w'),  '\n'.join(text) 
         return

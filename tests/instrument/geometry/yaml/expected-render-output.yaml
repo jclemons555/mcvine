@@ -19,6 +19,9 @@ union:
       height: 0.1*m
       thickness: 0.03*m
       width: 0.05*m
+  - cone:
+      height: 0.1*m
+      radius: 0.02*m
 - difference:
   - translation:
       sphere:
