@@ -10,32 +10,36 @@
 #orientation about the neutron beam.
 
 def hollowCylinder(*args, **kwds):
-    from HollowCylinder import HollowCylinder
+    from .HollowCylinder import HollowCylinder
     return HollowCylinder( *args, **kwds )
 
 def sphereShell(*args, **kwds):
-    from SphereShell import SphereShell
+    from .SphereShell import SphereShell
     return SphereShell( *args, **kwds )
 
 def cylinder(*args, **kwds):
-    from Cylinder import Cylinder
+    from .Cylinder import Cylinder
     return Cylinder( *args, **kwds )
 
 def pyramid(*args, **kwds):
-    from Pyramid import Pyramid
+    from .Pyramid import Pyramid
     return Pyramid( *args, **kwds )
 
+def cone(*args, **kwds):
+    from .Cone import Cone
+    return Cone( *args, **kwds )
+
 def sphere(*args, **kwds):
-    from Sphere import Sphere
+    from .Sphere import Sphere
     return Sphere( *args, **kwds )
 
 def block(*args, **kwds):
-    from Block import Block
+    from .Block import Block
     return Block( *args, **kwds )
 plate = block
 
 def rectTube(*args, **kwds):
-    from RectTube import RectTube
+    from .RectTube import RectTube
     return RectTube( *args, **kwds )
 
 

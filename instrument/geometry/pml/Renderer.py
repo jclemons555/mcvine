@@ -56,6 +56,14 @@ class Renderer(base):
         return
     
 
+    def onCone(self, cone):
+        self._printDocs( cone)
+        s  = '<cone radius="%s" height="%s"/>' %(
+            cone.radius, cone.height)
+        self._write(s )
+        return
+    
+
     def onRectTube(self, rectTube):
         self._printDocs( rectTube )
         s = '<rectTube front="%s,%s" back="%s,%s" length="%s"/>' %(
