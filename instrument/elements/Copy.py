@@ -12,7 +12,7 @@
 #
 
 
-from Element import Element, debug
+from .Element import Element, debug
 
 class DereferenceError(Exception): pass
 
@@ -23,7 +23,7 @@ class Copy( Element ):
 
     class Attributes(Element.Attributes):
         
-        import Attribute
+        from . import Attribute
         reference = Attribute.int( "reference", default = -1)
         reference.meta['tip'] = "guid of the element to be copied" 
 
@@ -36,12 +36,12 @@ class Copy( Element ):
             guid = self.attributes.reference
             try:
                 element = instrument.guidRegistry.guid2element( guid )
-            except KeyError, err:
+            except KeyError as err:
                 msg = "%s: Unable to dereference guid %r\n" %(
                     self.name, guid)
                 msg += "My parent: %s" % self.parent()
                 #msg += '%s: %s' % (err.__class__.__name__, err)
-                raise DereferenceError, msg
+                raise DereferenceError(msg)
             self._reference = element
             pass
         return self._reference
@@ -61,7 +61,7 @@ class Copy( Element ):
         try: return object.__getattribute__( self, name )
         except AttributeError :
             return self.reference().__getattribute__(name)
-        raise RuntimeError , "should not reach here"
+        raise RuntimeError("should not reach here")
     
 
     def identifyAsReferredElement( self, visitor):
@@ -94,12 +94,12 @@ def createCopy( name, reference, **kwds ):
 
 
 def test():
-    from Detector import Detector
+    from .Detector import Detector
     det = Detector( 'det', guid = 10 )
-    from Copy import Copy
+    from .Copy import Copy
     c = Copy( 'det2', shape = None, reference = 10, guid = 11 )
     c._setReferenceElement( det )
-    from DetectorSystem import DetectorSystem
+    from .DetectorSystem import DetectorSystem
     ds = DetectorSystem( 'ds' )
     ds.addElement( det )
     assert isinstance(c, Copy)
@@ -110,19 +110,19 @@ def test():
     assert c.guid() == 11
     assert c.shape() is det.shape()
     assert c.elements() is det.elements()
-    import units
+    from . import units
     atm = units.pressure.atm
     c.pressure() + atm
     return
 
 
 def test2():
-    from Detector import Detector
+    from .Detector import Detector
     det = Detector( 'det', guid = 10 )
-    from Copy import Copy
+    from .Copy import Copy
     c = Copy( 'det2', shape = None, reference = 10, guid = 11 )
     c._setReferenceElement( det )
-    from DetectorSystem import DetectorSystem
+    from .DetectorSystem import DetectorSystem
     ds = DetectorSystem( 'ds' )
     ds.addElement( det )
     assert isinstance(c, Copy)
@@ -143,8 +143,8 @@ def test2():
         onDetector = onDetectorSystem = onElementContainer
 
         def onElement(self, e):
-            print e
-            print 'guid=%s, id=%s' % (e.guid(), e.id())
+            print(e)
+            print('guid=%s, id=%s' % (e.guid(), e.id()))
             return
 
         def onCopy(self, copy):

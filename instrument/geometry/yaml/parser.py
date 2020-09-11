@@ -41,7 +41,7 @@ class Parser:
     
     def onRotation(self, d):
         o = dict()
-        for k, v in d.items():
+        for k, v in list(d.items()):
             obj = self._toObj(k, v)
             if k not in ['angle', 'axis']:
                 k = 'body'
@@ -51,7 +51,7 @@ class Parser:
 
     def onTranslation(self, d):
         o = dict()
-        for k, v in d.items():
+        for k, v in list(d.items()):
             obj = self._toObj(k, v)
             if k not in ['vector']:
                 k = 'body'
@@ -75,7 +75,7 @@ class Parser:
 
     def _parseDict(self, d):
         o = dict()
-        for k, v in d.items():
+        for k, v in list(d.items()):
             o[k] = parser.parse(v)
             continue
         return o        

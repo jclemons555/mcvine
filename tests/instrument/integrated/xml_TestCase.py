@@ -23,7 +23,7 @@ class xml_TestCase(TestCase):
         """
         instrument xml file from LRMECS data file
         """
-        print "This test must be run after the test cases in 'factories' directory"
+        print("This test must be run after the test cases in 'factories' directory")
         from instrument.nixml import parse_file
         instrument = parse_file( '4849.xml' )
         return

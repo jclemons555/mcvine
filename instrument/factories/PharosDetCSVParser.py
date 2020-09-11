@@ -72,14 +72,14 @@ class Parser( object):
                                }
 
                 records.append( record)
-            except KeyError, msg:
-                print "KeyError in row %s" % i
-                print "Keys: %s" % str( row.keys())
-                print "in keys: %s" % ('TubeNo' in row.keys())
+            except KeyError as msg:
+                print("KeyError in row %s" % i)
+                print("Keys: %s" % str( list(row.keys())))
+                print("in keys: %s" % ('TubeNo' in list(row.keys())))
                 raise
             except ValueError:
-                print "ValueError in row %s" % i
-                print "row has items: %s" % str( row.items())
+                print("ValueError in row %s" % i)
+                print("row has items: %s" % str( list(row.items())))
                 raise
         return records
         
@@ -132,7 +132,7 @@ class Parser( object):
 
     def __getRows( self, lines, columns):
         rows = []
-        heads = columns.keys()
+        heads = list(columns.keys())
         for line in lines:
             row = {}
             for head in heads:

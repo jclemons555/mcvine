@@ -13,7 +13,7 @@
 
 
 
-from Visitor import Visitor
+from .Visitor import Visitor
 
 
 class DetectorVisitor(Visitor):
@@ -72,8 +72,7 @@ class DetectorVisitor(Visitor):
     onModerator = onMonitor = onGuide = onSample = doNothing
 
 
-    def onDetector(self, detector): raise NotImplementedError , \
-        "%s should handle 'onDetector'" % self.__class__.__name__
+    def onDetector(self, detector): raise NotImplementedError("%s should handle 'onDetector'" % self.__class__.__name__)
 
 
     pass # end of DetectorVisitor

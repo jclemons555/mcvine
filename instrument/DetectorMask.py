@@ -12,7 +12,7 @@
 #
 
 
-from AbstractDetectorMask import AbstractDetectorMask
+from .AbstractDetectorMask import AbstractDetectorMask
 
 class DetectorMask(AbstractDetectorMask):
 

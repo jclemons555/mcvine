@@ -28,7 +28,7 @@ class renderer_TestCase(TestCase):
         sphere2 = shapes.sphere(radius="3.*cm")
         s = operations.subtract(sphere2, u)
         text = render( s, print_docs = False )
-        print >> open('test2.xml.rendered','w'),  '\n'.join(text) 
+        print('\n'.join(text), file=open('test2.xml.rendered','w')) 
         return
 
 

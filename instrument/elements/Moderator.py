@@ -12,14 +12,14 @@
 #
 
 
-from Element import Element, debug
+from .Element import Element, debug
 
 
 class Moderator( Element ):
 
     class Attributes(Element.Attributes):
         
-        import Attribute
+        from . import Attribute
         type = Attribute.str( "type", default = "")
         type.meta['tip'] = "moderator type" 
 
@@ -41,7 +41,7 @@ class Moderator( Element ):
 
 import instrument.geometry.shapes as shapes
 
-import units
+from . import units
 cm = units.length.cm
 defaultShape = shapes.block( 10*cm,10*cm,2*cm )
 

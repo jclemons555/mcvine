@@ -35,7 +35,7 @@ class PharosBootstrap_TestCase(unittestX.TestCase):
         f = '../ins-data/Pharos/PharosDefinitions.txt'
         factory = InstrumentFactory( )
         instrument, geometer = factory.construct( f )
-        print geometer.position('detSystem/detector144/pixel0' )
+        print(geometer.position('detSystem/detector144/pixel0' ))
         return
 
 

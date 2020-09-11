@@ -47,7 +47,7 @@ class MakeARCSxml(Script):
 
     def main(self):
         if not self.inventory.xmloutput:
-            raise RuntimeError, 'Please specify output xml filename by -xmloutput'
+            raise RuntimeError('Please specify output xml filename by -xmloutput')
         filename = self.inventory.detconfigfile
         long = self._parse( self.inventory.long )
         short1 = self._parse( self.inventory.short1 )
@@ -66,7 +66,7 @@ class MakeARCSxml(Script):
             'short2': self.inventory.short2,
             }
         cmd = 'makeARCSxml.py ' + ' '.join(
-            [ '-%s="%s"' % (k,v) for k,v in params.iteritems()] )
+            [ '-%s="%s"' % (k,v) for k,v in params.items()] )
         open(xmloutput, 'a').write('<!-- created by %s -->\n' % cmd)
         return
 

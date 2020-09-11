@@ -12,9 +12,9 @@
 #
 
 
-from _journal import debug
+from ._journal import debug
 
-from InstrumentGeometer import InstrumentGeometer
+from .InstrumentGeometer import InstrumentGeometer
 
 class ARCSGeometer(InstrumentGeometer):
 
@@ -38,7 +38,7 @@ chopper spectrometer.
         x = array(x)
         
         #remove unit if necessary
-        import units
+        from . import units
         m = units.length.meter
         try:
             x + m
@@ -77,7 +77,7 @@ chopper spectrometer.
         x = array(x)
         
         #remove unit if necessary
-        import units
+        from . import units
         m = units.length.meter
         try:
             x + m
@@ -99,7 +99,7 @@ chopper spectrometer.
     pass # end of ARCSGeometer
 
 
-import units
+from . import units
 radian = units.angle.radian
 degree = units.angle.degree
 
@@ -133,7 +133,7 @@ class ARCSGeometer_TestCase(TestCase):
         pixel1 = ies.pixel( 'pixel1', guid = instrument.getUniqueID() )
         det1.addElement( pixel1 )
 
-        from CoordinateSystem import McStasCS
+        from .CoordinateSystem import McStasCS
         geometer = ARCSGeometer(
             instrument, registry_coordinate_system = McStasCS )
 

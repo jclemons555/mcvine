@@ -39,7 +39,7 @@ numpxls = 10
 
 
 # distance from sample to detector pixel 
-import units
+from . import units
 mm = units.length.mm
 R = 3000.0 * mm #mm
 

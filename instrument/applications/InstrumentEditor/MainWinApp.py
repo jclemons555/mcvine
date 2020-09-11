@@ -15,7 +15,7 @@
 import wx
 
 
-from MainFrame import MainFrame
+from .MainFrame import MainFrame
 
 
 WxPyAppBase = wx.PySimpleApp

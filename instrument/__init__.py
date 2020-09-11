@@ -69,7 +69,7 @@
 
 
 def mask( *args, **kwds ):
-    from DetectorMask import DetectorMask
+    from .DetectorMask import DetectorMask
     return DetectorMask( *args, **kwds )
 
 

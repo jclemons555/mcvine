@@ -19,12 +19,12 @@ debug = journal.debug("instrument.geometers")
 from numpy import array
 
 
-from AbstractGlobalGeometer import AbstractGlobalGeometer
+from .AbstractGlobalGeometer import AbstractGlobalGeometer
 
 class GlobalGeometer( AbstractGlobalGeometer ):
 
     
-    import units
+    from . import units
     length_unit = units.length.meter
     angle_unit = units.angle.degree
 
@@ -41,7 +41,7 @@ class GlobalGeometer( AbstractGlobalGeometer ):
     is requesting locations of elements.
     '''
         if registry_coordinate_system is None:
-            from CoordinateSystem import InstrumentScientistCS
+            from .CoordinateSystem import InstrumentScientistCS
             registry_coordinate_system = InstrumentScientistCS
             pass
 
@@ -56,7 +56,7 @@ class GlobalGeometer( AbstractGlobalGeometer ):
             continue
         self._registry_coordinate_system = registry_coordinate_system
 
-        import CoordinateSystem
+        from . import CoordinateSystem
         self.relative2absolute = CoordinateSystem.relative2absolute[
             registry_coordinate_system ]
         
@@ -75,7 +75,7 @@ class GlobalGeometer( AbstractGlobalGeometer ):
 
 
     def createDefaultLocalGeometer( self, container ):
-        from Geometer import Geometer
+        from .Geometer import Geometer
         lg = Geometer(container, self._registry_coordinate_system )
         self._addLocalGeometer( container, lg )
         return lg
@@ -92,7 +92,7 @@ class GlobalGeometer( AbstractGlobalGeometer ):
 
 
     def finishRegistration( self ):
-        for geometer in self._local_geometers.values():
+        for geometer in list(self._local_geometers.values()):
             geometer.finishRegistration()
             continue
         return
@@ -108,12 +108,12 @@ class GlobalGeometer( AbstractGlobalGeometer ):
 
 
     def displacement( self, element1, element2):
-        from utils import displacement
+        from .utils import displacement
         return displacement( self.position(element1), self.position(element2) )
 
 
     def distance(self, element1, element2 ):
-        from utils import length
+        from .utils import length
         return length( self.displacement( element1, element2 ))
 
 
@@ -131,7 +131,7 @@ class GlobalGeometer( AbstractGlobalGeometer ):
         'absolute position and orientation in the request coordinate system'
         offset, orientation = self._abs_pos_ori_in_registry_coordinate_system( element )
         #convert to the request coordinate system
-        from CoordinateSystem import fitCoordinateSystem
+        from .CoordinateSystem import fitCoordinateSystem
         offset, orientation = fitCoordinateSystem(
             (offset, orientation),
             self._registry_coordinate_system,
@@ -164,7 +164,7 @@ class GlobalGeometer( AbstractGlobalGeometer ):
             msg = "'%s': no a container. But got a request "\
                   " for its child '%s'" % (
                 parentElement.name, indexTuple[-1] )
-            raise RuntimeError ,  msg
+            raise RuntimeError(msg)
         
         localPos_ori = self._getLocalPos_ori( parentElement, e )
         
@@ -206,7 +206,7 @@ class GlobalGeometer( AbstractGlobalGeometer ):
             msg = "'%s': no a container. But got a request "\
                   " for its child '%s'" % (
                 parentElement.name, path[-1] )
-            raise RuntimeError ,  msg
+            raise RuntimeError(msg)
         
         localPos_ori = self._getLocalPos_ori( parentElement, e )
         
@@ -234,7 +234,8 @@ class GlobalGeometer( AbstractGlobalGeometer ):
 
 
 # helpers
-def isIdentifier( e ): return isinstance(e, basestring)
+from ..2to3 import isstr
+def isIdentifier( e ): return isstr(e)
 
 def isIndexTuple( candidate ):
     if not isinstance( candidate, tuple ): return False
@@ -252,7 +253,7 @@ class GlobalGeometer_TestCase(TestCase):
     def test1(self):
         "GlobalGeometer: simplest instrument"
         import instrument.elements as ies
-        from Geometer import Geometer
+        from .Geometer import Geometer
         instrument = ies.instrument( "instrument" )
         instrument_geometer = Geometer( instrument )
         instrument_geometer.finishRegistration()
@@ -264,7 +265,7 @@ class GlobalGeometer_TestCase(TestCase):
     def test2(self):
         "GlobalGeometer: instrument with one moderator given abs position"
         import instrument.elements as ies
-        from Geometer import Geometer
+        from .Geometer import Geometer
         instrument = ies.instrument( "instrument" )
         moderator = ies.moderator( "moderator", 100., 100., 10. ) 
         instrument.addElement( moderator )
@@ -286,7 +287,7 @@ class GlobalGeometer_TestCase(TestCase):
     def test3(self):
         "GlobalGeometer: instrument with one moderator and monitors given relative position"
         import instrument.elements as ies
-        from Geometer import Geometer
+        from .Geometer import Geometer
         instrument = ies.instrument( "instrument" )
         moderator = ies.moderator( "moderator", 100., 100., 10. ) 
         instrument.addElement( moderator )
@@ -326,7 +327,7 @@ class GlobalGeometer_TestCase(TestCase):
     def test4(self):
         "GlobalGeometer: instrument with layers"
         import instrument.elements as ies
-        from Geometer import Geometer
+        from .Geometer import Geometer
         from instrument.elements.Element import Element
         from instrument.elements.ElementContainer import ElementContainer
         
@@ -359,7 +360,7 @@ class GlobalGeometer_TestCase(TestCase):
             for j in range(8):
                 name = "det%s"%j
                 det = Element(name, guid = instrument.getUniqueID())
-                exec 'det_%s_%s = det' % (i,j)
+                exec('det_%s_%s = det' % (i,j))
                 detpack.addElement( det )
                 detpack_geometer.register( det, (j-3.5, 0, 0 ), (0,0,0) )
                 continue
@@ -527,7 +528,7 @@ class GlobalGeometer_TestCase(TestCase):
         moderator = ies.moderator( "moderator", 100., 100., 10. ) 
         instrument.addElement( moderator )
 
-        from CoordinateSystem import McStasCS, InstrumentScientistCS
+        from .CoordinateSystem import McStasCS, InstrumentScientistCS
         instrumentGeomter = GlobalGeometer(
             instrument,
             registry_coordinate_system = InstrumentScientistCS,
@@ -548,7 +549,7 @@ class GlobalGeometer_TestCase(TestCase):
 
     pass # end of GlobalGeometer_TestCase
 
-import units
+from . import units
 meter = units.length.meter
     
 def pysuite():

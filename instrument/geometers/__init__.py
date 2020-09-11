@@ -15,7 +15,7 @@ def instrumentGeometer(
     **kwds ):
     
     cs = _name2cs( registry_coordinate_system )
-    from InstrumentGeometer import InstrumentGeometer
+    from .InstrumentGeometer import InstrumentGeometer
     return InstrumentGeometer(
         target, local_geometers, registry_coordinate_system = cs, **kwds )
 
@@ -23,7 +23,7 @@ def instrumentGeometer(
 def geometer( target, registry_coordinate_system = 'InstrumentScientist',
               **kwds ):
     cs = _name2cs( registry_coordinate_system )
-    from Geometer import Geometer
+    from .Geometer import Geometer
     return Geometer( target, registry_coordinate_system = cs, **kwds )
 
 
@@ -35,7 +35,7 @@ def arcs( target, local_geometers = [],
           registry_coordinate_system = 'InstrumentScientist',
           **kwds ):
     cs = _name2cs( registry_coordinate_system )
-    from ARCSGeometer import ARCSGeometer
+    from .ARCSGeometer import ARCSGeometer
     return ARCSGeometer(
         target, local_geometers, registry_coordinate_system = cs, **kwds )
 
@@ -47,10 +47,10 @@ def coordinateSystem( name ):
 
 
 def _name2cs( name ):
-    from CoordinateSystem import coordinateSystem
+    from .CoordinateSystem import coordinateSystem
     return coordinateSystem( name )
 
-from _journal import debug
+from ._journal import debug
 
 # version
 __id__ = "$Id$"

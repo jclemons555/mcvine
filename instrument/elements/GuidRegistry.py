@@ -12,7 +12,7 @@
 #
 
 
-from _journal import debug
+from ._journal import debug
 
 
 class GuidRegistry:
@@ -32,7 +32,7 @@ class GuidRegistry:
 
     def guid2element(self, guid):
         if guid not in self._registry:
-            raise KeyError, "guid has not been registered: %r" % guid
+            raise KeyError("guid has not been registered: %r" % guid)
         return self._registry[guid]
 
 

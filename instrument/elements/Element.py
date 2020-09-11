@@ -12,7 +12,7 @@
 #
 
 
-from _journal import debug
+from ._journal import debug
 
 
 
@@ -20,10 +20,10 @@ class Element(object):
     
     """Instrument element base class"""
 
-    from AttributeContainer import AttributeContainer
+    from .AttributeContainer import AttributeContainer
     class Attributes(AttributeContainer):
 
-        from Attribute import int
+        from .Attribute import int
         guid = int( 'guid', default = -1 )
 
         id = int('id', default = -1 )
@@ -80,7 +80,7 @@ class Element(object):
         # transfer inputs to my attribute container
         if attributes is None: attributes = {}
         attributes['name'] = name
-        for k, v in attributes.iteritems():
+        for k, v in attributes.items():
             self.attributes.set( k,v )
             continue
         return
@@ -102,7 +102,7 @@ class Element(object):
             # lambda expression allows us to have interface like this:
             #   detector.pressure()
             return lambda : self._getProperty( name )
-        raise AttributeError, '%r' % name
+        raise AttributeError('%r' % name)
 
 
     def __str__(self):
@@ -124,7 +124,7 @@ class Element(object):
     def _getProperty(self, name):
         try: return eval('self.attributes.%s' % name)
         except: return eval('self._shape.%s' % name)
-        raise "should not reach here"
+        raise RuntimeError("should not reach here")
     
 
     # methods for friends
@@ -145,7 +145,7 @@ def isElement(c): return isinstance(c, Element)
 def _getRoot( element ):
     parent = element.parent()
     if parent is None:
-        from Instrument import Instrument
+        from .Instrument import Instrument
         debug.log(element.__class__)
         assert element.__class__.__name__ =='Instrument'
         #assert isinstance( element, Instrument )
@@ -171,7 +171,7 @@ class Element_TestCase(TestCase):
     def test2(self):
         class Moderator(Element):
             class Attributes(Element.Attributes):
-                import Attribute
+                from . import Attribute
                 type = Attribute.str( "type", default = "")
         m = Moderator( 'm', type = 'hi' )
         self.assertEqual( m._getProperty( 'type' ), 'hi' )

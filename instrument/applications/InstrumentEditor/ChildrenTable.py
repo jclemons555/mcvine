@@ -29,14 +29,14 @@ def getAllElementsAndContainers( elements_package, isElement, isContainer ):
         if filename[-3:] != ".py": continue
         name = filename[:-3]
         m = "%s.%s" % (package,name)
-        print "-> try importing %s" % m
+        print("-> try importing %s" % m)
         module = __import__( m, globals(), locals(), [''] )
         klass = module.__dict__.get(name)
         if klass is None: continue
         if isElement(klass): elements.append( klass )
         if isContainer(klass): containers.append( klass )
         continue
-    print elements, containers
+    print(elements, containers)
     return elements, containers
             
         
@@ -47,7 +47,7 @@ def test():
     def isElementClass(klass): return issubclass( klass, Element )
     def isElementContainerClass(klass): return issubclass( klass, ElementContainer )
     t = createByLookupElementModules( ie, isElementClass, isElementContainerClass )
-    print t
+    print(t)
     return
 
 

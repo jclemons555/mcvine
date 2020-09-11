@@ -112,7 +112,7 @@ Parameters:
         # save the xml description
         if xmloutput:
             from instrument.nixml import weave
-            print 'write hyspec instrument to %s' % xmloutput
+            print('write hyspec instrument to %s' % xmloutput)
             weave( hyspec, open(xmloutput, 'w') )
         return hyspec, instrumentGeometer
     

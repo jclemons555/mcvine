@@ -36,7 +36,7 @@ class ViewNotebook(wx.Notebook):
     
     
     def _addStartingPages(self):
-        from VtkPanel import VtkPanel
+        from .VtkPanel import VtkPanel
         self.getShelf()['vtkPanel'] = self.vtkPanel = VtkPanel( self, -1 )
         self.AddPage( self.vtkPanel, "vtk windodw" )
         #from HistInfoPanel import HistInfoPanel

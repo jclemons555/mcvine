@@ -48,7 +48,7 @@ class TreeNotebook(wx.Notebook):
     #event handlers
     def OnPageChanged(self, evt):
         no = evt.GetSelection()
-        print "current page no: %s" % no
+        print("current page no: %s" % no)
         if no == self._pageName2No[ "shape" ]:
             path, item = self.treePanel.getCurrentItem()
             self.shapeTreePanel.changeTargetTree( item.shape() )
@@ -72,7 +72,7 @@ class TreeNotebook(wx.Notebook):
 
     def _addInstrumentTree(self):
         name = "Instrument tree"
-        from TreePanel import TreePanel
+        from .TreePanel import TreePanel
         self.treePanel = TreePanel(self, targetTree = self.getShelf()["instrument"] )
         self._addPage( name, self.treePanel )
         return
@@ -80,7 +80,7 @@ class TreeNotebook(wx.Notebook):
 
     def _addShapeTree(self):
         name = "shape"
-        from ShapeTreePanel import ShapeTreePanel
+        from .ShapeTreePanel import ShapeTreePanel
         #self.shapeTreePanel = ShapeTreePanel(self, targetName = "shape", targetTree = testshape())
         self.shapeTreePanel = ShapeTreePanel(self, targetName = "shape", targetTree = None)
         self._addPage( name, self.shapeTreePanel )

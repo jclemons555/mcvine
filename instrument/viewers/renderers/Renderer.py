@@ -50,7 +50,7 @@ class Renderer(Visitor):
     
     
     def _abstract(self, method):
-        raise NotImplementedError , "%s must provide method '%s'" % method
+        raise NotImplementedError("%s must provide method '%s'" % method)
     
     
     pass # end of Renderer

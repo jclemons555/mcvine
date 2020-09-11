@@ -12,7 +12,7 @@
 #
 
 
-from ElementContainer import ElementContainer, debug, typeFromName
+from .ElementContainer import ElementContainer, debug, typeFromName
 
 
 class Instrument( ElementContainer ):
@@ -38,10 +38,10 @@ class Instrument( ElementContainer ):
             children = children,
             **attributes )
         
-        from GuidGenerator import GuidGenerator
+        from .GuidGenerator import GuidGenerator
         self._guidGenerator = GuidGenerator()
         
-        from GuidRegistry import GuidRegistry
+        from .GuidRegistry import GuidRegistry
         self.guidRegistry = GuidRegistry()
         return
 
@@ -113,7 +113,7 @@ class Instrument( ElementContainer ):
         name.
         '''
         if name not in self._singlecomponenttypes:
-            raise ValueError , "Component %s is not unique" % name
+            raise ValueError("Component %s is not unique" % name)
         t = typeFromName( name )
         for e in self.elements():
             if isinstance( e, t ): return e
@@ -168,19 +168,19 @@ class Instrument_TestCase(TestCase):
         instrument = createInstrument('test')
         self.assertEqual( instrument.guid(), -1 )
         
-        from Moderator import createNormalModerator
+        from .Moderator import createNormalModerator
         moderator = createNormalModerator('moderator', 10, 10, 2 )
         self.assertEqual( moderator.guid(), -1 )
         instrument.addElement( moderator )
 
-        self.assert_( moderator.guid() >= 0 )
+        self.assertTrue( moderator.guid() >= 0 )
         return
         
     def test_getModerator(self):
         'instrument: getModerator'
         instrument = createInstrument('test')
         
-        from Moderator import createNormalModerator
+        from .Moderator import createNormalModerator
         moderator = createNormalModerator('moderator', 10, 10, 2 )
         instrument.addElement( moderator )
 
@@ -193,7 +193,7 @@ class Instrument_TestCase(TestCase):
     def test_getSample(self):
         'instrument: getSample'
         instrument = createInstrument('test')
-        from Sample import Sample
+        from .Sample import Sample
         instrument.addElement( Sample('aluminum') )
         instrument.getSample()
         return
@@ -202,7 +202,7 @@ class Instrument_TestCase(TestCase):
     def test_changeSample(self):
         'instrument: changeSample'
         instrument = createInstrument('test')
-        from Sample import Sample
+        from .Sample import Sample
         instrument.addElement( Sample('aluminum') )
         instrument.changeSample( Sample('vanadium') )
         return
@@ -217,7 +217,7 @@ class Instrument_TestCase(TestCase):
         'instrument: getMonitors'
         instrument = createInstrument('test')
         
-        from Monitor import createNormalMonitor
+        from .Monitor import createNormalMonitor
         monitor1 = createNormalMonitor('monitor1', 10, 10, 2 )
         instrument.addElement( monitor1 )
         
@@ -232,9 +232,9 @@ class Instrument_TestCase(TestCase):
 
     def test_registerAll(self):
         instrument = createInstrument( 'test' )
-        from DetectorSystem import DetectorSystem
+        from .DetectorSystem import DetectorSystem
         ds = DetectorSystem( 'ds', guid  = instrument.getUniqueID() )
-        from Detector import Detector
+        from .Detector import Detector
         det = Detector( 'det', guid = instrument.getUniqueID() )
         ds.addElement( det )
         instrument.addElement( ds )

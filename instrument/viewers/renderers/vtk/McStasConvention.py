@@ -23,7 +23,7 @@ import journal
 debug = journal.debug('instrument.viewers.renderers.McStasConvention')
 
 
-from Base import VTKRenderer as Base, ModelConventionAdaptor as MCBase
+from .Base import VTKRenderer as Base, ModelConventionAdaptor as MCBase
 class VTKRenderer(Base):
 
 
@@ -46,7 +46,7 @@ class VTKRenderer(Base):
 
 
     def _toVTKconvention(self, position, orientation):
-        from mcstasRotation import toAngles
+        from .mcstasRotation import toAngles
         rotations = toAngles( orientation, unit = 'deg')
         return position, rotations
 

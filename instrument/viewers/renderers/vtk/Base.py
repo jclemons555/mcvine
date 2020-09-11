@@ -108,7 +108,7 @@ class VTKRenderer(Renderer):
 
         shape = visualElement.shape
         try: actor = shape.identify(self)
-        except Exception, msg:
+        except Exception as msg:
             warning.log("%s cannot identify itself because %s" % (shape, msg))
             return
         modelRotations = shape.identify(self._modelConventionAdaptor)
@@ -132,9 +132,8 @@ class VTKRenderer(Renderer):
 
     def _toVTKconvention(self, position, orientation):
         "convert the position and orientation to VTK convention"
-        raise NotImplementedError , \
-              "'%s' must provide '%s' to convert position and orientation to "\
-              "VTK convention" % (self.__class__.__name__, "_toVTKconvention")
+        raise NotImplementedError("'%s' must provide '%s' to convert position and orientation to "\
+              "VTK convention" % (self.__class__.__name__, "_toVTKconvention"))
 
 
     def _addActor(self, actor, position, orientation,
@@ -169,7 +168,7 @@ class VTKRenderer(Renderer):
         if axis == 'x': actor.RotateX(angle)
         elif axis == 'y': actor.RotateY(angle)
         elif axis == 'z': actor.RotateZ(angle)
-        else: raise NotImplementedError , "Unrecognized rotation: %s, %s" % (axis, angle)
+        else: raise NotImplementedError("Unrecognized rotation: %s, %s" % (axis, angle))
         return
 
 

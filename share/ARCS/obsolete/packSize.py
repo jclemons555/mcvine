@@ -22,4 +22,4 @@ def getSize( radius, height, gap ):
     return size
 
 if __name__ == '__main__':
-    print getSize( radius, height, delta )
+    print(getSize( radius, height, delta ))

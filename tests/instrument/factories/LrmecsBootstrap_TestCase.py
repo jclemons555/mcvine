@@ -35,7 +35,7 @@ class LrmecsBootstrap_TestCase(unittestX.TestCase):
         f = '../ins-data/Lrmecs/4849'
         factory = InstrumentFactory( )
         instrument, geometer = factory.construct( f )
-        print geometer.position('detSystem/detector144/pixel0' )
+        print(geometer.position('detSystem/detector144/pixel0' ))
         return
 
 

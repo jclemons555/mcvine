@@ -33,7 +33,7 @@ import journal
 debug = journal.debug('VTKShapeRenderer')
 
 
-from Base import VTKShapeRenderer as Base, ModelCoordinator as MCBase
+from .Base import VTKShapeRenderer as Base, ModelCoordinator as MCBase
 class VTKShapeRenderer(Base):
 
     def __init__(self, modelCoordinator = None):

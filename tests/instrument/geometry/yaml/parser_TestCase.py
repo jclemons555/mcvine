@@ -14,7 +14,7 @@ class parser_TestCase(unittest.TestCase):
         """
         from instrument.geometry.yaml import parse_file
         shape = parse_file( 'test.yaml' )
-        print shape
+        print(shape)
         return
 
 

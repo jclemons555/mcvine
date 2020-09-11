@@ -15,8 +15,8 @@
 import wx
 
 
-from TreeNotebook import TreeNotebook
-from ViewNotebook import ViewNotebook
+from .TreeNotebook import TreeNotebook
+from .ViewNotebook import ViewNotebook
 
 
 class UpperPanel(wx.SplitterWindow):

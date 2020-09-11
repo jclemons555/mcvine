@@ -49,7 +49,7 @@ def packType(packinfo):
 
 
 from math import sqrt, acos, atan, pi, cos, sin
-import units
+from . import units
 atm = units.pressure.atm
 m = units.length.m
 cm = units.length.cm
@@ -79,7 +79,7 @@ monitorRecords = [
     ]      
 
 
-from _journal import debug
+from ._journal import debug
 
 
 class InstrumentFactory( object):
@@ -137,7 +137,7 @@ Parameters:
         # save the xml description
         if xmloutput:
             from instrument.nixml import weave
-            print 'write arcs instrument to %s' % xmloutput
+            print('write arcs instrument to %s' % xmloutput)
             weave( arcs, open(xmloutput, 'w') )
         return arcs, instrumentGeometer
 
@@ -255,7 +255,7 @@ Parameters:
         
 all physical parameters must have units attached.
 '''
-        from ARCS.packSize import getSize
+        from .ARCS.packSize import getSize
         size = getSize( radius, height, gap )
         shape = shapes.block( **size )
         pack = elements.detectorPack(
@@ -267,7 +267,7 @@ all physical parameters must have units attached.
             'det0', 0, instrument, pressure, npixels, radius, height )
         pack.addElement( det0 )
 
-        from ARCS.tubePositions import getPositions
+        from .ARCS.tubePositions import getPositions
         positions = getPositions( radius, gap )
         packGeometer.register( det0, (0*m,positions[0],0*m), self.tube_orientation)
         
@@ -286,7 +286,7 @@ all physical parameters must have units attached.
 
 all physical parameters must have units attached.
 '''
-        from LPSDFactory import create
+        from .LPSDFactory import create
         detector, geometer = create(
             name, id, 
             pressure, radius, height, npixels,

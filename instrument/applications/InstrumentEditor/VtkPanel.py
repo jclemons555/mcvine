@@ -42,7 +42,7 @@ class VtkPanel( wxVTKRenderWindowInteractor ):
         ves = i2ves.render( instrument, geometer )
         from instrument.viewers.renderers.vtk.McStasConvention import VTKRenderer
         r = VTKRenderer( )
-        print ves
+        print(ves)
         r.render( ves, self.renderer )
 ##         from instrument.viewers.renderers.vtk.Base import createVTKRenderWindowInteractor, startVTKRender
 ##         startVTKRender( iren )

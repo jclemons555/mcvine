@@ -14,8 +14,8 @@
 
 import wx
 
-from LowerPanel import LowerPanel
-from UpperPanel import UpperPanel
+from .LowerPanel import LowerPanel
+from .UpperPanel import UpperPanel
 
 
 

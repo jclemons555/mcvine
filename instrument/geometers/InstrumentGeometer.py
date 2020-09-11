@@ -12,11 +12,11 @@
 #
 
 
-from _journal import debug
+from ._journal import debug
 
 
-from AbstractInstrumentGeometer import AbstractInstrumentGeometer
-from GlobalGeometer import GlobalGeometer
+from .AbstractInstrumentGeometer import AbstractInstrumentGeometer
+from .GlobalGeometer import GlobalGeometer
 
 
 class InstrumentGeometer(  GlobalGeometer, AbstractInstrumentGeometer ):
@@ -35,7 +35,7 @@ class InstrumentGeometer(  GlobalGeometer, AbstractInstrumentGeometer ):
 
     def distanceToSample(self, element ):
         p = self.positionRelativeToSample( element )
-        from utils import length
+        from .utils import length
         return length(p/meter) * meter
     
 
@@ -69,7 +69,7 @@ class InstrumentGeometer_TestCase(TestCase):
     def test4(self):
         "InstrumentGeometer: instrument with layers"
         import instrument.elements as ies
-        from Geometer import Geometer
+        from .Geometer import Geometer
         from instrument.elements.Element import Element
         from instrument.elements.ElementContainer import ElementContainer
         
@@ -102,7 +102,7 @@ class InstrumentGeometer_TestCase(TestCase):
             for j in range(8):
                 name = "det%s"%j
                 det = Element(name, guid = instrument.getUniqueID())
-                exec 'det_%s_%s = det' % (i,j)
+                exec('det_%s_%s = det' % (i,j))
                 detpack.addElement( det )
                 detpack_geometer.register( det, (j-3.5, 0, 0 ), (0,0,0) )
                 continue
@@ -143,7 +143,7 @@ class InstrumentGeometer_TestCase(TestCase):
         return
 
     pass # end of InstrumentGeometer_TestCase
-import units
+from . import units
 meter = units.length.meter
 
     

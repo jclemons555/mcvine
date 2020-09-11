@@ -20,7 +20,7 @@ def main():
     #gap between two tubes
     gap = 0.08 * inch
 
-    print getPositions( radius, gap ) / inch
+    print(getPositions( radius, gap ) / inch)
     return
 
 

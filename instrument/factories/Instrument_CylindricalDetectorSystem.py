@@ -36,7 +36,7 @@ numpxls = 80
 
 
 # distance from sample to detector pixel
-import units
+from . import units
 atm = units.pressure.atm
 meter = units.length.meter
 mm = units.length.mm
@@ -152,7 +152,7 @@ class InstrumentFactory( object):
                      pressure, npixels, radius, height):
         key = pressure, npixels, radius, height
         detectorModules = self._getDetectorModules()
-        for key1 in detectorModules.iterkeys():
+        for key1 in detectorModules.keys():
             if _equal(key, key1):
                 detM = detectorModules[ key1 ]
                 debug.log( 'detM=%s' % detM )
@@ -173,12 +173,12 @@ class InstrumentFactory( object):
         except:
             self._detectorModules = {}
             return self._detectorModules
-        raise RuntimeError , "Should not reach here"
+        raise RuntimeError("Should not reach here")
         
         
     def _makeDetector(self, name, id, instrument, 
                       pressure, npixels, radius, height):
-        from LPSDFactory import create
+        from .LPSDFactory import create
         detector, geometer = create(
             name, id, 
             pressure, radius, height, npixels,

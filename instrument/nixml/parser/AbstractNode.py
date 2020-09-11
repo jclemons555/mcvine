@@ -16,7 +16,7 @@ debug = journal.debug("instrument.xmlparser")
 
 
 from pyre.xml.Node import Node
-import urllib
+import urllib.request, urllib.parse, urllib.error
 
 
 
@@ -33,16 +33,15 @@ class AbstractNode(Node):
         try:
             name = attributes['name']
         except KeyError:
-            print attributes.keys()
-            raise XMLFormatError, \
-                  "Element does not have the 'name' attribute."\
+            print(list(attributes.keys()))
+            raise XMLFormatError("Element does not have the 'name' attribute."\
                   "Element type: %s" % (
-                self.__class__.__name__ )
+                self.__class__.__name__ ))
         guid = attributes.get('guid')
 
         # convert to dictionary
         attrs = {}
-        for k,v in attributes.items(): attrs[str(k)] = v
+        for k,v in list(attributes.items()): attrs[str(k)] = v
         del attrs['name'], attrs['guid']
 
         # see if we have instrument instance established
@@ -65,7 +64,7 @@ class AbstractNode(Node):
             document.instrument = instrument = self.element
             pass
         if instrument is None:
-            raise RuntimeError, "Instrument is not yet defined"
+            raise RuntimeError("Instrument is not yet defined")
         #instrument.guidRegistry.register( self.element.guid(), self.element )
 
         # if new element is a copy, need to establish reference
@@ -86,7 +85,7 @@ class AbstractNode(Node):
         debug.log( "content=%s" % content )
         content = content.strip()
         if len(content)==0: return
-        self.element.appendContent( urllib.unquote(content).strip() )
+        self.element.appendContent( urllib.parse.unquote(content).strip() )
         self.locator = self.document.locator
         return
 

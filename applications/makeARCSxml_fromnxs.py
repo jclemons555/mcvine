@@ -46,7 +46,7 @@ class MakeARCSxml(Script):
 
     def main(self):
         if not self.inventory.xmloutput:
-            raise RuntimeError, 'Please specify output xml filename by -xmloutput'
+            raise RuntimeError('Please specify output xml filename by -xmloutput')
         
         filename = self.inventory.nxfile
         entry = self.inventory.nxentry
@@ -63,7 +63,7 @@ class MakeARCSxml(Script):
             'mod2sample': mod2sample,
             }
         cmd = 'makeARCSxml.py ' + ' '.join(
-            [ '-%s="%s"' % (k,v) for k,v in params.iteritems()] )
+            [ '-%s="%s"' % (k,v) for k,v in params.items()] )
         open(xmloutput, 'a').write('<!-- created by %s -->\n' % cmd)
         return
 
