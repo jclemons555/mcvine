@@ -52,8 +52,9 @@ def collectAttributes( klass ):
 
 
 from AbstractAttributeContainer import AbstractAttributeContainer
+from future.utils import with_metaclass
 
-class AttributeContainer( AbstractAttributeContainer, metaclass=AttributeNotary ):
+class AttributeContainer(with_metaclass(AttributeNotary, AbstractAttributeContainer)):
 
     from Attribute import Attribute
     name = Attribute( 'name' )
