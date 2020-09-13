@@ -34,7 +34,7 @@ def getTypes( package ):
                 if name.startswith( '_' ): break # ignore private modules
                 _modules.append( name )
                 try:
-                    exec("from %s.%s import %s" % (package_name, name, name ))
+                    exec("from %s.%s import %s" % (package_name, name, name ), locals())
                 except Exception as msg:
                     debug.log( '%s:%s' % (msg.__class__.__name__, msg) )
                     break
