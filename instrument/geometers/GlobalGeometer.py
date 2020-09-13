@@ -234,7 +234,7 @@ class GlobalGeometer( AbstractGlobalGeometer ):
 
 
 # helpers
-from ..2to3 import isstr
+from .._2to3 import isstr
 def isIdentifier( e ): return isstr(e)
 
 def isIndexTuple( candidate ):
