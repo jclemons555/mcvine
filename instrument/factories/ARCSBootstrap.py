@@ -31,7 +31,7 @@
 
 
 from math import sqrt, acos, atan, pi, cos, sin
-import units
+from . import units
 atm = units.pressure.atm
 m = units.length.m
 cm = units.length.cm
@@ -61,7 +61,7 @@ monitorRecords = [
     ]      
 
 
-from _journal import debug
+from ._journal import debug
 
 
 class InstrumentFactory( object):
@@ -88,8 +88,8 @@ Parameters:
         #read detector pack records
         import os
         if not os.path.exists(detconfigfile):
-            raise IOError ,"Cannot find file %s" % (
-                os.path.abspath(detconfigfile), )
+            raise IOError("Cannot find file %s" % (
+                os.path.abspath(detconfigfile), ))
 
         self._instrument = arcs = elements.instrument(
             "ARCS" )# version="0.0.0")
@@ -100,7 +100,7 @@ Parameters:
         self.local_geometers = [geometer]
 
         #parse the file and get all tube records and monitor records
-        from ARCSDetPackCSVParser import readConf
+        from .ARCSDetPackCSVParser import readConf
         packRecords= readConf( detconfigfile )
 
         # make Moderator
@@ -144,7 +144,7 @@ Parameters:
             xmloutput = '%s.xml' % (os.path.basename(detconfigfile),)
         from instrument.nixml import weave
         import os
-        print 'write arcs instrument to %s' % xmloutput
+        print('write arcs instrument to %s' % xmloutput)
         weave( arcs, open(xmloutput, 'w') )
         return arcs, instrumentGeometer
 
@@ -256,7 +256,7 @@ Parameters:
         
 all physical parameters must have units attached.
 '''
-        from ARCS.packSize import getSize
+        from .ARCS.packSize import getSize
         size = getSize( radius, height, gap )
         shape = shapes.block( **size )
         pack = elements.detectorPack(
@@ -270,7 +270,7 @@ all physical parameters must have units attached.
 
         #180 degree is an artifact of current limitation of simulation
         #package.
-        from ARCS.tubePositions import getPositions
+        from .ARCS.tubePositions import getPositions
         positions = getPositions( radius, gap )
         packGeometer.register( det0, (0*m,positions[0],0*m), (0,180,0) )
         
@@ -289,7 +289,7 @@ all physical parameters must have units attached.
 
 all physical parameters must have units attached.
 '''
-        from LPSDFactory import create
+        from .LPSDFactory import create
         detector, geometer = create(
             name, id, 
             pressure, radius, height, npixels,

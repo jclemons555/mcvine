@@ -9,15 +9,15 @@ warning = journal.warning(jnlTag)
 
 #tubeLength = 0.5 # meter. It is a guess here. It does not really matter because it is not pixellated
 
-from PseudoSingleton import PseudoSingleton
+from .PseudoSingleton import PseudoSingleton
 
 class Parser( PseudoSingleton ):
 
     def __init1__( self, filename, interpolateData = False):
         its = self.__class__.__its__
         k = filename, interpolateData
-        if k not in its.keys():
-            for key in its.keys():
+        if k not in list(its.keys()):
+            for key in list(its.keys()):
                 if key[0] == filename:
                     msg = "You have requested reading Lrmecs data file %s with "\
                           "interpolateData=%s, and now you are requesting"\
@@ -111,7 +111,7 @@ class Parser( PseudoSingleton ):
         for record in records:
             if record['type'] == 'monitor': monitors.append( record )
             elif record['type'] == 'tube': dets.append( record )
-            else : raise NotImplementedError , "Unknown record type %s" % record['type']
+            else : raise NotImplementedError("Unknown record type %s" % record['type'])
             continue
         return monitors, dets
     

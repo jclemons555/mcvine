@@ -82,7 +82,7 @@ def toMatrix( *args, **kwds ):
     elif len(args) == 1 and len(args[0]) == 3: # a tuple or list
         angles = args[0]
     else:
-        raise SyntaxError, "Usage: %s" % usage
+        raise SyntaxError("Usage: %s" % usage)
     return _toMatrix( angles[0], angles[1], angles[2], **kwds)
         
 
@@ -133,7 +133,7 @@ def toAngles(m, unit='radian'):
     #if m is already a tuple of three rotation angles, just return it
     if isVector3(m): return m
     #otherwise we want to make sure m is a Matrix
-    if not isMatrix3(m): raise TypeError , "Not a 3X3 matrix: %s" % m
+    if not isMatrix3(m): raise TypeError("Not a 3X3 matrix: %s" % m)
     from numpy import arctan2, arcsin
     if m[2][0]>1-1e-8 :
         x=0.
@@ -151,16 +151,16 @@ def toAngles(m, unit='radian'):
             for j in range(3):
                 if abs(m[i][j])<1e-8 :
                     if abs(m1[i][j]-m[i][j])>1e-8 :
-                        raise 'conversion failed'
+                        raise RuntimeError('conversion failed')
                 else :
                     if abs( (m1[i][j]-m[i][j])/m[i][j] )>1e-8 :
-                        raise 'conversion failed'
+                        raise RuntimeError('conversion failed')
     except:
-        print 'original matrix:',m
-        print 'converted matrix:',m1
-        raise 'conversion failed'
+        print('original matrix:',m)
+        print('converted matrix:',m1)
+        raise RuntimeError('conversion failed')
     if unit.lower() == 'deg' or unit.lower() == 'degree':
-        return map(todegree, (x,y,z))
+        return list(map(todegree, (x,y,z)))
     else:
         return x,y,z
 

@@ -2,7 +2,7 @@ import journal
 debug = journal.debug('instrument.elements.elementTypes')
 
 
-from Element import Element
+from .Element import Element
 
 
 def register( package ):
@@ -34,8 +34,8 @@ def getTypes( package ):
                 if name.startswith( '_' ): break # ignore private modules
                 _modules.append( name )
                 try:
-                    exec "from %s.%s import %s" % (package_name, name, name )
-                except Exception, msg:
+                    exec("from %s.%s import %s" % (package_name, name, name ), locals())
+                except Exception as msg:
                     debug.log( '%s:%s' % (msg.__class__.__name__, msg) )
                     break
                 klass = eval( name )
@@ -44,7 +44,7 @@ def getTypes( package ):
                     if issubclass( klass, Element ): types[name] = klass
                     pass
                 except:
-                    print "Error for ", name, klass
+                    print("Error for ", name, klass)
                     raise
                 break
             continue
@@ -73,6 +73,6 @@ _types = {}
 
 
 if __name__ == '__main__':
-    print typeFromName( 'Detector' )
+    print(typeFromName( 'Detector' ))
 
 

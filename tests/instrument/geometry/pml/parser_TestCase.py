@@ -25,7 +25,7 @@ class parser_TestCase(TestCase):
         """
         from instrument.geometry.pml import parse_file
         shape = parse_file( 'test.xml' )
-        print shape
+        print(shape)
         return
 
 

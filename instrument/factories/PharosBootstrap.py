@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # Timothy M. Kelley Copyright (c) 2005 All rights reserved
 
-from PharosDetCSVParser import Parser
+from .PharosDetCSVParser import Parser
 from math import sqrt, acos, atan, pi, cos, sin
 
-import units
+from . import units
 atm = units.pressure.atm
 meter = units.length.meter
 mm = units.length.mm
@@ -15,7 +15,7 @@ import instrument.elements as elements
 import instrument.geometers as geometers
 
 
-from _journal import debug
+from ._journal import debug
 
 
 # number of detectors per pack
@@ -78,7 +78,7 @@ class InstrumentFactory( object):
         # make detector array: adds elements to pharos & geometer
         import os
         if not os.path.exists(detPackFilename):
-            raise RuntimeError ,"Cannot find file %s" % detPackFilename
+            raise RuntimeError("Cannot find file %s" % detPackFilename)
         self.makeDetectorSystem( pharos, geometer, detPackFilename)
 
         # make Moderator
@@ -105,7 +105,7 @@ class InstrumentFactory( object):
         from instrument.nixml import weave
         import os
         f = '%s.xml' % (os.path.basename(detPackFilename),)
-        print 'write pharos instrument to %s' % f
+        print('write pharos instrument to %s' % f)
         weave( pharos, open(f, 'w') )
         return pharos, instrumentGeometer
 
@@ -192,7 +192,7 @@ class InstrumentFactory( object):
             elif '10atm' in detDescr:
                 pressure = 10.0 * atm
             else:
-                raise ValueError, "unknown detector pressure"
+                raise ValueError("unknown detector pressure")
             
             height = record['length']['value'] * _todimensional( record['length']['unit'] )
             radius = tubeRadius
@@ -201,7 +201,7 @@ class InstrumentFactory( object):
                 numPixels = numPixels1m
             elif height/mm < 330.0 and height > 310.0:
                 numPixels = numPixels32cm
-                raise ValueError, "did not expect short detectors yet!"
+                raise ValueError("did not expect short detectors yet!")
 
             name = 'detector%s' % detID
 
@@ -237,7 +237,7 @@ class InstrumentFactory( object):
         key = pressure, npixels, radius, height
         detectorModules = self._getDetectorModules()
         
-        for key1 in detectorModules.iterkeys():
+        for key1 in detectorModules.keys():
             if _equal(key, key1):
                 detM = detectorModules[ key1 ]
                 debug.log( 'detM=%s' % detM )
@@ -258,13 +258,13 @@ class InstrumentFactory( object):
         except:
             self._detectorModules = {}
             return self._detectorModules
-        raise RuntimeError , "Should not reach here"
+        raise RuntimeError("Should not reach here")
         
         
     def _makeDetector(self, name, id, instrument, 
                       pressure, npixels, radius, height):
         
-        from LPSDFactory import create
+        from .LPSDFactory import create
         detector, geometer = create(
             name, id, 
             pressure, radius, height, npixels,
@@ -291,15 +291,16 @@ def _equal( key, key1 ):
     return True
 
 
-import units
+from . import units
+from .._2to3 import isstr
 def _todimensional( candidate ):
-    if isinstance( candidate, basestring ):
+    if isstr( candidate ):
         parser = units.parser()
         return parser.parse( candidate )
     if not units.isdimensional( unit ) and not isinstance( candidate, int )\
            and not isinstance( candidate, float ):
-        raise ValueError , "Cannot convert %s to a dimensional" % (
-            candidate, )
+        raise ValueError("Cannot convert %s to a dimensional" % (
+            candidate, ))
     return candidate
 
 

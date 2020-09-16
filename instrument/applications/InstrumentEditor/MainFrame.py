@@ -123,13 +123,13 @@ class MainFrame(wx.Frame):
         from instrument.elements.ElementContainer import ElementContainer
         def isElementClass(klass): return issubclass( klass, Element )
         def isElementContainerClass(klass): return issubclass( klass, ElementContainer )
-        import ChildrenTable
+        from . import ChildrenTable
         self.shelf['children-table-for-instrument-element-containers']  = ChildrenTable.createByLookupElementModules( ie, isElementClass, isElementContainerClass )
         return
 
 
     def createPanel(self):
-        from MainPanel import MainPanel
+        from .MainPanel import MainPanel
         self.panel = MainPanel( self )
         return
 
@@ -155,7 +155,7 @@ class MainFrame(wx.Frame):
     
 
     def OnAddItem(self, evt):
-        from AddItemDialog import AddItemDialog
+        from .AddItemDialog import AddItemDialog
         containerPath, container = self.getCurrentContainer()
         itemPath, item = self.getCurrentItem()
         children_table = self.shelf['children-table-for-instrument-element-containers']
@@ -180,7 +180,7 @@ class MainFrame(wx.Frame):
         geometer.register( str('/'.join( [containerPath, name] ) ),
                            (0,0,0), (0,0,0), containerPath )
         vtkPanel.render( instrument, geometer )
-        print "hello there"
+        print("hello there")
         #???
         return 
 

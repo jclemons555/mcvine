@@ -58,8 +58,8 @@ class Shell(ShellBase):
 
         from histogram.Histogram import Histogram
         newHist = None
-        for key, item in shelf.iteritems():
-            if isinstance(item, Histogram) and key not in histShelf.keys():
+        for key, item in shelf.items():
+            if isinstance(item, Histogram) and key not in list(histShelf.keys()):
                 histShelf[key] = item
                 newHist = key, item
                 break
@@ -113,7 +113,7 @@ class LowerPanel(wx.Panel):
     
 
     def EvtTextEnter(self, event):
-        print "hello"
+        print("hello")
         if wx.KeyEvent.GetKeyCode(event) != 13: return
         pythonInput = self.pythonInput
         s = pythonInput.GetValue()
@@ -122,12 +122,12 @@ class LowerPanel(wx.Panel):
         cmd = lastline.lstrip(prompt)
 
         shelf = self.getShelf()
-        try: exec cmd in shelf
-        except Exception, msg:
+        try: exec(cmd, shelf)
+        except Exception as msg:
             import traceback
-            print traceback.print_exc()
-            print "Unable to execute %r because of %s: %s" % (
-                cmd, msg.__class__.__name__, msg)
+            print(traceback.print_exc())
+            print("Unable to execute %r because of %s: %s" % (
+                cmd, msg.__class__.__name__, msg))
             pass
         self.write( prompt )
 
@@ -135,8 +135,8 @@ class LowerPanel(wx.Panel):
 
         from histogram.Histogram import Histogram
         newHist = None
-        for key, item in shelf.iteritems():
-            if isinstance(item, Histogram) and key not in histShelf.keys():
+        for key, item in shelf.items():
+            if isinstance(item, Histogram) and key not in list(histShelf.keys()):
                 histShelf[key] = item
                 newHist = key, item
                 break

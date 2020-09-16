@@ -12,7 +12,7 @@
 #
 
 
-from ElementContainer import ElementContainer
+from .ElementContainer import ElementContainer
 import journal
 debug = journal.debug("instrument")
 
@@ -28,9 +28,9 @@ class Detector( ElementContainer):
 
     class Attributes(ElementContainer.Attributes):
 
-        import Attribute
+        from . import Attribute
 
-        import units
+        from . import units
         pressure = Attribute.dimensional(
             'pressure', default = 10*units.pressure.atm )
 
@@ -69,7 +69,7 @@ class Detector( ElementContainer):
 
 
 import instrument.geometry.shapes as shapes
-import units
+from . import units
 cm = units.length.cm
 
 defaultShape = shapes.cylinder( 1.25*cm, 100.*cm )  #unit: cm # should we put unit in there?

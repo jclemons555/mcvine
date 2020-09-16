@@ -35,7 +35,7 @@ class InstrumentGeometer_TestCase(unittestX.TestCase):
         det1offset = array( [ -1./2, sqrt(3)/2, 0] ) * 0.3
         expected = packCenter+det1offset
 
-        print det1position, expected
+        print(det1position, expected)
         self.assertVectorAlmostEqual( det1position, expected )
         return
 
@@ -55,7 +55,7 @@ class InstrumentGeometer_TestCase(unittestX.TestCase):
             geometer.orientation('detectorSystem/detPack1'),
             (0*degree,90*degree,90*degree) 
             )
-        print geometer.orientation('detectorSystem/detPack1/det1')
+        print(geometer.orientation('detectorSystem/detPack1/det1'))
         self.assertVectorAlmostEqual(
             geometer.orientation('detectorSystem/detPack1/det1'),
             (-90*degree,0*degree,180*degree) 

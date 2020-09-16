@@ -22,22 +22,22 @@ def readConf( conffn ):
     lines = open(conffn).readlines()
     vars = lines[0].split('\t')
     vars = [ var.lower() for var in vars ]
-    print vars
+    print(vars)
     raise
 
     ret = []
     for line in lines[1:]:
         try:
             cmd = ','.join(vars) + '=' + 'line.split()'
-            exec cmd
-        except Exception, err:
-            print "Warning: the following line is not parsed because of %s:%s" % (err.__class__.__name__, err)
-            print line
+            exec(cmd)
+        except Exception as err:
+            print("Warning: the following line is not parsed because of %s:%s" % (err.__class__.__name__, err))
+            print(line)
             continue
         idx = int(idx)
         for a in [ 'radius', 'azimuth', 'polar', 'xrot', 'yrot', 'zrot',
                    'xtrn', 'ytrn', 'ztrn' ]:
-            exec '%s=float(%s)' % (a,a)
+            exec('%s=float(%s)' % (a,a))
             continue
 
         record = [ (xrot, yrot, zrot), (xtrn, ytrn, ztrn) ]

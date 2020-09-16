@@ -76,7 +76,7 @@ class ShapeTreePanel(wx.Panel):
         self.targetTree = targetTree
         root = self.currentTreeItem = self.treeroot = tree.AddRoot( self.targetName )
         
-        from ShapeTree2GuiTree import ShapeTree2GuiTree
+        from .ShapeTree2GuiTree import ShapeTree2GuiTree
         renderer = ShapeTree2GuiTree( tree, root )
         target2me, me2target = renderer.render( targetTree )
         self.target2me = target2me 
@@ -91,7 +91,7 @@ class ShapeTreePanel(wx.Panel):
         node = self.target2me[ branchInTargetTree ]
         tree.DeleteChildren( node ); tree.Detete( node )
         
-        from ShapeTree2GuiTree import ShapeTree2GuiTree
+        from .ShapeTree2GuiTree import ShapeTree2GuiTree
         renderer = ShapeTree2GuiTree( tree, guinode )
         target2me, me2target = renderer.render( newTargetBranch )
         self.target2me.update( target2me )
@@ -102,7 +102,7 @@ class ShapeTreePanel(wx.Panel):
 
     def OnActivate(self, event):
         item = event.GetItem()
-        print "double click %s" % self.tree.GetItemText(item)
+        print("double click %s" % self.tree.GetItemText(item))
         return
     
         
@@ -110,7 +110,7 @@ class ShapeTreePanel(wx.Panel):
         item = event.GetItem()
         self.currentTreeItem = item
         itemText = self.tree.GetItemText(item)
-        print itemText
+        print(itemText)
         return
     
     
@@ -138,7 +138,8 @@ class ShapeTreePanel(wx.Panel):
             targetTree = self.targetTree
             path = '/'.join( path.split('/')[:-1] )
             e = targetTree.getDescendent( path )
-            if not isContainer(e): raise "Fatal: cannot find container"
+            if not isContainer(e): 
+                raise RuntimeError("Fatal: cannot find container")
             pass
         return path, e
 

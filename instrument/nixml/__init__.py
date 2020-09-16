@@ -11,8 +11,9 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 
+from __future__ import print_function
 
-from Parser import Parser
+from .Parser import Parser
 default_parser = Parser()
 
 
@@ -21,7 +22,7 @@ def parse( stream ): return default_parser.parse( stream )
 def parse_file( filename ): return parse( open( filename ) )
 
 
-from Renderer import Renderer
+from .Renderer import Renderer
 default_renderer = Renderer()
 def render( instrument, renderer = None ):
     '''render(instrument) --> text of the xml file
@@ -59,7 +60,7 @@ def weave( instrument, stream = None ):
         stream = sys.stdout
         pass
 
-    print >> stream, '\n'.join( render(instrument) )
+    print('\n'.join( render(instrument) ), file=stream)
     return
 
 

@@ -72,7 +72,7 @@ Parameters:
         # save the xml description
         if xmloutput:
             from instrument.nixml import weave
-            print 'write cncs instrument to %s' % xmloutput
+            print('write cncs instrument to %s' % xmloutput)
             weave( cncs, open(xmloutput, 'w') )
         return cncs, instrumentGeometer
     

@@ -12,9 +12,9 @@
 #
 
 
-from elementTypes import typeFromName
+from .elementTypes import typeFromName
 
-from Element import Element, debug
+from .Element import Element, debug
 
 
 class ElementContainer( Element ):
@@ -25,7 +25,7 @@ class ElementContainer( Element ):
                   **attributes):
         Element.__init__(self, name, shape, **attributes)
 
-        from IdGenerator import IdGenerator
+        from .IdGenerator import IdGenerator
         self._idGenerator = IdGenerator()
 
         #containers
@@ -47,7 +47,7 @@ class ElementContainer( Element ):
     def replace(self, old, new):
         'replace an old subelement by a new one'
         if old not in self._elements:
-            raise ValueError, "no such element: %s" % (old, )
+            raise ValueError("no such element: %s" % (old, ))
         index = self._elements.index( old)
         #remove old element
         del self._elements[ index ]
@@ -68,11 +68,11 @@ class ElementContainer( Element ):
             if isinstance(element, typeFromName(type) ): good = True
             continue
         if not good:
-            raise TypeError , "%s(type=%s) is not allowed in this container"\
+            raise TypeError("%s(type=%s) is not allowed in this container"\
                   " %s(type=%s). Allowed elements are: %s" % (
                 element.name, element.__class__.__name__,
                 self.name, self.__class__.__name__,
-                self.allowed_item_types)
+                self.allowed_item_types))
         
         element._setParent( self )
         
@@ -92,13 +92,13 @@ class ElementContainer( Element ):
         else:
             msg = "That element %r (id=%s) is already registered" % (
                 name, id)
-            raise ValueError, msg
+            raise ValueError(msg)
         return
 
 
     def deleteElement(self, element):
         id = element.id()
-        if id not in self._id2element: raise ValueError , "%s is not a sub element of %s" % (element.name, self.name)
+        if id not in self._id2element: raise ValueError("%s is not a sub element of %s" % (element.name, self.name))
         del self._id2element[ id ]
         del self._elements[ self._elements.index( element ) ]
         return
@@ -115,9 +115,9 @@ class ElementContainer( Element ):
     def elementFromId( self, id ):
         'return child element given its name'
         if id not in self._id2element:
-            raise ValueError , "%s(%s): no such id: %s. current ids: %s" % (
+            raise ValueError("%s(%s): no such id: %s. current ids: %s" % (
                 self.name, self.__class__.__name__,
-                id, self._id2element.keys() )
+                id, list(self._id2element.keys()) ))
         return self._id2element[ id ]
     
 
@@ -131,7 +131,7 @@ class ElementContainer( Element ):
                     self.name, identifier )
                 msg += 'The descendent %r is already an element that does not'\
                        ' have children' % (son.name, )
-                raise RuntimeError , msg
+                raise RuntimeError(msg)
             return son
         return son._getDescendent( '/'.join( path[1:] ) )
         
@@ -145,7 +145,7 @@ class ElementContainer( Element ):
                     self.name, indexTuple )
                 msg += 'The descendent %r is already an element that does not'\
                        ' have children' % (son.name, )
-                raise RuntimeError , msg
+                raise RuntimeError(msg)
             return son
         return son._getDescendentFromIndexTuple( indexTuple[1:] )
 
@@ -177,7 +177,7 @@ class ElementContainer( Element ):
 
 def isElementContainer(c): return isinstance(c, ElementContainer)
 def isCopy(c):
-    from Copy import Copy
+    from .Copy import Copy
     return isinstance(c, Copy)
 
 
@@ -213,7 +213,7 @@ class Element_TestCase(TestCase):
 
     def test_iter(self):
         "ElementContainer: __iter__"""
-        for e in self.ec2: print e
+        for e in self.ec2: print(e)
         return
 
 

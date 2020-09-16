@@ -16,7 +16,7 @@ import journal
 debug = journal.debug("instrument.geometers")
 
 
-from AbstractGlobalGeometer import AbstractGlobalGeometer
+from .AbstractGlobalGeometer import AbstractGlobalGeometer
 
 class AbstractInstrumentGeometer( AbstractGlobalGeometer ):
     

@@ -28,6 +28,7 @@ XXX: coordinate system is now hard coded.
 """
 
 from .BootstrapBase import InstrumentFactory as base, PackInfo, units
+from functools import reduce
 class InstrumentFactory(base):
     
     tube_orientation = (0,0,0) # overwrite to match mantid convention
@@ -134,7 +135,7 @@ def getPositionAndOrientation(eightpack):
 
 def getRotation(rot):
     axis = rot['axis-x'], rot['axis-y'], rot['axis-z']
-    axis = map(float, axis)
+    axis = list(map(float, axis))
     angle = float(rot['val'])
     return axis, angle
 

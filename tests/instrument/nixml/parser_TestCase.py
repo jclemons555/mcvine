@@ -31,7 +31,7 @@ class parser_TestCase(TestCase):
         instrument = parse_file( 'test0.xml' )
         pos = instrument.geometer.position(
             "detectorSystem/det1" )
-        print pos
+        print(pos)
         pos = array(pos)/m
         self.assertVectorAlmostEqual(pos, (0.3, 0., 4) )
         return
@@ -44,7 +44,7 @@ class parser_TestCase(TestCase):
         from instrument.nixml import parse_file
         instrument = parse_file( 'test.xml' )
         from instrument.elements.Instrument import Instrument
-        self.assert_( isinstance(instrument, Instrument) )
+        self.assertTrue( isinstance(instrument, Instrument) )
         pos = instrument.geometer.position(
             "detectorSystem/detArray1/detPack1/det1/pix2" )
         pos = array(pos)/m
@@ -68,7 +68,7 @@ class parser_TestCase(TestCase):
         from instrument.nixml import parse_file
         instrument = parse_file( 'test-InstrumentScientistCS.xml' )
         from instrument.elements.Instrument import Instrument
-        self.assert_( isinstance(instrument, Instrument) )
+        self.assertTrue( isinstance(instrument, Instrument) )
         pos = instrument.geometer.position(
             "detectorSystem/detArray1/detPack1/det1/pix2" )
         pos = array(pos)/m

@@ -26,7 +26,7 @@ class renderer_TestCase(TestCase):
         from instrument.nixml import render, parse_file
         instrument = parse_file( 'test.xml' )
         text = render( instrument )
-        print >> open('test.xml.new','w'),  '\n'.join(text) 
+        print('\n'.join(text), file=open('test.xml.new','w')) 
         return
 
 

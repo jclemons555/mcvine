@@ -53,22 +53,22 @@ class Instrument2VisualElements:
         coordinate_system = self.coordinate_system
         
         #make sure geometer will return coodinates in desired coordinate system
-        print "make sure geometer will return coodinates in desired coordinate system"
+        print("make sure geometer will return coodinates in desired coordinate system")
         geometer.changeCoordinateSystem( coordinate_system )
         #keep reference to geometer
-        print "#keep reference to geometer"
+        print("#keep reference to geometer")
         self._geometer  = geometer
 
         #create things to be computed
-        print "#create things to be computed"
-        from VisualElements import VisualElements
+        print("#create things to be computed")
+        from .VisualElements import VisualElements
         self._visual_elements = VisualElements(coordinate_system)
 
         #
         self._currentPath = ''
         
         #render
-        print "render"
+        print("render")
         instrument.identify(self)
 
         #clean up and return
@@ -80,16 +80,16 @@ class Instrument2VisualElements:
     def onElementContainer(self, elementContainer):
         save = self._currentPath
         debug.log( "entering container %s:%s" % (save,elementContainer) )
-        print "entering container %s:%s" % (save,elementContainer) 
+        print("entering container %s:%s" % (save,elementContainer)) 
         self.onElement( elementContainer )
 
-        print "childrens %s" % (elementContainer.childIdentifiers() )
+        print("childrens %s" % (elementContainer.childIdentifiers() ))
         
         for identifier in elementContainer.childIdentifiers():
             self._currentPath = '/'.join( [save, identifier] )
-            print "currentPath = %s" % self._currentPath
+            print("currentPath = %s" % self._currentPath)
             element = elementContainer.getChild( identifier )
-            print "element = %s" % element
+            print("element = %s" % element)
             element.identify(self)
             continue
         self._currentPath = save
@@ -99,7 +99,7 @@ class Instrument2VisualElements:
     def onElement(self, element):
         path = self._currentPath
         debug.log( "entering element %s:%s" % (path, element) )
-        print "entering element %s:%s" % (path, element) 
+        print("entering element %s:%s" % (path, element)) 
         
         self.makeVisualElement( path, element )
         return
@@ -111,8 +111,8 @@ class Instrument2VisualElements:
 
     def getGeometricProperties(self, path, element):
         elementShape = element.shape()
-        print "element %s, type %s, shape: %s" % (
-            element, element.__class__.__name__, elementShape )
+        print("element %s, type %s, shape: %s" % (
+            element, element.__class__.__name__, elementShape ))
         if elementShape is None:
             try: name = element.name
             except: name = element
@@ -124,7 +124,7 @@ class Instrument2VisualElements:
 
     def makeVisualElement(self, path, element):
         t = self.getGeometricProperties(path, element)
-        print "geometric properties: %s" % (t,)
+        print("geometric properties: %s" % (t,))
         if t is None: return
         pos, ori, shape = t
 
@@ -132,7 +132,7 @@ class Instrument2VisualElements:
         color = visualProperties['color']
         opacity = visualProperties['opacity']
 
-        from VisualElement import VisualElement
+        from .VisualElement import VisualElement
         ve = VisualElement(pos, ori, shape, color, opacity)
         self._visual_elements.add( ve )
         return

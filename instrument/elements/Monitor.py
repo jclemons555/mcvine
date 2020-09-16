@@ -12,13 +12,13 @@
 #
 
 
-from Element import Element, debug
+from .Element import Element, debug
 
 
 class Monitor( Element):
 
     class Attributes(Element.Attributes):
-        import Attribute
+        from . import Attribute
         mode = Attribute.str("mode", default = "monitor")
         mode.meta['tip'] = "monitor mode: either 'monitor' or 'timer'"
         
@@ -44,7 +44,7 @@ class Monitor( Element):
 
 import instrument.geometry.shapes as shapes
 
-import units
+from . import units
 cm = units.length.cm
 defaultShape = shapes.block( 10*cm,10*cm, 1*cm )
 

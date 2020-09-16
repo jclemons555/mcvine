@@ -19,7 +19,7 @@ class PseudoSingleton(object):
         its = cls.__dict__.get("__its__")
         # some time we need to reinitialize the instance
         reset = False
-        if kwds.has_key('reset'): reset = True; del( kwds['reset'] )
+        if 'reset' in kwds: reset = True; del( kwds['reset'] )
         key = args, totuples( kwds )
         if its is None: its = cls.__its__ = {}
 
@@ -38,7 +38,7 @@ class PseudoSingleton(object):
 
 
     def __init1__(self, *args, **kwds):
-        raise NotImplementedError , "This method should be reloaded to replace __init__"
+        raise NotImplementedError("This method should be reloaded to replace __init__")
 
 
     pass
@@ -46,7 +46,7 @@ class PseudoSingleton(object):
 
 def totuples( d ):
     ret = []
-    for k, v in d.iteritems():
+    for k, v in d.items():
         ret.append( (k,v) )
         continue
     return tuple( ret )

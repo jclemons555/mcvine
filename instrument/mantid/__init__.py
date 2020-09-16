@@ -66,7 +66,7 @@ class instrument:
         namespaces = self.namespaces
         root = self._root
         if namespaces:
-            ns = namespaces.keys()[0]
+            ns = list(namespaces.keys())[0]
             xmlnode = root.find("%(ns)s:type[@name='%(monitortag)s']" % dict(ns=ns, monitortag=monitortag), namespaces=namespaces)
         else:
             xmlnode = root.find("type[@name='%s']" % monitortag)
@@ -95,7 +95,7 @@ class instrument:
 """
         assert monitortag == 'monitor'
         if namespaces:
-            ns = namespaces.keys()[0]
+            ns = list(namespaces.keys())[0]
             xmlnode = root.find("%(ns)s:component[@type='%(monitortag)s']" % dict(ns=ns, monitortag=monitortag), namespaces=namespaces)
         else:
             xmlnode = root.find("component[@type='%s']" % monitortag)
@@ -109,8 +109,8 @@ def _make_operator(method):
         m = getattr(node, method)
         if ns:
             assert len(ns)==1
-            key = ns.keys()[0]
-            val = ns.values()[0]
+            key = list(ns.keys())[0]
+            val = list(ns.values())[0]
             return m('%s:%s' % (key, tag), namespaces=ns)
         else:
             return m(tag)
@@ -166,7 +166,7 @@ class node(object):
 
     def __str__(self):
         attrs = self._node.attrib.copy()
-        attrs = ', '.join(['%s=%r' % (k,v) for k,v in attrs.iteritems()])
+        attrs = ', '.join(['%s=%r' % (k,v) for k,v in attrs.items()])
         return "%s(%s)" % (self._node.tag, attrs)
     __repr__ = __str__
 
@@ -176,7 +176,7 @@ class component(node):
     def __repr__(self):
         attrs = self._node.attrib.copy()
         type = attrs.pop('type')
-        attrs = ', '.join(['%s=%r' % (k,v) for k,v in attrs.iteritems()])
+        attrs = ', '.join(['%s=%r' % (k,v) for k,v in attrs.items()])
         return "%s(%s)" % (type, attrs)
         items = list(self._node)
         return "%s(%s, items=%s)" % (type, attrs, items) 

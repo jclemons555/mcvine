@@ -27,7 +27,8 @@ XXX: coordinate system is now hard coded.
 
 """
 
-from ARCSBootstrapBase import InstrumentFactory as base, PackInfo, units
+from .ARCSBootstrapBase import InstrumentFactory as base, PackInfo, units
+from functools import reduce
 class InstrumentFactory(base):
 
     tube_orientation = (0,0,0) # overwrite to match mantid convention
@@ -129,7 +130,7 @@ def getPositionAndOrientation(eightpack):
     rot1 = location.getChildren('rot')[0]
     rot2 = rot1.getChildren('rot')[0]
     rot3 = rot2.getChildren('rot')[0]
-    rot = map(getRotation, [rot1, rot2, rot3])
+    rot = list(map(getRotation, [rot1, rot2, rot3]))
     assert rot[0][0] == [0., 1., 0.]
     assert rot[1][0] == [1., 0., 0.]
     assert rot[2][0] == [0., 0., 1.]
@@ -139,7 +140,7 @@ def getPositionAndOrientation(eightpack):
 
 def getRotation(rot):
     axis = rot['axis-x'], rot['axis-y'], rot['axis-z']
-    axis = map(float, axis)
+    axis = list(map(float, axis))
     angle = float(rot['val'])
     return axis, angle
 

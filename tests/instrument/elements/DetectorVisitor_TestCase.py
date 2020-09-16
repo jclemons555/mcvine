@@ -50,11 +50,11 @@ class DetectorVisitor_TestCase(unittestX.TestCase):
     def test2(self):
         """instrument.elements.DetectorVisitor: method 'elementSignature'
         """
-        print """
+        print("""
 You should see indexes are increasing from the last (highest) index to
 the lower index, one by one.
 Copies are printed out twice.
-"""
+""")
         #create an instrument with layers and copies
         i = ie.instrument('test')
         sample = ie.sample('sample')
@@ -87,16 +87,16 @@ Copies are printed out twice.
         class Visitor(DetectorVisitor):
 
             def onDetectorPack(self, pack):
-                print pack.name, self.elementSignature()
+                print(pack.name, self.elementSignature())
                 self.onElementContainer(pack)
                 return
 
             def onDetector(self, detector):
-                print detector.name, self.elementSignature()
+                print(detector.name, self.elementSignature())
                 return
 
             def onCopy(self, copy):
-                print copy.name, self.elementSignature()
+                print(copy.name, self.elementSignature())
                 DetectorVisitor.onCopy(self, copy)
                 return
 
@@ -109,11 +109,11 @@ Copies are printed out twice.
     def test3(self):
         """instrument.elements.DetectorVisitor.DetectorSubsystemVisitor: method 'elementSignature'
         """
-        print """
+        print("""
 You should see indexes are increasing from the last (highest) index to
 the lower index, one by one.
 Copies are printed out twice.
-"""
+""")
         #create an instrument with layers and copies
         i = ie.instrument('test')
         sample = ie.sample('sample')
@@ -149,16 +149,16 @@ Copies are printed out twice.
         class Visitor(DetectorSubsystemVisitor):
 
             def onDetectorPack(self, pack):
-                print pack.name, self.detectorElementSignature()
+                print(pack.name, self.detectorElementSignature())
                 self.onElementContainer(pack)
                 return
 
             def onDetector(self, detector):
-                print detector.name, self.detectorElementSignature()
+                print(detector.name, self.detectorElementSignature())
                 return
 
             def onCopy(self, copy):
-                print copy.name, self.detectorElementSignature()
+                print(copy.name, self.detectorElementSignature())
                 DetectorVisitor.onCopy(self, copy)
                 return
 

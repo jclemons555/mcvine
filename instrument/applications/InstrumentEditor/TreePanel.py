@@ -67,18 +67,18 @@ class TreePanel(wx.Panel):
         item = event.GetItem()
         if item and item == self.treeroot:
             wx.Bell()
-            print "You can't edit this one..."
+            print("You can't edit this one...")
 
             event.Veto()
             pass
         self._oldItemLabel = self.tree.GetItemText( item )
-        print "OnBeginEdit: %s" % self._oldItemLabel
+        print("OnBeginEdit: %s" % self._oldItemLabel)
         return
 
 
     def OnEndEdit(self, event):
-        print ("OnEndEdit: %s %s" %
-               (event.IsEditCancelled(), event.GetLabel()) )
+        print(("OnEndEdit: %s %s" %
+               (event.IsEditCancelled(), event.GetLabel()) ))
         label = event.GetLabel()
         path, item = self.getCurrentItem()
         parentPath = '/'.join( path.split('/')[:-1] )
@@ -90,11 +90,11 @@ class TreePanel(wx.Panel):
 
     def OnActivate(self, event):
         item = event.GetItem()
-        print "double click %s" % self.tree.GetItemText(item)
+        print("double click %s" % self.tree.GetItemText(item))
         from pyregui.guitoolkit.wx import InventoryDialogLoop
         import pyregui.guitoolkit.wx as wxtk
         path, element = self.getCurrentItem()
-        print InventoryDialogLoop( self, element, wxtk )
+        print(InventoryDialogLoop( self, element, wxtk ))
         return
     
         
@@ -102,7 +102,7 @@ class TreePanel(wx.Panel):
         item = event.GetItem()
         self.currentTreeItem = item
         itemText = self.tree.GetItemText(item)
-        print itemText
+        print(itemText)
         #???
         return
     
@@ -141,13 +141,13 @@ class TreePanel(wx.Panel):
         (child, cookie) = self.tree.GetFirstChild(parent)
 
         while child.IsOk():
-            print ("Child [%s] visible = %d" %
+            print(("Child [%s] visible = %d" %
                    (self.tree.GetItemText(child),
-                    self.tree.IsVisible(child)))
+                    self.tree.IsVisible(child))))
             (child, cookie) = self.tree.GetNextChild(root, cookie)
             if self.tree.GetItemText(child) == name: return child
             continue
-        raise RuntimeError, "cannot find child %s of %s" % (name, parent)
+        raise RuntimeError("cannot find child %s of %s" % (name, parent))
         
 
     def getShelf(self): return self.GetParent().getShelf()
@@ -160,7 +160,8 @@ class TreePanel(wx.Panel):
             targetTree = self.targetTree
             path = '/'.join( path.split('/')[:-1] )
             e = targetTree.getDescendent( path )
-            if not isContainer(e): raise "Fatal: cannot find container"
+            if not isContainer(e): 
+                raise RuntimeError("Fatal: cannot find container")
             pass
         return path, e
 

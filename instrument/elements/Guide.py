@@ -12,8 +12,8 @@
 #
 
 
-from Element import Element, debug
-import units
+from .Element import Element, debug
+from . import units
 angstrom = units.length.angstrom
 
 
@@ -26,13 +26,11 @@ class Reflectivity:
         self.low_angle_reflectivity = low_angle_reflectivity
         
         try: critical_scattering_vector + 1./angstrom
-        except: raise ValueError, \
-                "critical_scattering_vector %s has wrong unit" % critical_scattering_vector
+        except: raise ValueError("critical_scattering_vector %s has wrong unit" % critical_scattering_vector)
         self.critical_scattering_vector = critical_scattering_vector
 
         try: slope_of_reflectivity + angstrom
-        except: raise ValueError, \
-                "slope_of_reflectivity %s has wrong unit" % slope_of_reflectivity
+        except: raise ValueError("slope_of_reflectivity %s has wrong unit" % slope_of_reflectivity)
         
         self.slope_of_reflectivity = slope_of_reflectivity
         return
@@ -57,9 +55,7 @@ def _convertToReflectivity( l ):
     
     return low_angle_reflectivity, critical_scattering_vector, slope_of_reflectivity
 
-
-def isstr(s): return isinstance(s, basestring )
-
+from .._2to3 import isstr
 
 defaultReflectivity = [1., 0.0219 / angstrom,6.49 * angstrom]
 
@@ -67,7 +63,7 @@ class Guide( Element ):
 
     class Attributes(Element.Attributes):
 
-        import Attribute
+        from . import Attribute
 
         reflectivity = Attribute.list(
             "reflectivity", default = defaultReflectivity,

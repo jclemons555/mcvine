@@ -12,14 +12,14 @@
 #
 
 
-from Element import Element, debug
+from .Element import Element, debug
 
 
 class Sample( Element ):
 
     class Attributes(Element.Attributes):
 
-        import Attribute
+        from . import Attribute
 
         pass
         

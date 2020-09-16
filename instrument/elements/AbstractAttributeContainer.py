@@ -26,20 +26,20 @@ class AbstractAttributeContainer( object):
 
     def get( self, name):
         """get( name) -> value"""
-        raise NotImplementedError, msg%(self.__class__.__name__, 'get')
+        raise NotImplementedError(msg%(self.__class__.__name__, 'get'))
 
 
     def set( self, name, value):
         """set( name, value) -> None"""
-        raise NotImplementedError, msg%(self.__class__.__name__, 'set')
+        raise NotImplementedError(msg%(self.__class__.__name__, 'set'))
 
 
     def __iter__(self):
-        raise NotImplementedError, msg%(self.__class__.__name__, '__iter__')
+        raise NotImplementedError(msg%(self.__class__.__name__, '__iter__'))
 
 
     def copy(self):
-        raise NotImplementedError, msg%(self.__class__.__name__, 'copy')
+        raise NotImplementedError(msg%(self.__class__.__name__, 'copy'))
 
 ##     def next( self ):
 ##         raise NotImplementedError, msg%(self.__class__.__name__, 'next')
@@ -71,7 +71,7 @@ class TestCase(ut.TestCase):
         "AttributeContainer: iteration"
         ac = self.attributeContainer
         ac.set( "hello", 1 )
-        for i in ac: print i
+        for i in ac: print(i)
         return
 
 

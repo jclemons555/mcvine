@@ -18,7 +18,7 @@
   See ARCSBootstrap_mantid_idf
 """
 
-from ARCSBootstrapBase import InstrumentFactory as base, PackInfo, units
+from .ARCSBootstrapBase import InstrumentFactory as base, PackInfo, units
 class InstrumentFactory(base):
 
     def construct( 
@@ -47,7 +47,7 @@ class InstrumentFactory(base):
     def _readPacks(self, nxfilename, nxentry):
         reader = createReader(nxfilename, nxentry)
         dirs = reader.listdir('instrument')
-        bankdirs = filter(lambda d: d.startswith('bank'), dirs)
+        bankdirs = [d for d in dirs if d.startswith('bank')]
         banknumbers = [int(s.lstrip('bank')) for s in bankdirs]
         banknumbers.sort()
         

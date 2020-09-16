@@ -12,14 +12,14 @@
 #
 
 
-from Element import Element, debug
+from .Element import Element, debug
 
 
 class Pixel( Element ):
 
     class Attributes(Element.Attributes):
         
-        import Attribute
+        from . import Attribute
         solidAngle = Attribute.float( 'solidAngle', default = 1.0 )
         pass # end of Attributes
     
@@ -37,7 +37,7 @@ class Pixel( Element ):
 
 
 import instrument.geometry.shapes as shapes
-import units
+from . import units
 cm = units.length.cm
 
 defaultShape = shapes.cylinder( 1.25*cm, 2.5*cm )  #unit: cm # should we put unit in there?

@@ -11,7 +11,9 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 
-from Parser import Parser
+from __future__ import print_function
+
+from .Parser import Parser
 default_parser = Parser()
 
 
@@ -20,7 +22,7 @@ def parse( stream ): return default_parser.parse( stream )
 def parse_file( filename ): return parse( open( filename ) )
 
 
-from Renderer import Renderer
+from .Renderer import Renderer
 default_renderer = Renderer()
 def render( shape, renderer = None, **opts):
     '''render(shape) --> text of the xml file
@@ -49,7 +51,7 @@ def render( shape, renderer = None, **opts):
     options.versionId = ' $' + 'Id' + '$'
     options.print_docs = True
     
-    for k, v in opts.items():
+    for k, v in list(opts.items()):
         setattr(options, k, v)
 
     renderer.options = options
@@ -64,7 +66,7 @@ def weave( shape, stream = None, **opts ):
         stream = sys.stdout
         pass
 
-    print >> stream, '\n'.join( render(shape, **opts) )
+    print('\n'.join( render(shape, **opts) ), file=stream)
     return
 
 

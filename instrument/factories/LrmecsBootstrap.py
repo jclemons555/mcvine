@@ -13,7 +13,7 @@
 
 
 from math import sqrt, acos, atan, pi, cos, sin
-import units
+from . import units
 atm = units.pressure.atm
 m = units.length.m
 mm = units.length.mm
@@ -22,7 +22,7 @@ import instrument.elements as elements
 import instrument.geometers as geometers
 
 
-from _journal import debug
+from ._journal import debug
 
 
 # number of pixels per 1m tube
@@ -41,7 +41,7 @@ class InstrumentFactory( object):
 
 
     def __init__( self, **kwds):
-        if kwds.has_key("interpolateData"): self.interpolateData = kwds['interpolateData']
+        if "interpolateData" in kwds: self.interpolateData = kwds['interpolateData']
         else: self.interpolateData = False            
         return
     
@@ -49,8 +49,7 @@ class InstrumentFactory( object):
     def construct( self, lrmecsDataFilename):
         import os
         if not os.path.exists(lrmecsDataFilename):
-            raise RuntimeError , \
-                  "Cannot find file %s" % os.path.abspath(lrmecsDataFilename)
+            raise RuntimeError("Cannot find file %s" % os.path.abspath(lrmecsDataFilename))
 
         self._instrument = lrmecs = elements.instrument(
             "Lrmecs" )# version="0.0.0")
@@ -61,7 +60,7 @@ class InstrumentFactory( object):
         self.local_geometers = [geometer]
 
         #parse the file and get all tube records and monitor records
-        from LrmecsDataFileParser import Parser
+        from .LrmecsDataFileParser import Parser
         self.distMod2Sample, monitorRecords, tubeRecords = Parser(
             lrmecsDataFilename, self.interpolateData ).parse()
 
@@ -99,7 +98,7 @@ class InstrumentFactory( object):
         import os
         f = '%s-interp%s.xml' % (
             os.path.basename(lrmecsDataFilename), self.interpolateData)
-        print 'write lrmecs instrument to %s' % f
+        print('write lrmecs instrument to %s' % f)
         weave( lrmecs, open(f, 'w') )
         return lrmecs, instrumentGeometer
 
@@ -158,7 +157,7 @@ class InstrumentFactory( object):
         assert instrument == self._instrument
         key = pressure, npixels, radius, height
         detectorModules = self._getDetectorModules()
-        for key1 in detectorModules.iterkeys():
+        for key1 in detectorModules.keys():
             if _equal(key, key1):
                 detM = detectorModules[ key1 ]
                 debug.log( 'detM=%s' % detM )
@@ -179,7 +178,7 @@ class InstrumentFactory( object):
         except:
             self._detectorModules = {}
             return self._detectorModules
-        raise RuntimeError , "Should not reach here"
+        raise RuntimeError("Should not reach here")
         
         
     def _makeDetector(self, name, id, instrument, 
@@ -188,7 +187,7 @@ class InstrumentFactory( object):
         height = height * mm
         radius = radius * mm
 
-        from LPSDFactory import create
+        from .LPSDFactory import create
         detector, geometer = create(
             name, id, 
             pressure, radius, height, npixels,

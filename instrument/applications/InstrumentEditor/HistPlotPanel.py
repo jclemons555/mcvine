@@ -107,7 +107,7 @@ class HistPlotPanel(wx.Panel):
 
     def showHist(self, histIdentifier):
         hist = self.getShelf().get(histIdentifier)
-        if hist is None: print "Unable to retrieve histogram %s" % histIdentifier; return
+        if hist is None: print("Unable to retrieve histogram %s" % histIdentifier); return
         self.currentHist = hist
         self.showCurrentHist()
         return

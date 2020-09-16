@@ -54,7 +54,7 @@ def InstrumentScientistCS2McStasCS( position, orientation ):
     #coordinate systems.
     #here we calculate the rotation matrix first, and
     #then convert the rotation matrix to the rotation angles.
-    from rotateVector import toMatrix, toAngles, dot
+    from .rotateVector import toMatrix, toAngles, dot
     rotationM = dot(
         toMatrix( 0, rz, 0, unit='deg'),
         dot(toMatrix( ry, 0, 0, unit='deg'),
@@ -71,14 +71,14 @@ def fitCoordinateSystem( posori, coord_sys, new_coord_sys):
     try:
         converter = eval( name )
     except:
-        raise NotImplementedError, "Cannot find converter %s" % name
+        raise NotImplementedError("Cannot find converter %s" % name)
     pos, ori = posori
     return converter(pos, ori) 
 
 
 def relative2absoluteMcStas( relative_posori, reference_posori):
     from numpy import dot, array
-    from mcstasRotations import toMatrix, toAngles
+    from .mcstasRotations import toMatrix, toAngles
     
     rel_pos, rel_ori = relative_posori
     ref_pos, ref_ori = reference_posori
@@ -87,7 +87,7 @@ def relative2absoluteMcStas( relative_posori, reference_posori):
     absM = dot( m , parentM )
     absRots = toAngles( absM, unit = 'deg' )
 
-    from rotateVector import toMatrix
+    from .rotateVector import toMatrix
     ref_pos = array(ref_pos)
     absPos = ref_pos + dot( toMatrix( ref_ori, unit='deg' ), rel_pos )
     return absPos, absRots

@@ -122,7 +122,7 @@ Parameters:
         # save the xml description
         if xmloutput:
             from instrument.nixml import weave
-            print 'write sequoia instrument to %s' % xmloutput
+            print('write sequoia instrument to %s' % xmloutput)
             weave( sequoia, open(xmloutput, 'w') )
         return sequoia, instrumentGeometer
     

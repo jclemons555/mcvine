@@ -7,7 +7,7 @@ class DetPackFactory( object):
     def construct( self, detectorPackDict, instrument, **kwds):
         """Construct detector packs from dictionaries, add to array"""
         msg = "%s must override construct() method" % self.__class__.__name__
-        raise NotImplementedError, msg
+        raise NotImplementedError(msg)
     
 
     def __init__( self, *args, **kwds):

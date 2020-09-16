@@ -36,7 +36,7 @@ class IdGenerator:
             if ret not in self.usedId:
                 return ret
             continue
-        raise RuntimeError , "should not reach here"
+        raise RuntimeError("should not reach here")
 
 
 # version

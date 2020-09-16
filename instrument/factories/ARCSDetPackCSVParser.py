@@ -26,11 +26,11 @@ def readConf( conffn ):
             for var, value in zip( vars, line.split('\t')[:len(vars)] ):
                 record[var] = value
                 continue
-            print record
+            print(record)
             
             for a in [ 'radius', 'azimuth', 'polar', 'xrot', 'yrot', 'zrot',
                        'xtrn', 'ytrn', 'ztrn' ]:
-                exec '%s=float(record[a])' % (a,)
+                exec('%s=float(record[a])' % (a,))
                 continue
 
             # the whole ARCS detector system was off-center to 
@@ -41,9 +41,9 @@ def readConf( conffn ):
             if packID is None: packID = len(records)+1 # ARCS convention: pack ID starts with 1, not 0
             else: packID = int(packID)
             
-        except Exception, err:
-            print "Warning: the following line is not parsed because of %s:%s" % (err.__class__.__name__, err)
-            print line
+        except Exception as err:
+            print("Warning: the following line is not parsed because of %s:%s" % (err.__class__.__name__, err))
+            print(line)
             continue
 
 

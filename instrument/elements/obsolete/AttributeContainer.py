@@ -43,7 +43,7 @@ class AttributeNotary(type):
 def collectAttributes( klass ):
     from Attribute import Attribute
     ret = []
-    for key,value in klass.__dict__.iteritems():
+    for key,value in klass.__dict__.items():
         if not isinstance( value, Attribute ):continue
         ret.append( key )
         continue
@@ -52,25 +52,26 @@ def collectAttributes( klass ):
 
 
 from AbstractAttributeContainer import AbstractAttributeContainer
+from future.utils import with_metaclass
 
-class AttributeContainer( AbstractAttributeContainer ):
+class AttributeContainer(with_metaclass(AttributeNotary, AbstractAttributeContainer)):
 
     from Attribute import Attribute
     name = Attribute( 'name' )
     
 
     def set(self, name, value):
-        exec "self.%s = value" % name
+        exec("self.%s = value" % name)
         return
 
 
     def get(self, name):
-        exec "value = self.%s" % name
+        exec("value = self.%s" % name)
         return value
 
 
     def __iter__(self):
-        attributes = self.__dict__.keys()
+        attributes = list(self.__dict__.keys())
         return attributes.__iter__()
 
 
@@ -82,11 +83,10 @@ class AttributeContainer( AbstractAttributeContainer ):
 
     def __setattr__(self, name, value):
         if name not in self._attributes :
-            raise AttributeError, "Unknown attribute %s" % name
+            raise AttributeError("Unknown attribute %s" % name)
         return object.__setattr__(self, name, value)
 
-    __metaclass__ = AttributeNotary
-    pass
+        pass
 
 
 def test():

@@ -58,7 +58,7 @@ class HistInfoPanel(wx.Panel):
 
     def showHist(self, histIdentifier):
         hist = self.getShelf().get(histIdentifier)
-        if hist is None: print "Unable to retrieve histogram %s" % histIdentifier; return
+        if hist is None: print("Unable to retrieve histogram %s" % histIdentifier); return
         title = "Histogram \"%s\"" %   hist.name()
 
         axes = "- Axes:\n"

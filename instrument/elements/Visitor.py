@@ -34,47 +34,47 @@ class Visitor( object):
 
     def onDetectorSystem(self, detSystem):
         msg = msgBase % ( self.__class__.__name__, "onDetectorSystem")
-        raise NotImplementedError, msg
+        raise NotImplementedError(msg)
 
 
     def onDetectorArray( self, pack):
         msg = msgBase % ( self.__class__.__name__, "onDetectorArray")
-        raise NotImplementedError, msg
+        raise NotImplementedError(msg)
 
 
     def onDetectorPack( self, pack):
         msg = msgBase % ( self.__class__.__name__, "onDetectorPack")
-        raise NotImplementedError, msg
+        raise NotImplementedError(msg)
 
 
     def onDetector( self, detector):
         msg = msgBase % ( self.__class__.__name__, "onDetector")
-        raise NotImplementedError, msg
+        raise NotImplementedError(msg)
 
 
     def onPixel( self, pixel):
         msg = msgBase % ( self.__class__.__name__, "onPixel")
-        raise NotImplementedError, msg
+        raise NotImplementedError(msg)
 
 
     def onElement( self, element):
         msg = msgBase % ( self.__class__.__name__, "onElement")
-        raise NotImplementedError, msg
+        raise NotImplementedError(msg)
 
 
     def onElementContainer( self, elementContainer):
         msg = msgBase % ( self.__class__.__name__, "onElementContainer")
-        raise NotImplementedError, msg
+        raise NotImplementedError(msg)
 
 
     def onModerator( self, moderator):
         msg = msgBase % ( self.__class__.__name__, "onModerator")
-        raise NotImplementedError, msg
+        raise NotImplementedError(msg)
         
 
     def onMonitor( self, monitor):
         msg = msgBase % ( self.__class__.__name__, "onMonitor")
-        raise NotImplementedError, msg
+        raise NotImplementedError(msg)
         
     pass # end of Visitor
 
