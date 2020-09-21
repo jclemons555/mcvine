@@ -26,8 +26,9 @@ class AttributeContainer( Inventory, AbstractAttributeContainer ):
 
 
     def get(self, name):
-        exec("value = self.%s" % name)
-        return value
+        d = locals()
+        exec("value = self.%s" % name, d)
+        return d['value']
 
 
     def __iter__(self):
