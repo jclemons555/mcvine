@@ -125,8 +125,8 @@ class node(object):
     def __new__(cls, xmlnode, parent, root, namespaces=None):
         instances = cls.instances
         if xmlnode not in instances:
-            instances[xmlnode] = object.__new__(
-                cls, xmlnode, parent, root, namespaces)
+            instances[xmlnode] = object.__new__(cls)
+#                cls, xmlnode, parent, root, namespaces)
         return instances[xmlnode]
     
 
