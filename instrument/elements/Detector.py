@@ -44,6 +44,9 @@ class Detector( ElementContainer):
             'holdOff', default = units.time.microsecond )
         holdOff.meta['tip'] = "Delay for this detector to register an event (microsec)"
 
+        mcweights = Attribute.str('mcweights', default="0.9, 0.0, 0.1")
+        mcweights.meta['tip'] = "absorption, scattering, transmission"
+
         pass # end of Attributes
 
 
