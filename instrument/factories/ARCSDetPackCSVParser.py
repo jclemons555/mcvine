@@ -62,7 +62,7 @@ def readConf( conffn ):
         continue
 
     #sort by packID
-    records.sort( lambda x,y: x[0]-y[0] )
+    records.sort(key=lambda x: x[0])
 
     return records
 

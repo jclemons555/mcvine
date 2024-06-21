@@ -6,7 +6,7 @@
 import yaml
 
 def parse_file(path):
-    d = yaml.load(open(path))
+    d = yaml.load(open(path), Loader=yaml.Loader)
     from .parser import Parser
     parser = Parser()
     return parser.parse(d)
