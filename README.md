@@ -43,13 +43,13 @@ The TypeError: load() missing 1 required positional argument: 'Loader' error occ
 Potential Changes
 parse_file function:
 
-    - Add Loader=yaml.SafeLoader: This ensures that the yaml.load function uses the SafeLoader to load the YAML file securely.
+    - Add  d = yaml.load(open(path), Loader=yaml.Loader)
     - Use context manager (with statement): This ensures the file is properly closed after reading, avoiding ResourceWarning.
 
 # 21 - instrument/instrument/geometry/yaml/renderer_TestCase (Failed)
 The error in your test renderer_TestCase is due to the yaml.load function missing the required positional argument 'Loader'. This is a common issue with PyYAML versions starting from 5.1, where the yaml.load function requires an explicit Loader argument for security reasons.
 
-    - Add Loader=yaml.SafeLoader: This ensures that the yaml.load function uses the SafeLoader to load the YAML file securely.
+    - Add  d = yaml.load(open(path), Loader=yaml.Loader)
     - Use context manager (with statement): This ensures the file is properly closed after reading, avoiding ResourceWarning.
 
 # 55 - mcni/mcni/pyre_support/journal_simapp_TestCase (Failed)
