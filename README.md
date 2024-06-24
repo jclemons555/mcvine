@@ -6,8 +6,11 @@ $ source activate dev-mcvine
 
 # Clone McVine to Local System:
 $ mkdir -p ~/dv/mcvine/build
+
 $ cd ~/dv/mcvine
+
 $ git clone git@github.com:mcvine/mcvine
+
 $ git clone git@github.com:mcvine/resources
 
 # env var shell script:
