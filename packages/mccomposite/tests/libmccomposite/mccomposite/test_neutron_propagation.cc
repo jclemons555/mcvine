@@ -9,7 +9,7 @@
 // {LicenseText}
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//
+//libmccomposite/mccomposite/test_neutron_propagation.cc (Subprocess aborted)
 
 
 #include <cassert>

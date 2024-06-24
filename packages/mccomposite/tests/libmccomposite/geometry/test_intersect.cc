@@ -1,4 +1,4 @@
-// -*- C++ -*-
+ // -*- C++ -*-
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
@@ -11,7 +11,7 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 
-
+//libmccomposite/geometry/test_intersect.cc (Subprocess aborted)
 #include <cassert>
 #include <iostream>
 #include "mcni/test/assert.h"
