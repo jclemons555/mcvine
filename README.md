@@ -2,7 +2,7 @@
 $ conda create -n dev-mcvine -c mcvine/label/unstable python=3.6 pyyaml numpy cmake gxx_linux-64=7 psutil h5py mpi4py gsl=2.4 boost=1.66 numpy=1.14.0 danse.ins.numpyext=0.1.3 danse.ins.bpext=0.1.4 histogram=0.3.7 drchops=2.0.3 pyre danse.ins.dsm diffpy.Structure periodictable matplotlib ipython
 
 # activate the environment:
-$ source activate dev-mcvine
+$ conda activate dev-mcvine
 
 # Clone McVine to Local System:
 $ mkdir -p ~/dv/mcvine/build
