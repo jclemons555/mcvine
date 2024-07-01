@@ -1,4 +1,4 @@
- // -*- C++ -*-
+// -*- C++ -*-
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
@@ -11,7 +11,7 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 
-//libmccomposite/geometry/test_intersect.cc (Subprocess aborted)
+
 #include <cassert>
 #include <iostream>
 #include "mcni/test/assert.h"
@@ -381,10 +381,10 @@ void test10()
 int main()
 {
 #ifdef DEBUG
-  journal::debug_t("mccomposite.geometry.ArrowIntersector").activate();
-   journal::debug_t("mccomposite.geometry.Locator").activate();
-   journal::debug_t("mccomposite.geometry.intersect").activate();
-   journal::debug_t(jrnltag).activate();
+  //  journal::debug_t("mccomposite.geometry.ArrowIntersector").activate();
+//   journal::debug_t("mccomposite.geometry.Locator").activate();
+//   journal::debug_t("mccomposite.geometry.intersect").activate();
+//   journal::debug_t(jrnltag).activate();
 #endif
   test1();
   test2();
