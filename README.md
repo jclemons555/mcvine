@@ -1,5 +1,5 @@
 # Download McVine Dependency File:
-[Download mcvine-dev.yml](mcvine-dev.yml)
+[mcvine-dev.yml](mcvine-dev.yml)
 
 # create conda environment dev-mcvine with deps:
 $ conda env create -f mcvine-dev.yml --solver=libmamba
@@ -19,6 +19,7 @@ $ git clone https://github.com/mcvine/resources.git
 # env var shell script:
 envs.sh file: 
 # download and move shell script to your local mcvine directory:
+[envs.sh](envs.sh)   <br>
 after downloading the script, place it in the /dv/mcvine/. after successfully moving the script, ensure that you are in the /dv/mcvine/ directory via terminal.
 # run shell script:
 use this command to run script:
