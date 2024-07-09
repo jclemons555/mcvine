@@ -12,9 +12,9 @@ $ mkdir -p ~/dv/mcvine
 
 $ cd ~/dv/mcvine
 
-$ git clone git@github.com:mcvine/mcvine
+$ git clone https://github.com/mcvine/mcvine.git
 
-$ git clone git@github.com:mcvine/resources
+$ git clone https://github.com/mcvine/resources.git
 
 # env var shell script:
 See "envs.sh" in the  mcvine/builders/dev/envs.sh directory from mcvine repo. Create one similar to that and use it:
