@@ -17,7 +17,10 @@ $ git clone https://github.com/mcvine/mcvine.git
 $ git clone https://github.com/mcvine/resources.git
 
 # env var shell script:
-envs.sh flie: 
+envs.sh file: 
+# download and move shell script to your local mcvine directory:
+after downloading the script, place it in the /dv/mcvine/. after successfully moving the script, ensure that you are in the /dv/mcvine/ directory via terminal.
+# run shell script:
 use this command to run script:
 $ . envs.sh
 
