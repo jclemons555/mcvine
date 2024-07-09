@@ -1,0 +1,26 @@
+---
+
+name: mcvine-dev
+
+channels:
+  - mcvine
+  - mantid-ornl/label/rc
+  - conda-forge
+
+dependencies:
+  - cloudpickle
+  - ipykernel
+  - ipympl
+  - ipywidgets
+  - lmfit
+  - mantid>6.9.1
+  - mcpl
+  - mcvine=1.4.5.2
+  - mcvine.ui
+  - multiphonon
+  - notebook<7.0.0
+  - openmpi
+  - pandas
+  - pylatex
+  - scikit-image
+  - tqdm
