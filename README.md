@@ -1,5 +1,5 @@
 # Download McVine Dependency File:
-mcvine-dev.yml
+[Download mcvine-dev.yml](mcvine-dev.yml)
 
 # create conda environment dev-mcvine with deps:
 $ conda env create -f mcvine-dev.yml --solver=libmamba
