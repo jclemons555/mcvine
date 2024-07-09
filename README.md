@@ -17,7 +17,8 @@ $ git clone https://github.com/mcvine/mcvine.git
 $ git clone https://github.com/mcvine/resources.git
 
 # env var shell script:
-See "envs.sh" in the  mcvine/builders/dev/envs.sh directory from mcvine repo. Create one similar to that and use it:
+envs.sh flie: 
+use this command to run script:
 $ . envs.sh
 
 # Build and install for the first time:
