@@ -22,7 +22,7 @@ envs.sh file:
 [envs.sh](envs.sh)   <br>
 after downloading the script, place it in the /dv/mcvine/. after successfully moving the script, ensure that you are in the /dv/mcvine/ directory via terminal.
 # run shell script:
-use this command to run script:
+use this command to run script:  <br>
 $ . envs.sh
 
 # Build and install for the first time:
