@@ -8,7 +8,7 @@ $ conda env create -f mcvine-dev.yml --solver=libmamba
 $ conda activate mcvine-dev
 
 # Clone McVine to Local System:
-$ mkdir -p ~/dv/mcvine/build
+$ mkdir -p ~/dv/mcvine
 
 $ cd ~/dv/mcvine
 
