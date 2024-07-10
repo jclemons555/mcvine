@@ -1,3 +1,7 @@
+# Download Conda
+Visit the Anaconda download page: https://www.anaconda.com/products/distribution#download-section.  <br>
+Download the appropriate installer for your operating system (Windows, macOS, or Linux).  <br>
+Follow the installation instructions provided on the download page or refer to the official documentation.  <br>
 # Download McVine Dependency File:
 [mcvine-dev.yml](mcvine-dev.yml)
 
