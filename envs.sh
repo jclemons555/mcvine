@@ -3,7 +3,7 @@
 # * git clone mcvine to ~/dv/mcvine/mcvine
 # * git clone resources to ~/dv/mcvine/resources
 # * install conda
-# * includes important env variables and build commands
+# * includes important env variables, helper functions, & build commands
 #
 # * activate the environment. e.g.
 #   $ . ~/.use-mc3
