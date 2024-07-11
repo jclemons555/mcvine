@@ -7,6 +7,7 @@ Follow the installation instructions provided on the download page or refer to t
 
 # Create mcvine directory and place mcvine-dev.yml inside: 
 $ mkdir -p ~/dv/mcvine <br>
+$ cd ~/dv/mcvine
 
 
 # create conda environment dev-mcvine with deps:
