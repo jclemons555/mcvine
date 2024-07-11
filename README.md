@@ -5,6 +5,10 @@ Follow the installation instructions provided on the download page or refer to t
 # Download McVine Dependency File:
 [mcvine-dev.yml](mcvine-dev.yml)
 
+# Create mcvine directory and place mcvine-dev.yml inside: 
+$ mkdir -p ~/dv/mcvine <br>
+
+
 # create conda environment dev-mcvine with deps:
 $ conda env create -f mcvine-dev.yml --solver=libmamba
 
@@ -12,7 +16,7 @@ $ conda env create -f mcvine-dev.yml --solver=libmamba
 $ conda activate mcvine-dev
 
 # Clone McVine to Local System:
-$ mkdir -p ~/dv/mcvine
+$ mkdir -p ~/dv/mcvine (if you havent made it yet)
 
 $ cd ~/dv/mcvine
 
